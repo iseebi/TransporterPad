@@ -1,0 +1,24 @@
+PODS:
+  - Alamofire (3.5.1)
+  - EBIMobileDeviceWatcher (0.1.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - EBIMobileDeviceWatcher (from `https://github.com/iseebi/EBIMobileDeviceWatcher.git`)
+
+EXTERNAL SOURCES:
+  EBIMobileDeviceWatcher:
+    :git: https://github.com/iseebi/EBIMobileDeviceWatcher.git
+
+CHECKOUT OPTIONS:
+  EBIMobileDeviceWatcher:
+    :commit: 1a23aeb192d07ddbce86fdb2ab2db12016e020bf
+    :git: https://github.com/iseebi/EBIMobileDeviceWatcher.git
+
+SPEC CHECKSUMS:
+  Alamofire: 0dfba1184a543e2aa160f4e39cac4e8aba48d223
+  EBIMobileDeviceWatcher: d98e9626a6c4ef8fc3e1ec909470da1158726fbe
+
+PODFILE CHECKSUM: 88e278195f594ca790cf0f502a5c62e73ac45361
+
+COCOAPODS: 1.1.1
