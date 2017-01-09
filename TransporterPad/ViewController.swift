@@ -10,18 +10,25 @@ import Cocoa
 
 class ViewController: NSViewController {
 
+    @IBOutlet var dragTargetView: DragTargetView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
-        }
+        
+        dragTargetView.delegate = self
     }
 
 
 }
 
+extension ViewController : DragTargetViewDelegate {
+
+    func dragTargetView(_ dragTargetView: DragTargetView, dropRemoteURL fileName: String) {
+        NSLog("Remote file:%@", fileName)
+    }
+    
+    func dragTargetView(_ dragTargetView: DragTargetView, dropLocalFilePath fileName: String) {
+        NSLog("Local file:%@", fileName)
+    }
+    
+}

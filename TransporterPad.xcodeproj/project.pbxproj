@@ -11,6 +11,7 @@
 		8271BAE71E23A76700C2EFC1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8271BAE61E23A76700C2EFC1 /* ViewController.swift */; };
 		8271BAE91E23A76700C2EFC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8271BAE81E23A76700C2EFC1 /* Assets.xcassets */; };
 		8271BAEC1E23A76700C2EFC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8271BAEA1E23A76700C2EFC1 /* Main.storyboard */; };
+		8271BAF41E23AFD900C2EFC1 /* DragTargetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8271BAF31E23AFD900C2EFC1 /* DragTargetView.swift */; };
 		EAFEC465B20F902792363CF5 /* Pods_TransporterPad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA8C7657480B416EC8EC1324 /* Pods_TransporterPad.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,7 @@
 		8271BAE81E23A76700C2EFC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8271BAEB1E23A76700C2EFC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8271BAED1E23A76700C2EFC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8271BAF31E23AFD900C2EFC1 /* DragTargetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragTargetView.swift; sourceTree = "<group>"; };
 		FA8C7657480B416EC8EC1324 /* Pods_TransporterPad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TransporterPad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -70,6 +72,7 @@
 			children = (
 				8271BAE41E23A76700C2EFC1 /* AppDelegate.swift */,
 				8271BAE61E23A76700C2EFC1 /* ViewController.swift */,
+				8271BAF31E23AFD900C2EFC1 /* DragTargetView.swift */,
 				8271BAE81E23A76700C2EFC1 /* Assets.xcassets */,
 				8271BAEA1E23A76700C2EFC1 /* Main.storyboard */,
 				8271BAED1E23A76700C2EFC1 /* Info.plist */,
@@ -208,6 +211,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8271BAF41E23AFD900C2EFC1 /* DragTargetView.swift in Sources */,
 				8271BAE71E23A76700C2EFC1 /* ViewController.swift in Sources */,
 				8271BAE51E23A76700C2EFC1 /* AppDelegate.swift in Sources */,
 			);
