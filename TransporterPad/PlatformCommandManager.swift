@@ -54,7 +54,7 @@ class PlatformCommandManager {
                         guard let data = zip.dataForFile(fileName) else { continue }
                         let filePath = toolsDirURL.appendingPathComponent(fileName)
                         try? data.write(to: filePath, options: .atomic)
-                        try? FileManager.default.setAttributes([.posixPermissions : 0o777], ofItemAtPath: filePath.absoluteString)
+                        try? FileManager.default.setAttributes([.posixPermissions : 0o700], ofItemAtPath: filePath.absoluteString)
                     }
                 }
             }
