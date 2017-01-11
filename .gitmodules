@@ -1,0 +1,3 @@
+[submodule "SimpleUnzipper"]
+	path = SimpleUnzipper
+	url = https://github.com/iseebi/SimpleUnzipper.git

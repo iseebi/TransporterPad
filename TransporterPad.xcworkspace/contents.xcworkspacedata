@@ -5,6 +5,9 @@
       location = "group:TransporterPad.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:SimpleUnzipper/SimpleUnzipper.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>

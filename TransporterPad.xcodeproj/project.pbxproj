@@ -13,6 +13,8 @@
 		8271BAEC1E23A76700C2EFC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8271BAEA1E23A76700C2EFC1 /* Main.storyboard */; };
 		8271BAF41E23AFD900C2EFC1 /* DragTargetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8271BAF31E23AFD900C2EFC1 /* DragTargetView.swift */; };
 		82E30FAA1E258CE700A5AD50 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E30FA91E258CE700A5AD50 /* StringExtensions.swift */; };
+		82E310471E267F9F00A5AD50 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 82E310461E267F9F00A5AD50 /* libz.tbd */; };
+		82E310661E26820300A5AD50 /* SimpleUnzipper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82E310651E26820300A5AD50 /* SimpleUnzipper.framework */; };
 		EAFEC465B20F902792363CF5 /* Pods_TransporterPad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA8C7657480B416EC8EC1324 /* Pods_TransporterPad.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +29,8 @@
 		8271BAED1E23A76700C2EFC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8271BAF31E23AFD900C2EFC1 /* DragTargetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragTargetView.swift; sourceTree = "<group>"; };
 		82E30FA91E258CE700A5AD50 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		82E310461E267F9F00A5AD50 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		82E310651E26820300A5AD50 /* SimpleUnzipper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SimpleUnzipper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA8C7657480B416EC8EC1324 /* Pods_TransporterPad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TransporterPad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -36,6 +40,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAFEC465B20F902792363CF5 /* Pods_TransporterPad.framework in Frameworks */,
+				82E310471E267F9F00A5AD50 /* libz.tbd in Frameworks */,
+				82E310661E26820300A5AD50 /* SimpleUnzipper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +93,8 @@
 			isa = PBXGroup;
 			children = (
 				FA8C7657480B416EC8EC1324 /* Pods_TransporterPad.framework */,
+				82E310651E26820300A5AD50 /* SimpleUnzipper.framework */,
+				82E310461E267F9F00A5AD50 /* libz.tbd */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -102,6 +110,7 @@
 				8271BADD1E23A76700C2EFC1 /* Sources */,
 				8271BADE1E23A76700C2EFC1 /* Frameworks */,
 				8271BADF1E23A76700C2EFC1 /* Resources */,
+				82E310671E2686F500A5AD50 /* Embed SimpleUnzipper */,
 				54F16668E73F2BC4522906F4 /* [CP] Embed Pods Frameworks */,
 				1A0FBBD766E0927DF9EC21C8 /* [CP] Copy Pods Resources */,
 			);
@@ -191,6 +200,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TransporterPad/Pods-TransporterPad-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		82E310671E2686F500A5AD50 /* Embed SimpleUnzipper */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed SimpleUnzipper";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "rsync -av $BUILT_PRODUCTS_DIR/SimpleUnzipper.framework $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME/Contents/Frameworks\n";
 		};
 		DC0723FA4D6947009988A39B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
