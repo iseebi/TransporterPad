@@ -13,6 +13,7 @@
 		8271BAEC1E23A76700C2EFC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8271BAEA1E23A76700C2EFC1 /* Main.storyboard */; };
 		8271BAF41E23AFD900C2EFC1 /* DragTargetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8271BAF31E23AFD900C2EFC1 /* DragTargetView.swift */; };
 		82E30FAA1E258CE700A5AD50 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E30FA91E258CE700A5AD50 /* StringExtensions.swift */; };
+		82E310411E265A2200A5AD50 /* PlatformCommandManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E310401E265A2200A5AD50 /* PlatformCommandManager.swift */; };
 		82E310471E267F9F00A5AD50 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 82E310461E267F9F00A5AD50 /* libz.tbd */; };
 		82E310661E26820300A5AD50 /* SimpleUnzipper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82E310651E26820300A5AD50 /* SimpleUnzipper.framework */; };
 		EAFEC465B20F902792363CF5 /* Pods_TransporterPad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA8C7657480B416EC8EC1324 /* Pods_TransporterPad.framework */; };
@@ -29,6 +30,7 @@
 		8271BAED1E23A76700C2EFC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8271BAF31E23AFD900C2EFC1 /* DragTargetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragTargetView.swift; sourceTree = "<group>"; };
 		82E30FA91E258CE700A5AD50 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		82E310401E265A2200A5AD50 /* PlatformCommandManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlatformCommandManager.swift; sourceTree = "<group>"; };
 		82E310461E267F9F00A5AD50 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		82E310651E26820300A5AD50 /* SimpleUnzipper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SimpleUnzipper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA8C7657480B416EC8EC1324 /* Pods_TransporterPad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TransporterPad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,15 +80,48 @@
 		8271BAE31E23A76700C2EFC1 /* TransporterPad */ = {
 			isa = PBXGroup;
 			children = (
+				82E3103C1E2659BD00A5AD50 /* Screens */,
+				82E3103D1E2659CF00A5AD50 /* Extensions */,
+				82E3103F1E2659EB00A5AD50 /* Command Service */,
 				8271BAE41E23A76700C2EFC1 /* AppDelegate.swift */,
-				8271BAE61E23A76700C2EFC1 /* ViewController.swift */,
-				8271BAF31E23AFD900C2EFC1 /* DragTargetView.swift */,
-				82E30FA91E258CE700A5AD50 /* StringExtensions.swift */,
 				8271BAE81E23A76700C2EFC1 /* Assets.xcassets */,
-				8271BAEA1E23A76700C2EFC1 /* Main.storyboard */,
 				8271BAED1E23A76700C2EFC1 /* Info.plist */,
 			);
 			path = TransporterPad;
+			sourceTree = "<group>";
+		};
+		82E3103C1E2659BD00A5AD50 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				82E3103E1E2659DE00A5AD50 /* View Parts */,
+				8271BAEA1E23A76700C2EFC1 /* Main.storyboard */,
+				8271BAE61E23A76700C2EFC1 /* ViewController.swift */,
+			);
+			name = Screens;
+			sourceTree = "<group>";
+		};
+		82E3103D1E2659CF00A5AD50 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				82E30FA91E258CE700A5AD50 /* StringExtensions.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		82E3103E1E2659DE00A5AD50 /* View Parts */ = {
+			isa = PBXGroup;
+			children = (
+				8271BAF31E23AFD900C2EFC1 /* DragTargetView.swift */,
+			);
+			name = "View Parts";
+			sourceTree = "<group>";
+		};
+		82E3103F1E2659EB00A5AD50 /* Command Service */ = {
+			isa = PBXGroup;
+			children = (
+				82E310401E265A2200A5AD50 /* PlatformCommandManager.swift */,
+			);
+			name = "Command Service";
 			sourceTree = "<group>";
 		};
 		9C53806115037C0949CDA714 /* Frameworks */ = {
@@ -238,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				82E30FAA1E258CE700A5AD50 /* StringExtensions.swift in Sources */,
+				82E310411E265A2200A5AD50 /* PlatformCommandManager.swift in Sources */,
 				8271BAF41E23AFD900C2EFC1 /* DragTargetView.swift in Sources */,
 				8271BAE71E23A76700C2EFC1 /* ViewController.swift in Sources */,
 				8271BAE51E23A76700C2EFC1 /* AppDelegate.swift in Sources */,
