@@ -62,22 +62,10 @@ extension ViewController : DragTargetViewDelegate {
         var fileURL: URL = cacheDir
         repeat {
             let ext = remoteURLString.pathExtension
-            let fileName = randomStr(count: 16).appending(ext)
+            let fileName = String.random(count: 16).appending(ext)
             fileURL = cacheDir.appendingPathComponent(fileName)
         } while (!FileManager.default.fileExists(atPath: fileURL.absoluteString))
         return fileURL
-    }
-    
-    func randomStr(count: Int) -> String {
-        let chars = "abcdefghijklnmopqrstuvwxyz0123456789"
-        var rv = ""
-        for _ in 0..<count {
-            let startIndex = Int(arc4random_uniform(UInt32(chars.lengthOfBytes(using: .utf8))))
-            rv.append(chars.substring(with:
-                chars.index(chars.startIndex, offsetBy: startIndex)..<chars.index(chars.startIndex, offsetBy: startIndex + 1)
-                ))
-        }
-        return rv
     }
 
     func cacheDir() -> URL? {
@@ -88,5 +76,4 @@ extension ViewController : DragTargetViewDelegate {
         }
         return binDir
     }
-    
 }

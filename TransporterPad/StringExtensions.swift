@@ -55,3 +55,18 @@ extension String {
         return ns.appendingPathExtension(str)
     }
 }
+
+extension String {
+    
+    static func random(count: UInt) -> String {
+        let chars = "abcdefghijklnmopqrstuvwxyz0123456789"
+        var rv = ""
+        for _ in 0..<count {
+            let startIndex = Int(arc4random_uniform(UInt32(chars.lengthOfBytes(using: .utf8))))
+            rv.append(chars.substring(with:
+                chars.index(chars.startIndex, offsetBy: startIndex)..<chars.index(chars.startIndex, offsetBy: startIndex + 1)
+            ))
+        }
+        return rv
+    }
+}
