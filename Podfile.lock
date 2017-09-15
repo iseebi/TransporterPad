@@ -1,10 +1,12 @@
 PODS:
   - Alamofire (4.2.0)
   - EBIMobileDeviceWatcher (0.1.0)
+  - Swinject (2.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.1)
   - EBIMobileDeviceWatcher (from `https://github.com/iseebi/EBIMobileDeviceWatcher.git`)
+  - Swinject
 
 EXTERNAL SOURCES:
   EBIMobileDeviceWatcher:
@@ -18,7 +20,8 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
   EBIMobileDeviceWatcher: d98e9626a6c4ef8fc3e1ec909470da1158726fbe
+  Swinject: 2e964a80d70ab09b3949c99032711f89147bfd60
 
-PODFILE CHECKSUM: febb75b2fab658f4e68ebd40aca0c410ad868875
+PODFILE CHECKSUM: 236131bad4daca2be9bacb4a9eadfeb485e355e3
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.3.1
