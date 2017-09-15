@@ -141,11 +141,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8271BAF01E23A76700C2EFC1 /* Build configuration list for PBXNativeTarget "TransporterPad" */;
 			buildPhases = (
+				822300BF1F6BDBA700D7E363 /* Prepare Deployment Dependency */,
 				DC0723FA4D6947009988A39B /* [CP] Check Pods Manifest.lock */,
 				8271BADD1E23A76700C2EFC1 /* Sources */,
 				8271BADE1E23A76700C2EFC1 /* Frameworks */,
 				8271BADF1E23A76700C2EFC1 /* Resources */,
 				82E310671E2686F500A5AD50 /* Embed SimpleUnzipper */,
+				822300C01F6BDD4E00D7E363 /* Copy Deployment Dependency */,
 				54F16668E73F2BC4522906F4 /* [CP] Embed Pods Frameworks */,
 				1A0FBBD766E0927DF9EC21C8 /* [CP] Copy Pods Resources */,
 			);
@@ -245,6 +247,34 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TransporterPad/Pods-TransporterPad-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		822300BF1F6BDBA700D7E363 /* Prepare Deployment Dependency */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Prepare Deployment Dependency";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -f $SRCROOT/DeployTools/tools/ios-deploy/ios-deploy -a -f $SRCROOT/DeployTools/tools/android-platform-tools/adb ]; then\n  echo \"Dependency already prepared\"\nelse\n  $SRCROOT/DeployTools/build.sh\nfi";
+		};
+		822300C01F6BDD4E00D7E363 /* Copy Deployment Dependency */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Deployment Dependency";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "TOOLS_SRC_DIR=\"${SRCROOT}/DeployTools/tools/\"\nRES_TARGET_DIR=\"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}\"\nCMD_RSYNC=\"rsync -a\"\n\n$CMD_RSYNC $TOOLS_SRC_DIR/ios-deploy $RES_TARGET_DIR/\n$CMD_RSYNC $TOOLS_SRC_DIR/android-platform-tools $RES_TARGET_DIR/";
 		};
 		82E310671E2686F500A5AD50 /* Embed SimpleUnzipper */ = {
 			isa = PBXShellScriptBuildPhase;
