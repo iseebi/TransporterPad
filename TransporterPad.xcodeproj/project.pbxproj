@@ -59,6 +59,40 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		8223009D1F6BA2BD00D7E363 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				8223009F1F6BA2D400D7E363 /* ViewParts */,
+				8271BAEA1E23A76700C2EFC1 /* Main.storyboard */,
+				8271BAE61E23A76700C2EFC1 /* ViewController.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		8223009F1F6BA2D400D7E363 /* ViewParts */ = {
+			isa = PBXGroup;
+			children = (
+				8271BAF31E23AFD900C2EFC1 /* DragTargetView.swift */,
+			);
+			path = ViewParts;
+			sourceTree = "<group>";
+		};
+		822300A11F6BA30400D7E363 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				82E30FA91E258CE700A5AD50 /* StringExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		822300A21F6BA31D00D7E363 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				82E310401E265A2200A5AD50 /* PlatformCommandManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		8271BAD81E23A76700C2EFC1 = {
 			isa = PBXGroup;
 			children = (
@@ -80,48 +114,14 @@
 		8271BAE31E23A76700C2EFC1 /* TransporterPad */ = {
 			isa = PBXGroup;
 			children = (
-				82E3103C1E2659BD00A5AD50 /* Screens */,
-				82E3103D1E2659CF00A5AD50 /* Extensions */,
-				82E3103F1E2659EB00A5AD50 /* Command Service */,
+				8223009D1F6BA2BD00D7E363 /* Screens */,
+				822300A21F6BA31D00D7E363 /* Services */,
+				822300A11F6BA30400D7E363 /* Extensions */,
 				8271BAE41E23A76700C2EFC1 /* AppDelegate.swift */,
 				8271BAE81E23A76700C2EFC1 /* Assets.xcassets */,
 				8271BAED1E23A76700C2EFC1 /* Info.plist */,
 			);
 			path = TransporterPad;
-			sourceTree = "<group>";
-		};
-		82E3103C1E2659BD00A5AD50 /* Screens */ = {
-			isa = PBXGroup;
-			children = (
-				82E3103E1E2659DE00A5AD50 /* View Parts */,
-				8271BAEA1E23A76700C2EFC1 /* Main.storyboard */,
-				8271BAE61E23A76700C2EFC1 /* ViewController.swift */,
-			);
-			name = Screens;
-			sourceTree = "<group>";
-		};
-		82E3103D1E2659CF00A5AD50 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				82E30FA91E258CE700A5AD50 /* StringExtensions.swift */,
-			);
-			name = Extensions;
-			sourceTree = "<group>";
-		};
-		82E3103E1E2659DE00A5AD50 /* View Parts */ = {
-			isa = PBXGroup;
-			children = (
-				8271BAF31E23AFD900C2EFC1 /* DragTargetView.swift */,
-			);
-			name = "View Parts";
-			sourceTree = "<group>";
-		};
-		82E3103F1E2659EB00A5AD50 /* Command Service */ = {
-			isa = PBXGroup;
-			children = (
-				82E310401E265A2200A5AD50 /* PlatformCommandManager.swift */,
-			);
-			name = "Command Service";
 			sourceTree = "<group>";
 		};
 		9C53806115037C0949CDA714 /* Frameworks */ = {
@@ -227,9 +227,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TransporterPad/Pods-TransporterPad-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/EBIMobileDeviceWatcher/EBIMobileDeviceWatcher.framework",
+				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EBIMobileDeviceWatcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -256,13 +263,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TransporterPad-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -388,7 +398,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3774B15FD04409214392F658 /* Pods-TransporterPad.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = NARTSSS6TY;
@@ -404,7 +413,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 07D2E46E78FA1208A11CB593 /* Pods-TransporterPad.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = NARTSSS6TY;
