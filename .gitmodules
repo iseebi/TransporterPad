@@ -1,3 +1,6 @@
 [submodule "SimpleUnzipper"]
 	path = SimpleUnzipper
 	url = https://github.com/iseebi/SimpleUnzipper.git
+[submodule "DeployTools/ios-deploy"]
+	path = DeployTools/ios-deploy
+	url = https://github.com/phonegap/ios-deploy.git
