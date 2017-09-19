@@ -135,9 +135,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <box boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="Mar-xd-foB">
-                                <rect key="frame" x="253" y="60" width="95" height="95"/>
+                                <rect key="frame" x="273" y="60" width="55" height="55"/>
                                 <view key="contentView" id="M1a-mx-E9M">
-                                    <rect key="frame" x="1" y="1" width="93" height="93"/>
+                                    <rect key="frame" x="1" y="1" width="53" height="53"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                                 <constraints>
@@ -145,7 +145,7 @@
                                 </constraints>
                             </box>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8Nc-3S-3Ca">
-                                <rect key="frame" x="252" y="168" width="96" height="32"/>
+                                <rect key="frame" x="252" y="128" width="96" height="32"/>
                                 <buttonCell key="cell" type="push" title="Beam UP" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aeU-f9-tLP">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -160,16 +160,16 @@
                                 </textFieldCell>
                             </textField>
                             <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhz-PK-Fxo">
-                                <rect key="frame" x="0.0" y="217" width="600" height="200"/>
+                                <rect key="frame" x="0.0" y="177" width="600" height="240"/>
                                 <clipView key="contentView" drawsBackground="NO" id="OxE-S3-8SB">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="240"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <collectionView id="e9g-75-4uO">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="158"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" scrollDirection="horizontal" id="Zcz-2a-NgI">
-                                                <size key="itemSize" width="140" height="200"/>
+                                                <size key="itemSize" width="140" height="240"/>
                                             </collectionViewFlowLayout>
                                             <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <connections>
@@ -180,7 +180,7 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="Cke-A5-j0n"/>
+                                    <constraint firstAttribute="height" constant="240" id="Cke-A5-j0n"/>
                                 </constraints>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="3JH-oc-yPS">
                                     <rect key="frame" x="1" y="-15" width="0.0" height="16"/>
