@@ -10,20 +10,34 @@ import Cocoa
 import CoreFoundation
 import Alamofire
 
-class ViewController: NSViewController {
+class MainViewController: NSViewController {
 
-    @IBOutlet var dragTargetView: DragTargetView!
-    
+    @IBOutlet weak var dragTargetView: DragTargetView!
+    @IBOutlet weak var collectionView: NSCollectionView!
+
+    var viewModel: MainViewModel? {
+        willSet {
+            self.willChangeValue(forKey: "viewModel")
+        }
+        didSet(value) {
+            collectionView.content = value?.devices ?? []
+            self.didChangeValue(forKey: "viewModel")
+        }
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         dragTargetView.delegate = self
+        collectionView.register(NSNib.init(nibNamed: "DeviceCollectionViewItem", bundle: nil), forItemWithIdentifier: "DeviceCollectionViewItem")
     }
-
-
 }
 
-extension ViewController : DragTargetViewDelegate {
+extension MainViewController : DragTargetViewDelegate {
 
     func dragTargetView(_ dragTargetView: DragTargetView, dropRemoteURL fileName: String) {
         NSLog("Remote file:%@", fileName)
@@ -77,3 +91,25 @@ extension ViewController : DragTargetViewDelegate {
         return binDir
     }
 }
+
+/*
+extension MainViewController : NSCollectionViewDataSource {
+    func numberOfSections(in collectionView: NSCollectionView) -> Int {
+        return 0
+    }
+
+    func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
+        guard let vm = viewModel else { return 0 }
+        return vm.devices.count
+    }
+
+    func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
+        let item = collectionView.makeItem(withIdentifier: "DeviceCollectionViewItem", for:indexPath)
+        if let vm = viewModel  {
+            item.representedObject = vm.devices[indexPath.item]
+        }
+        return item
+    }
+}
+*/
+

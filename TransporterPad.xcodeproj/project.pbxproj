@@ -7,11 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5BD6AC09C7093AAAD432E257 /* DeviceStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD6A64308219981D2889096 /* DeviceStatus.swift */; };
+		5BD6AE452575DAD458C4CD66 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD6A2646EEBD925176B4C5E /* Platform.swift */; };
+		822300C21F6BDFBB00D7E363 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822300C11F6BDFBB00D7E363 /* Environment.swift */; };
+		822300C41F6BE00500D7E363 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822300C31F6BE00500D7E363 /* UserSettings.swift */; };
+		822300C71F6BE79600D7E363 /* SwinjectStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822300C61F6BE79600D7E363 /* SwinjectStoryboard.swift */; };
 		8271BAE51E23A76700C2EFC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8271BAE41E23A76700C2EFC1 /* AppDelegate.swift */; };
-		8271BAE71E23A76700C2EFC1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8271BAE61E23A76700C2EFC1 /* ViewController.swift */; };
+		8271BAE71E23A76700C2EFC1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8271BAE61E23A76700C2EFC1 /* MainViewController.swift */; };
 		8271BAE91E23A76700C2EFC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8271BAE81E23A76700C2EFC1 /* Assets.xcassets */; };
 		8271BAEC1E23A76700C2EFC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8271BAEA1E23A76700C2EFC1 /* Main.storyboard */; };
 		8271BAF41E23AFD900C2EFC1 /* DragTargetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8271BAF31E23AFD900C2EFC1 /* DragTargetView.swift */; };
+		8273D1061F6F8B88005D50B5 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8273D1051F6F8B88005D50B5 /* Device.swift */; };
+		8273D1081F6F8BB7005D50B5 /* AppPackage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8273D1071F6F8BB7005D50B5 /* AppPackage.swift */; };
+		82AC88FE1F70A54100197ADF /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AC88FD1F70A54100197ADF /* MainViewModel.swift */; };
+		82AC89021F70B22C00197ADF /* DeviceCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AC89001F70B22C00197ADF /* DeviceCollectionViewItem.swift */; };
+		82AC89031F70B22C00197ADF /* DeviceCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82AC89011F70B22C00197ADF /* DeviceCollectionViewItem.xib */; };
+		82AC89051F70D77D00197ADF /* DeviceCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AC89041F70D77D00197ADF /* DeviceCollectionView.swift */; };
 		82E30FAA1E258CE700A5AD50 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E30FA91E258CE700A5AD50 /* StringExtensions.swift */; };
 		82E310411E265A2200A5AD50 /* PlatformCommandManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E310401E265A2200A5AD50 /* PlatformCommandManager.swift */; };
 		82E310471E267F9F00A5AD50 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 82E310461E267F9F00A5AD50 /* libz.tbd */; };
@@ -22,13 +33,24 @@
 /* Begin PBXFileReference section */
 		07D2E46E78FA1208A11CB593 /* Pods-TransporterPad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransporterPad.release.xcconfig"; path = "Pods/Target Support Files/Pods-TransporterPad/Pods-TransporterPad.release.xcconfig"; sourceTree = "<group>"; };
 		3774B15FD04409214392F658 /* Pods-TransporterPad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransporterPad.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TransporterPad/Pods-TransporterPad.debug.xcconfig"; sourceTree = "<group>"; };
+		5BD6A2646EEBD925176B4C5E /* Platform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
+		5BD6A64308219981D2889096 /* DeviceStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceStatus.swift; sourceTree = "<group>"; };
+		822300C11F6BDFBB00D7E363 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		822300C31F6BE00500D7E363 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		822300C61F6BE79600D7E363 /* SwinjectStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwinjectStoryboard.swift; sourceTree = "<group>"; };
 		8271BAE11E23A76700C2EFC1 /* TransporterPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransporterPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8271BAE41E23A76700C2EFC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8271BAE61E23A76700C2EFC1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8271BAE61E23A76700C2EFC1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8271BAE81E23A76700C2EFC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8271BAEB1E23A76700C2EFC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8271BAED1E23A76700C2EFC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8271BAF31E23AFD900C2EFC1 /* DragTargetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragTargetView.swift; sourceTree = "<group>"; };
+		8273D1051F6F8B88005D50B5 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		8273D1071F6F8BB7005D50B5 /* AppPackage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPackage.swift; sourceTree = "<group>"; };
+		82AC88FD1F70A54100197ADF /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		82AC89001F70B22C00197ADF /* DeviceCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCollectionViewItem.swift; sourceTree = "<group>"; };
+		82AC89011F70B22C00197ADF /* DeviceCollectionViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeviceCollectionViewItem.xib; sourceTree = "<group>"; };
+		82AC89041F70D77D00197ADF /* DeviceCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCollectionView.swift; sourceTree = "<group>"; };
 		82E30FA91E258CE700A5AD50 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		82E310401E265A2200A5AD50 /* PlatformCommandManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlatformCommandManager.swift; sourceTree = "<group>"; };
 		82E310461E267F9F00A5AD50 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -62,9 +84,9 @@
 		8223009D1F6BA2BD00D7E363 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				82AC88FF1F70B1F700197ADF /* MainViewController */,
 				8223009F1F6BA2D400D7E363 /* ViewParts */,
 				8271BAEA1E23A76700C2EFC1 /* Main.storyboard */,
-				8271BAE61E23A76700C2EFC1 /* ViewController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -88,9 +110,19 @@
 		822300A21F6BA31D00D7E363 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				822300C51F6BE00C00D7E363 /* Environment */,
 				82E310401E265A2200A5AD50 /* PlatformCommandManager.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		822300C51F6BE00C00D7E363 /* Environment */ = {
+			isa = PBXGroup;
+			children = (
+				822300C11F6BDFBB00D7E363 /* Environment.swift */,
+				822300C31F6BE00500D7E363 /* UserSettings.swift */,
+			);
+			path = Environment;
 			sourceTree = "<group>";
 		};
 		8271BAD81E23A76700C2EFC1 = {
@@ -115,13 +147,46 @@
 			isa = PBXGroup;
 			children = (
 				8223009D1F6BA2BD00D7E363 /* Screens */,
+				82AC88FC1F70A52900197ADF /* ViewModels */,
+				8273D1041F6F8B69005D50B5 /* Models */,
 				822300A21F6BA31D00D7E363 /* Services */,
 				822300A11F6BA30400D7E363 /* Extensions */,
 				8271BAE41E23A76700C2EFC1 /* AppDelegate.swift */,
+				822300C61F6BE79600D7E363 /* SwinjectStoryboard.swift */,
 				8271BAE81E23A76700C2EFC1 /* Assets.xcassets */,
 				8271BAED1E23A76700C2EFC1 /* Info.plist */,
 			);
 			path = TransporterPad;
+			sourceTree = "<group>";
+		};
+		8273D1041F6F8B69005D50B5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8273D1051F6F8B88005D50B5 /* Device.swift */,
+				8273D1071F6F8BB7005D50B5 /* AppPackage.swift */,
+				5BD6A2646EEBD925176B4C5E /* Platform.swift */,
+				5BD6A64308219981D2889096 /* DeviceStatus.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		82AC88FC1F70A52900197ADF /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				82AC88FD1F70A54100197ADF /* MainViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		82AC88FF1F70B1F700197ADF /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8271BAE61E23A76700C2EFC1 /* MainViewController.swift */,
+				82AC89001F70B22C00197ADF /* DeviceCollectionViewItem.swift */,
+				82AC89041F70D77D00197ADF /* DeviceCollectionView.swift */,
+				82AC89011F70B22C00197ADF /* DeviceCollectionViewItem.xib */,
+			);
+			path = MainViewController;
 			sourceTree = "<group>";
 		};
 		9C53806115037C0949CDA714 /* Frameworks */ = {
@@ -141,8 +206,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8271BAF01E23A76700C2EFC1 /* Build configuration list for PBXNativeTarget "TransporterPad" */;
 			buildPhases = (
-				822300BF1F6BDBA700D7E363 /* Prepare Deployment Dependency */,
 				DC0723FA4D6947009988A39B /* [CP] Check Pods Manifest.lock */,
+				822300BF1F6BDBA700D7E363 /* Prepare Deployment Dependency */,
 				8271BADD1E23A76700C2EFC1 /* Sources */,
 				8271BADE1E23A76700C2EFC1 /* Frameworks */,
 				8271BADF1E23A76700C2EFC1 /* Resources */,
@@ -202,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8271BAE91E23A76700C2EFC1 /* Assets.xcassets in Resources */,
+				82AC89031F70B22C00197ADF /* DeviceCollectionViewItem.xib in Resources */,
 				8271BAEC1E23A76700C2EFC1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,10 +382,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				82E30FAA1E258CE700A5AD50 /* StringExtensions.swift in Sources */,
+				822300C21F6BDFBB00D7E363 /* Environment.swift in Sources */,
 				82E310411E265A2200A5AD50 /* PlatformCommandManager.swift in Sources */,
+				8273D1061F6F8B88005D50B5 /* Device.swift in Sources */,
+				822300C71F6BE79600D7E363 /* SwinjectStoryboard.swift in Sources */,
+				82AC89051F70D77D00197ADF /* DeviceCollectionView.swift in Sources */,
+				82AC88FE1F70A54100197ADF /* MainViewModel.swift in Sources */,
 				8271BAF41E23AFD900C2EFC1 /* DragTargetView.swift in Sources */,
-				8271BAE71E23A76700C2EFC1 /* ViewController.swift in Sources */,
+				8273D1081F6F8BB7005D50B5 /* AppPackage.swift in Sources */,
+				822300C41F6BE00500D7E363 /* UserSettings.swift in Sources */,
+				8271BAE71E23A76700C2EFC1 /* MainViewController.swift in Sources */,
 				8271BAE51E23A76700C2EFC1 /* AppDelegate.swift in Sources */,
+				82AC89021F70B22C00197ADF /* DeviceCollectionViewItem.swift in Sources */,
+				5BD6AE452575DAD458C4CD66 /* Platform.swift in Sources */,
+				5BD6AC09C7093AAAD432E257 /* DeviceStatus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,7 +459,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -432,7 +508,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
