@@ -18,7 +18,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sTq-gL-jQ8">
-                    <rect key="frame" x="222" y="55" width="37" height="17"/>
+                    <rect key="frame" x="222" y="57" width="37" height="17"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="ZXA-Lc-0Vz">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -38,9 +38,16 @@
                         <constraint firstAttribute="height" constant="180" id="LMb-cx-uTE"/>
                     </constraints>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="device_iphone" id="SXY-m8-Rfs"/>
+                    <connections>
+                        <binding destination="yY0-3n-FUy" name="value" keyPath="representedObject" id="ckQ-1l-Cqh">
+                            <dictionary key="options">
+                                <string key="NSValueTransformerName">DeviceImageValueTransformer</string>
+                            </dictionary>
+                        </binding>
+                    </connections>
                 </imageView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pwV-TZ-jlL">
-                    <rect key="frame" x="225" y="34" width="31" height="13"/>
+                    <rect key="frame" x="225" y="36" width="31" height="13"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="TTQ-VA-56n">
                         <font key="font" metaFont="system" size="10"/>
                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -57,7 +64,7 @@
                 <constraint firstItem="sTq-gL-jQ8" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="9Jp-2b-Gkf"/>
                 <constraint firstItem="kYC-Nb-c0B" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="Hgu-nr-PjT"/>
                 <constraint firstItem="pwV-TZ-jlL" firstAttribute="top" secondItem="sTq-gL-jQ8" secondAttribute="bottom" constant="8" id="MRT-zg-syN"/>
-                <constraint firstItem="sTq-gL-jQ8" firstAttribute="top" secondItem="kYC-Nb-c0B" secondAttribute="bottom" constant="10" id="g7P-g3-yln"/>
+                <constraint firstItem="sTq-gL-jQ8" firstAttribute="top" secondItem="kYC-Nb-c0B" secondAttribute="bottom" constant="8" id="g7P-g3-yln"/>
             </constraints>
         </customView>
         <collectionViewItem id="yY0-3n-FUy" customClass="DeviceCollectionViewItem" customModule="TransporterPad" customModuleProvider="target">

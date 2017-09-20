@@ -1,5 +1,5 @@
 //
-//  PlatformImageValueTransformer.swift
+//  DeviceImageValueTransformer.swift
 //  TransporterPad
 //
 //  Created by Nobuhiro Ito on 2017/09/19.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class PlatformImageValueTransformer: ValueTransformer {
+class DeviceImageValueTransformer: ValueTransformer {
 
     override static func transformedValueClass() -> AnyClass {
         return AnyObject.self
@@ -19,6 +19,14 @@ class PlatformImageValueTransformer: ValueTransformer {
     }
 
     override func transformedValue(_ value: Any?) -> Any? {
-        return NSImage.init(named: "device_iphone")
+        if let v = value as? Device {
+            if (v.platform == .Android) {
+                return NSImage.init(named: "device_android")
+            }
+            else if (v.platform == .iOS) {
+                return NSImage.init(named: "device_iphone")
+            }
+        }
+        return nil
     }
 }

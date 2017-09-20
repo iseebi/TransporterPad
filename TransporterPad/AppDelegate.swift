@@ -19,6 +19,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
 
+        // Register ValueTransformers
+        ValueTransformer.setValueTransformer(DeviceImageValueTransformer.init(), forName:NSValueTransformerName(rawValue: "DeviceImageValueTransformer"))
+        
         container = SwinjectStoryboard.defaultContainer
 
         let sb = SwinjectStoryboard.create(name: "Main", bundle: nil)

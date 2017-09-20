@@ -5,7 +5,7 @@
 
 import Foundation
 
-enum Platform {
+enum Platform: Int {
     case iOS
     case Android
 }

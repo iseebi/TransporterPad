@@ -112,7 +112,7 @@
                 <windowController storyboardIdentifier="MainWindow" showSeguePresentationStyle="single" id="B8D-0N-5wS" sceneMemberID="viewController">
                     <window key="window" title="TransporterPad" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="600" height="400"/>
+                        <rect key="contentRect" x="196" y="240" width="600" height="499"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="el7-78-PDn"/>
@@ -124,20 +124,20 @@
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="114.5" y="270.5"/>
+            <point key="canvasLocation" x="114" y="319.5"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="MainViewController" customModule="TransporterPad" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl" customClass="DragTargetView" customModule="TransporterPad" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="417"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="499"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <box boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="Mar-xd-foB">
-                                <rect key="frame" x="273" y="60" width="55" height="55"/>
+                                <rect key="frame" x="237" y="60" width="127" height="127"/>
                                 <view key="contentView" id="M1a-mx-E9M">
-                                    <rect key="frame" x="1" y="1" width="53" height="53"/>
+                                    <rect key="frame" x="1" y="1" width="125" height="125"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                                 <constraints>
@@ -145,7 +145,7 @@
                                 </constraints>
                             </box>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8Nc-3S-3Ca">
-                                <rect key="frame" x="252" y="128" width="96" height="32"/>
+                                <rect key="frame" x="252" y="200" width="96" height="32"/>
                                 <buttonCell key="cell" type="push" title="Beam UP" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aeU-f9-tLP">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -160,9 +160,9 @@
                                 </textFieldCell>
                             </textField>
                             <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhz-PK-Fxo">
-                                <rect key="frame" x="0.0" y="177" width="600" height="240"/>
+                                <rect key="frame" x="0.0" y="249" width="600" height="250"/>
                                 <clipView key="contentView" drawsBackground="NO" id="OxE-S3-8SB">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="240"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="250"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <collectionView id="e9g-75-4uO">
@@ -180,7 +180,7 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="240" id="Cke-A5-j0n"/>
+                                    <constraint firstAttribute="height" constant="250" id="Cke-A5-j0n"/>
                                 </constraints>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="3JH-oc-yPS">
                                     <rect key="frame" x="1" y="-15" width="0.0" height="16"/>
@@ -229,7 +229,7 @@
                     </connections>
                 </objectController>
             </objects>
-            <point key="canvasLocation" x="832" y="278.5"/>
+            <point key="canvasLocation" x="832" y="319.5"/>
         </scene>
     </scenes>
 </document>

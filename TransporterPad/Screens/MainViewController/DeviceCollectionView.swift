@@ -10,10 +10,12 @@ import Cocoa
 
 class DeviceCollectionView: NSView {
 
+    /* debug purpose
     override func draw(_ dirtyRect: NSRect) {
         NSColor.gray.setFill()
         NSRectFill(dirtyRect)
         super.draw(dirtyRect)
     }
+     */
     
 }
