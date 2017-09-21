@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5BD6AC09C7093AAAD432E257 /* DeviceStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD6A64308219981D2889096 /* DeviceStatus.swift */; };
 		5BD6AE452575DAD458C4CD66 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD6A2646EEBD925176B4C5E /* Platform.swift */; };
+		820734201F7265E500936BA3 /* DeviceWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8207341F1F7265E500936BA3 /* DeviceWatcher.swift */; };
 		822300C21F6BDFBB00D7E363 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822300C11F6BDFBB00D7E363 /* Environment.swift */; };
 		822300C41F6BE00500D7E363 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822300C31F6BE00500D7E363 /* UserSettings.swift */; };
 		822300C71F6BE79600D7E363 /* SwinjectStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822300C61F6BE79600D7E363 /* SwinjectStoryboard.swift */; };
@@ -36,6 +37,7 @@
 		3774B15FD04409214392F658 /* Pods-TransporterPad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransporterPad.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TransporterPad/Pods-TransporterPad.debug.xcconfig"; sourceTree = "<group>"; };
 		5BD6A2646EEBD925176B4C5E /* Platform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
 		5BD6A64308219981D2889096 /* DeviceStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceStatus.swift; sourceTree = "<group>"; };
+		8207341F1F7265E500936BA3 /* DeviceWatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceWatcher.swift; sourceTree = "<group>"; };
 		822300C11F6BDFBB00D7E363 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		822300C31F6BE00500D7E363 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		822300C61F6BE79600D7E363 /* SwinjectStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwinjectStoryboard.swift; sourceTree = "<group>"; };
@@ -83,6 +85,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		8207341E1F7265CE00936BA3 /* DeviceWatcher */ = {
+			isa = PBXGroup;
+			children = (
+				8207341F1F7265E500936BA3 /* DeviceWatcher.swift */,
+			);
+			path = DeviceWatcher;
+			sourceTree = "<group>";
+		};
 		8223009D1F6BA2BD00D7E363 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +123,7 @@
 		822300A21F6BA31D00D7E363 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				8207341E1F7265CE00936BA3 /* DeviceWatcher */,
 				822300C51F6BE00C00D7E363 /* Environment */,
 				82E310401E265A2200A5AD50 /* PlatformCommandManager.swift */,
 			);
@@ -401,6 +412,7 @@
 				8271BAE51E23A76700C2EFC1 /* AppDelegate.swift in Sources */,
 				82AC89021F70B22C00197ADF /* DeviceCollectionViewItem.swift in Sources */,
 				5BD6AE452575DAD458C4CD66 /* Platform.swift in Sources */,
+				820734201F7265E500936BA3 /* DeviceWatcher.swift in Sources */,
 				5BD6AC09C7093AAAD432E257 /* DeviceStatus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

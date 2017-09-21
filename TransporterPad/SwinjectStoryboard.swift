@@ -15,13 +15,18 @@ extension SwinjectStoryboard {
 
         // Primitive Objects
         defaultContainer.register(UserSettings.self) { _ in UserSettings() }
+            .inObjectScope(.container)
         defaultContainer.register(Environment.self) { r in
             Environment(userSettings: r.resolve(UserSettings.self)!)
-        }
+        }.inObjectScope(.container)
+
+        defaultContainer.register(DeviceWatcher.self) { _ in DeviceWatcher() }
+            .inObjectScope(.container)
+
 
         // ViewModels
         defaultContainer.register(MainViewModel.self) { r in
-            MainViewModel()
+            MainViewModel(deviceWatcher: r.resolve(DeviceWatcher.self)!)
         }
 
         // ViewControllers

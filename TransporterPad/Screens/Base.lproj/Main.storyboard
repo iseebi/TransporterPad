@@ -217,7 +217,7 @@
                         <string>serialNumber</string>
                     </declaredKeys>
                     <connections>
-                        <binding destination="qIc-pR-6Xn" name="contentArray" keyPath="selection.devices" id="qac-ma-djt"/>
+                        <binding destination="qIc-pR-6Xn" name="contentArray" keyPath="selection.devices" id="chh-sI-HRB"/>
                     </connections>
                 </arrayController>
                 <objectController objectClassName="MainViewModel" id="qIc-pR-6Xn">

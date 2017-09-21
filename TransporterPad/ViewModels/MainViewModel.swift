@@ -9,41 +9,29 @@
 import Cocoa
 
 class MainViewModel: NSObject {
-
-    var devices: [Device] = []
+    let deviceWatcher: DeviceWatcher
     
-    override init() {
-        devices.append(Device(platform: .iOS, name: "iPhone", serialNumber: "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"))
-        devices.append(Device(platform: .Android, name: "Xperia", serialNumber: "ZZZZZZZZ"))
-        devices.append(Device(platform: .iOS, name: "iPhone", serialNumber: "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"))
-        devices.append(Device(platform: .Android, name: "Xperia", serialNumber: "ZZZZZZZZ"))
-        devices.append(Device(platform: .iOS, name: "iPhone", serialNumber: "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"))
-        devices.append(Device(platform: .Android, name: "Xperia", serialNumber: "ZZZZZZZZ"))
-        devices.append(Device(platform: .iOS, name: "iPhone", serialNumber: "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"))
-        devices.append(Device(platform: .Android, name: "Xperia", serialNumber: "ZZZZZZZZ"))
-        devices.append(Device(platform: .iOS, name: "iPhone", serialNumber: "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"))
-        devices.append(Device(platform: .Android, name: "Xperia", serialNumber: "ZZZZZZZZ"))
-        devices.append(Device(platform: .iOS, name: "iPhone", serialNumber: "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"))
-        devices.append(Device(platform: .Android, name: "Xperia", serialNumber: "ZZZZZZZZ"))
-        devices.append(Device(platform: .iOS, name: "iPhone", serialNumber: "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"))
-        devices.append(Device(platform: .Android, name: "Xperia", serialNumber: "ZZZZZZZZ"))
-        devices.append(Device(platform: .iOS, name: "iPhone", serialNumber: "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"))
-        devices.append(Device(platform: .Android, name: "Xperia", serialNumber: "ZZZZZZZZ"))
-        devices.append(Device(platform: .iOS, name: "iPhone", serialNumber: "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"))
-        devices.append(Device(platform: .Android, name: "Xperia", serialNumber: "ZZZZZZZZ"))
-        devices.append(Device(platform: .iOS, name: "iPhone", serialNumber: "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"))
-        devices.append(Device(platform: .Android, name: "Xperia", serialNumber: "ZZZZZZZZ"))
-        devices.append(Device(platform: .iOS, name: "iPhone", serialNumber: "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"))
-        devices.append(Device(platform: .Android, name: "Xperia", serialNumber: "ZZZZZZZZ"))
-        devices.append(Device(platform: .iOS, name: "iPhone", serialNumber: "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"))
-        devices.append(Device(platform: .Android, name: "Xperia", serialNumber: "ZZZZZZZZ"))
-        devices.append(Device(platform: .iOS, name: "iPhone", serialNumber: "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"))
-        devices.append(Device(platform: .Android, name: "Xperia", serialNumber: "ZZZZZZZZ"))
-        devices.append(Device(platform: .iOS, name: "iPhone", serialNumber: "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"))
-        devices.append(Device(platform: .Android, name: "Xperia", serialNumber: "ZZZZZZZZ"))
-        devices.append(Device(platform: .iOS, name: "iPhone", serialNumber: "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"))
-        devices.append(Device(platform: .Android, name: "Xperia", serialNumber: "ZZZZZZZZ"))
-        devices.append(Device(platform: .iOS, name: "iPhone", serialNumber: "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"))
-        devices.append(Device(platform: .Android, name: "Xperia", serialNumber: "ZZZZZZZZ"))
+    var devices: [Device] {
+        get { return deviceWatcher.devices }
     }
+    
+    init(deviceWatcher: DeviceWatcher) {
+        self.deviceWatcher = deviceWatcher
+        super.init()
+        deviceWatcher.delegate = self
+        deviceWatcher.start()
+    }
+}
+
+extension MainViewModel: DeviceWatcherDelegate {
+    func deviceWatcherAddedDevice(_: DeviceWatcher) {
+        willChangeValue(forKey: "devices")
+        didChangeValue(forKey: "devices")
+    }
+    
+    func deviceWatcher(_: DeviceWatcher, didRemovedDevice at: Int) {
+        willChangeValue(forKey: "devices")
+        didChangeValue(forKey: "devices")
+    }
+
 }

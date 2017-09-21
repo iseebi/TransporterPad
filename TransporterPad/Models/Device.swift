@@ -13,9 +13,18 @@ class Device: NSObject {
 
     /// プラットフォーム
     let platform: Platform
+    
+    let formfactorName: String
 
     /// 端末名
-    let name: String
+    var name: String {
+        willSet {
+            self.willChangeValue(forKey: "name")
+        }
+        didSet {
+            self.didChangeValue(forKey: "name")
+        }
+    }
 
     /// シリアルナンバー
     let serialNumber: String
@@ -28,11 +37,21 @@ class Device: NSObject {
 
     /// 対応するモバイルデバイスインスタンス
     weak var mobileDevice: EBIMobileDevice?
-
-    init(platform: Platform, name: String, serialNumber: String) {
-        self.platform = platform
-        self.name = name
-        self.serialNumber = serialNumber
+    
+    init(device: EBIMobileDevice) {
+        mobileDevice = device
+        
+        serialNumber = device.serialNumber
+        if (device.type == EBIMobileDeviceTypeAndroid) {
+            platform = .Android
+            formfactorName = "Android"
+            name = device.deviceName
+        }
+        else {
+            platform = .iOS
+            formfactorName = device.deviceName
+            name = ""
+        }
     }
 }
 

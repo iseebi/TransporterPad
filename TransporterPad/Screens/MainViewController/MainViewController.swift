@@ -11,7 +11,6 @@ import CoreFoundation
 import Alamofire
 
 class MainViewController: NSViewController {
-
     @IBOutlet weak var dragTargetView: DragTargetView!
     @IBOutlet weak var collectionView: NSCollectionView!
 
@@ -19,8 +18,7 @@ class MainViewController: NSViewController {
         willSet {
             self.willChangeValue(forKey: "viewModel")
         }
-        didSet(value) {
-            collectionView.content = value?.devices ?? []
+        didSet {
             self.didChangeValue(forKey: "viewModel")
         }
     }

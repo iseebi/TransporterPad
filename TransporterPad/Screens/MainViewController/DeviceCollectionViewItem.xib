@@ -54,7 +54,7 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                     <connections>
-                        <binding destination="yY0-3n-FUy" name="value" keyPath="representedObject.serialNumber" id="aZG-Iu-q0C"/>
+                        <binding destination="yY0-3n-FUy" name="value" keyPath="representedObject.formfactorName" id="XOm-Nc-POb"/>
                     </connections>
                 </textField>
             </subviews>

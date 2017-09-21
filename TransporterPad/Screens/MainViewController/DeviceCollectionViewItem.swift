@@ -15,10 +15,12 @@ class DeviceCollectionViewItem: NSCollectionViewItem {
         // Do view setup here.
     }
     
+    /*
     override var representedObject: Any? {
         didSet(value) {
             guard let device = value as? Device else { return }
         }
     }
+ */
     
 }
