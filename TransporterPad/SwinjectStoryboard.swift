@@ -19,7 +19,7 @@ extension SwinjectStoryboard {
         defaultContainer.register(Environment.self) { r in
             Environment(userSettings: r.resolve(UserSettings.self)!)
         }.inObjectScope(.container)
-        defaultContainer.register(TemporaryDirectoryManager.self) { _ in TemporaryDirectoryManager()! }
+        defaultContainer.register(TemporaryDirectoryManager.self) { _ in TemporaryDirectoryManager()! } // TODO !を外して起動エラーメッセージとかにしたい
 
         defaultContainer.register(DeviceWatcher.self) { _ in DeviceWatcher() }
             .inObjectScope(.container)
