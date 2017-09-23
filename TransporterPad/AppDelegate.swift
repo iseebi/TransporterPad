@@ -36,6 +36,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         tempMgr.cleunup()
     }
 
-
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+        return true
+    }
 }
 
