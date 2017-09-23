@@ -19,6 +19,7 @@ extension SwinjectStoryboard {
         defaultContainer.register(Environment.self) { r in
             Environment(userSettings: r.resolve(UserSettings.self)!)
         }.inObjectScope(.container)
+        defaultContainer.register(TemporaryDirectoryManager.self) { _ in TemporaryDirectoryManager()! }
 
         defaultContainer.register(DeviceWatcher.self) { _ in DeviceWatcher() }
             .inObjectScope(.container)

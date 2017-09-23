@@ -21,6 +21,9 @@
 		8271BAF41E23AFD900C2EFC1 /* DragTargetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8271BAF31E23AFD900C2EFC1 /* DragTargetView.swift */; };
 		8273D1061F6F8B88005D50B5 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8273D1051F6F8B88005D50B5 /* Device.swift */; };
 		8273D1081F6F8BB7005D50B5 /* AppPackage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8273D1071F6F8BB7005D50B5 /* AppPackage.swift */; };
+		827682D31F74FA38009B3BAC /* TemporaryDirectoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827682D21F74FA38009B3BAC /* TemporaryDirectoryManager.swift */; };
+		827682D51F74FA5B009B3BAC /* TemporaryDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827682D41F74FA5B009B3BAC /* TemporaryDirectory.swift */; };
+		827682D71F760FDA009B3BAC /* FileManagerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827682D61F760FDA009B3BAC /* FileManagerExtensions.swift */; };
 		82AC88FE1F70A54100197ADF /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AC88FD1F70A54100197ADF /* MainViewModel.swift */; };
 		82AC89021F70B22C00197ADF /* DeviceCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AC89001F70B22C00197ADF /* DeviceCollectionViewItem.swift */; };
 		82AC89031F70B22C00197ADF /* DeviceCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82AC89011F70B22C00197ADF /* DeviceCollectionViewItem.xib */; };
@@ -51,6 +54,9 @@
 		8271BAF31E23AFD900C2EFC1 /* DragTargetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragTargetView.swift; sourceTree = "<group>"; };
 		8273D1051F6F8B88005D50B5 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		8273D1071F6F8BB7005D50B5 /* AppPackage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPackage.swift; sourceTree = "<group>"; };
+		827682D21F74FA38009B3BAC /* TemporaryDirectoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporaryDirectoryManager.swift; sourceTree = "<group>"; };
+		827682D41F74FA5B009B3BAC /* TemporaryDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporaryDirectory.swift; sourceTree = "<group>"; };
+		827682D61F760FDA009B3BAC /* FileManagerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExtensions.swift; sourceTree = "<group>"; };
 		82AC88FD1F70A54100197ADF /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		82AC89001F70B22C00197ADF /* DeviceCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCollectionViewItem.swift; sourceTree = "<group>"; };
 		82AC89011F70B22C00197ADF /* DeviceCollectionViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeviceCollectionViewItem.xib; sourceTree = "<group>"; };
@@ -116,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				82E30FA91E258CE700A5AD50 /* StringExtensions.swift */,
+				827682D61F760FDA009B3BAC /* FileManagerExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -123,6 +130,7 @@
 		822300A21F6BA31D00D7E363 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				827682D11F74F9F3009B3BAC /* TemporaryDirectory */,
 				8207341E1F7265CE00936BA3 /* DeviceWatcher */,
 				822300C51F6BE00C00D7E363 /* Environment */,
 				82E310401E265A2200A5AD50 /* PlatformCommandManager.swift */,
@@ -182,6 +190,15 @@
 				5BD6A64308219981D2889096 /* DeviceStatus.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		827682D11F74F9F3009B3BAC /* TemporaryDirectory */ = {
+			isa = PBXGroup;
+			children = (
+				827682D21F74FA38009B3BAC /* TemporaryDirectoryManager.swift */,
+				827682D41F74FA5B009B3BAC /* TemporaryDirectory.swift */,
+			);
+			path = TemporaryDirectory;
 			sourceTree = "<group>";
 		};
 		82AC88FC1F70A52900197ADF /* ViewModels */ = {
@@ -401,6 +418,7 @@
 				822300C21F6BDFBB00D7E363 /* Environment.swift in Sources */,
 				82E310411E265A2200A5AD50 /* PlatformCommandManager.swift in Sources */,
 				8273D1061F6F8B88005D50B5 /* Device.swift in Sources */,
+				827682D51F74FA5B009B3BAC /* TemporaryDirectory.swift in Sources */,
 				822300C71F6BE79600D7E363 /* SwinjectStoryboard.swift in Sources */,
 				82AC89051F70D77D00197ADF /* DeviceCollectionView.swift in Sources */,
 				824430211F70F3CE000FE71C /* DeviceImageValueTransformer.swift in Sources */,
@@ -409,11 +427,13 @@
 				8273D1081F6F8BB7005D50B5 /* AppPackage.swift in Sources */,
 				822300C41F6BE00500D7E363 /* UserSettings.swift in Sources */,
 				8271BAE71E23A76700C2EFC1 /* MainViewController.swift in Sources */,
+				827682D71F760FDA009B3BAC /* FileManagerExtensions.swift in Sources */,
 				8271BAE51E23A76700C2EFC1 /* AppDelegate.swift in Sources */,
 				82AC89021F70B22C00197ADF /* DeviceCollectionViewItem.swift in Sources */,
 				5BD6AE452575DAD458C4CD66 /* Platform.swift in Sources */,
 				820734201F7265E500936BA3 /* DeviceWatcher.swift in Sources */,
 				5BD6AC09C7093AAAD432E257 /* DeviceStatus.swift in Sources */,
+				827682D31F74FA38009B3BAC /* TemporaryDirectoryManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
