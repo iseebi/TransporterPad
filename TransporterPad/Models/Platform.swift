@@ -9,3 +9,16 @@ enum Platform: Int {
     case iOS
     case Android
 }
+
+extension Platform {
+    var fileExtension: String {
+        get {
+            if self == .iOS {
+                return "ipa"
+            }
+            else {
+                return ".apk"
+            }
+        }
+    }
+}

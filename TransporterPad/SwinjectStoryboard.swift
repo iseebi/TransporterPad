@@ -20,10 +20,11 @@ extension SwinjectStoryboard {
             Environment(userSettings: r.resolve(UserSettings.self)!)
         }.inObjectScope(.container)
         defaultContainer.register(TemporaryDirectoryManager.self) { _ in TemporaryDirectoryManager()! } // TODO !を外して起動エラーメッセージとかにしたい
-
+            .inObjectScope(.container)
+        defaultContainer.register(AppPackageReader.self) { r in AppPackageReader(temporaryDirectoryManager: r.resolve(TemporaryDirectoryManager.self)!) }
+            .inObjectScope(.container)
         defaultContainer.register(DeviceWatcher.self) { _ in DeviceWatcher() }
             .inObjectScope(.container)
-
 
         // ViewModels
         defaultContainer.register(MainViewModel.self) { r in

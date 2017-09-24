@@ -9,5 +9,15 @@
 import Foundation
 
 class AppPackage {
+    let platform: Platform
+    let packageName: String
+    let fileURL: URL
+    var temporaryDirectory: TemporaryDirectory? = nil
     
+    init(platform: Platform, packageName: String, fileURL: URL, temporaryDirectory: TemporaryDirectory?) {
+        self.platform = platform
+        self.packageName = packageName
+        self.fileURL = fileURL
+        self.temporaryDirectory = temporaryDirectory
+    }
 }
