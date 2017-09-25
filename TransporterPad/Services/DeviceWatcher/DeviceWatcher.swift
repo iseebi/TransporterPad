@@ -11,7 +11,7 @@ import EBIMobileDeviceWatcher
 import EBIiOSDeviceWatcher
 
 protocol DeviceWatcherDelegate: class {
-    func deviceWatcherAddedDevice(_: DeviceWatcher)
+    func deviceWatcher(_: DeviceWatcher, addedDevice device: Device)
     func deviceWatcher(_: DeviceWatcher, didRemovedDevice at: Int)
 }
 
@@ -51,7 +51,7 @@ class DeviceWatcher: NSObject {
             }
         }
         devices.append(device)
-        delegate?.deviceWatcherAddedDevice(self)
+        delegate?.deviceWatcher(self, addedDevice: device)
     }
 
     fileprivate func disconnectedDevice(disconnectedDevice: EBIMobileDevice) {

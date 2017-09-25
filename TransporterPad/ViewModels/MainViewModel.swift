@@ -16,7 +16,9 @@ class MainViewModel: NSObject {
         willSet {
             willChangeValue(forKey: "appPackage")
         }
-        didSet {
+        didSet(oldValue) {
+            oldValue?.cleanup()
+            validateDevices()
             didChangeValue(forKey: "appPackage")
         }
     }
@@ -43,11 +45,22 @@ class MainViewModel: NSObject {
             return false
         }
     }
+    
+    func validateDevices() {
+        for device in devices {
+            validateDevice(device: device)
+        }
+    }
+    
+    func validateDevice(device: Device) {
+        device.compatible = appPackage?.platform == device.platform
+    }
 }
 
 extension MainViewModel: DeviceWatcherDelegate {
-    func deviceWatcherAddedDevice(_: DeviceWatcher) {
+    func deviceWatcher(_: DeviceWatcher, addedDevice device: Device) {
         willChangeValue(forKey: "devices")
+        validateDevice(device: device)
         didChangeValue(forKey: "devices")
     }
     
