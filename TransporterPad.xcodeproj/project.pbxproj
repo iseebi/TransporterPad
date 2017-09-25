@@ -25,6 +25,7 @@
 		827682D51F74FA5B009B3BAC /* TemporaryDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827682D41F74FA5B009B3BAC /* TemporaryDirectory.swift */; };
 		827682D71F760FDA009B3BAC /* FileManagerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827682D61F760FDA009B3BAC /* FileManagerExtensions.swift */; };
 		827683041F7738FF009B3BAC /* AppPackageReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827683031F7738FF009B3BAC /* AppPackageReader.swift */; };
+		827683061F78DBA0009B3BAC /* AppPackageIconValueTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827683051F78DBA0009B3BAC /* AppPackageIconValueTransformer.swift */; };
 		82AC88FE1F70A54100197ADF /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AC88FD1F70A54100197ADF /* MainViewModel.swift */; };
 		82AC89021F70B22C00197ADF /* DeviceCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AC89001F70B22C00197ADF /* DeviceCollectionViewItem.swift */; };
 		82AC89031F70B22C00197ADF /* DeviceCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82AC89011F70B22C00197ADF /* DeviceCollectionViewItem.xib */; };
@@ -59,6 +60,7 @@
 		827682D41F74FA5B009B3BAC /* TemporaryDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporaryDirectory.swift; sourceTree = "<group>"; };
 		827682D61F760FDA009B3BAC /* FileManagerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExtensions.swift; sourceTree = "<group>"; };
 		827683031F7738FF009B3BAC /* AppPackageReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPackageReader.swift; sourceTree = "<group>"; };
+		827683051F78DBA0009B3BAC /* AppPackageIconValueTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPackageIconValueTransformer.swift; sourceTree = "<group>"; };
 		82AC88FD1F70A54100197ADF /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		82AC89001F70B22C00197ADF /* DeviceCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCollectionViewItem.swift; sourceTree = "<group>"; };
 		82AC89011F70B22C00197ADF /* DeviceCollectionViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeviceCollectionViewItem.xib; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 			children = (
 				8271BAF31E23AFD900C2EFC1 /* DragTargetView.swift */,
 				824430201F70F3CE000FE71C /* DeviceImageValueTransformer.swift */,
+				827683051F78DBA0009B3BAC /* AppPackageIconValueTransformer.swift */,
 			);
 			path = ViewParts;
 			sourceTree = "<group>";
@@ -438,6 +441,7 @@
 				82AC88FE1F70A54100197ADF /* MainViewModel.swift in Sources */,
 				827683041F7738FF009B3BAC /* AppPackageReader.swift in Sources */,
 				8271BAF41E23AFD900C2EFC1 /* DragTargetView.swift in Sources */,
+				827683061F78DBA0009B3BAC /* AppPackageIconValueTransformer.swift in Sources */,
 				8273D1081F6F8BB7005D50B5 /* AppPackage.swift in Sources */,
 				822300C41F6BE00500D7E363 /* UserSettings.swift in Sources */,
 				8271BAE71E23A76700C2EFC1 /* MainViewController.swift in Sources */,

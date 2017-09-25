@@ -31,6 +31,16 @@ class Device: NSObject {
 
     /// 端末の認識状態
     var status: DeviceStatus = .Initializing
+    
+    /// 互換性あり状態か
+    var compatible: Bool = false {
+        willSet {
+            self.willChangeValue(forKey: "compatible")
+        }
+        didSet {
+            self.didChangeValue(forKey: "compatible")
+        }
+    }
 
     /// 最終の転送ログ
     var log: String = ""

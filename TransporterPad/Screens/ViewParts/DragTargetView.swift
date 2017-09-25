@@ -24,10 +24,10 @@ import Cocoa
     
     override func draggingEntered(_ sender: NSDraggingInfo) -> NSDragOperation {
         if let _ = sender.draggingPasteboard().propertyList(forType: NSFilenamesPboardType) as? [String] {
-            return .generic
+            return .copy
         }
         if let _ = sender.draggingPasteboard().propertyList(forType: NSURLPboardType) as? [String] {
-            return .generic
+            return .copy
         }
         return NSDragOperation()
     }

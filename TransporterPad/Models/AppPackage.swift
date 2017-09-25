@@ -20,4 +20,9 @@ class AppPackage: NSObject {
         self.fileURL = fileURL
         self.temporaryDirectory = temporaryDirectory
     }
+    
+    func cleanup() {
+        temporaryDirectory?.cleanup()
+        temporaryDirectory = nil
+    }
 }

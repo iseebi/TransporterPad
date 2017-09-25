@@ -131,21 +131,43 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="MainViewController" customModule="TransporterPad" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl" customClass="DragTargetView" customModule="TransporterPad" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="499"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="505"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <box boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="Mar-xd-foB">
-                                <rect key="frame" x="237" y="60" width="127" height="127"/>
+                                <rect key="frame" x="234" y="60" width="133" height="133"/>
                                 <view key="contentView" id="M1a-mx-E9M">
-                                    <rect key="frame" x="1" y="1" width="125" height="125"/>
+                                    <rect key="frame" x="1" y="1" width="131" height="131"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button translatesAutoresizingMaskIntoConstraints="NO" id="1cM-aQ-QM8">
+                                            <rect key="frame" x="-1" y="0.0" width="132" height="132"/>
+                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="kuZ-xb-kCH">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                                <connections>
+                                                    <binding destination="XfG-lQ-9wD" name="image" keyPath="viewModel.appPackage" id="dww-bI-Of3">
+                                                        <dictionary key="options">
+                                                            <string key="NSValueTransformerName">AppPackageIconValueTransformer</string>
+                                                        </dictionary>
+                                                    </binding>
+                                                </connections>
+                                            </buttonCell>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="1cM-aQ-QM8" secondAttribute="bottom" id="3DQ-cf-jUE"/>
+                                        <constraint firstItem="1cM-aQ-QM8" firstAttribute="leading" secondItem="M1a-mx-E9M" secondAttribute="leading" constant="-1" id="I2J-ZU-zum"/>
+                                        <constraint firstItem="1cM-aQ-QM8" firstAttribute="top" secondItem="M1a-mx-E9M" secondAttribute="top" constant="-1" id="hQk-69-Dmh"/>
+                                        <constraint firstAttribute="trailing" secondItem="1cM-aQ-QM8" secondAttribute="trailing" id="xyG-PY-21B"/>
+                                    </constraints>
                                 </view>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Mar-xd-foB" secondAttribute="height" multiplier="1:1" id="6Xf-9u-bTi"/>
                                 </constraints>
                             </box>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8Nc-3S-3Ca">
-                                <rect key="frame" x="252" y="200" width="96" height="32"/>
+                                <rect key="frame" x="252" y="206" width="96" height="32"/>
                                 <buttonCell key="cell" type="push" title="Beam UP" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aeU-f9-tLP">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -167,7 +189,7 @@
                                 </connections>
                             </textField>
                             <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhz-PK-Fxo">
-                                <rect key="frame" x="0.0" y="249" width="600" height="250"/>
+                                <rect key="frame" x="0.0" y="255" width="600" height="250"/>
                                 <clipView key="contentView" drawsBackground="NO" id="OxE-S3-8SB">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="250"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -236,7 +258,7 @@
                     </connections>
                 </objectController>
             </objects>
-            <point key="canvasLocation" x="832" y="319.5"/>
+            <point key="canvasLocation" x="832" y="322.5"/>
         </scene>
     </scenes>
 </document>

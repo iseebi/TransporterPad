@@ -21,6 +21,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         // Register ValueTransformers
         ValueTransformer.setValueTransformer(DeviceImageValueTransformer.init(), forName:NSValueTransformerName(rawValue: "DeviceImageValueTransformer"))
+        ValueTransformer.setValueTransformer(AppPackageIconValueTransformer.init(), forName:NSValueTransformerName(rawValue: "AppPackageIconValueTransformer"))
         
         container = SwinjectStoryboard.defaultContainer
 
