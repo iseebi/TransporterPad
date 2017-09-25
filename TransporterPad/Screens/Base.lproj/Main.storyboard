@@ -158,6 +158,13 @@
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <binding destination="XfG-lQ-9wD" name="value" keyPath="viewModel.appPackage.packageName" id="shh-0C-m92">
+                                        <dictionary key="options">
+                                            <string key="NSNullPlaceholder">Drop app binary here!</string>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
                             </textField>
                             <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhz-PK-Fxo">
                                 <rect key="frame" x="0.0" y="249" width="600" height="250"/>

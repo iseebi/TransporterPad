@@ -8,7 +8,7 @@
 
 import Foundation
 
-class AppPackage {
+class AppPackage: NSObject {
     let platform: Platform
     let packageName: String
     let fileURL: URL
