@@ -45,8 +45,12 @@ extension MainViewController : DragTargetViewDelegate {
     
     func dragTargetView(_ dragTargetView: DragTargetView, dropLocalFilePath fileName: String) {
         NSLog("Local file:%@", fileName)
-        
-        processBinary(fileName: fileName)
+        guard let vm = viewModel else { return }
+
+        let fileURL = URL(fileURLWithPath: fileName)
+        if !vm.dropLocalItem(at: fileURL) {
+            // TODO: alert
+        }
     }
     
     func processBinary(fileName: String) {

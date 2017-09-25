@@ -10,16 +10,38 @@ import Cocoa
 
 class MainViewModel: NSObject {
     let deviceWatcher: DeviceWatcher
+    let packageReader: AppPackageReader
+    
+    var appPackage: AppPackage? = nil {
+        willSet {
+            willChangeValue(forKey: "appPackage")
+        }
+        didSet {
+            didChangeValue(forKey: "appPackage")
+        }
+    }
     
     var devices: [Device] {
         get { return deviceWatcher.devices }
     }
     
-    init(deviceWatcher: DeviceWatcher) {
+    init(deviceWatcher: DeviceWatcher, appPackageReader: AppPackageReader) {
         self.deviceWatcher = deviceWatcher
+        self.packageReader = appPackageReader
         super.init()
         deviceWatcher.delegate = self
         deviceWatcher.start()
+    }
+    
+    func dropLocalItem(at: URL) -> Bool {
+        if let package = packageReader.read(fileURL: at) {
+            appPackage = package
+            return true
+        }
+        else {
+            appPackage = nil
+            return false
+        }
     }
 }
 
@@ -33,5 +55,4 @@ extension MainViewModel: DeviceWatcherDelegate {
         willChangeValue(forKey: "devices")
         didChangeValue(forKey: "devices")
     }
-
 }

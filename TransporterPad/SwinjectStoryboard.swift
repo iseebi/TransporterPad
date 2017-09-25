@@ -28,7 +28,7 @@ extension SwinjectStoryboard {
 
         // ViewModels
         defaultContainer.register(MainViewModel.self) { r in
-            MainViewModel(deviceWatcher: r.resolve(DeviceWatcher.self)!)
+            MainViewModel(deviceWatcher: r.resolve(DeviceWatcher.self)!, appPackageReader: r.resolve(AppPackageReader.self)!)
         }
 
         // ViewControllers
