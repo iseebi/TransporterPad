@@ -13,7 +13,7 @@ import EBIAXMLDecompressor
 class AppPackageReader: NSObject {
     private let tempDirMgr: TemporaryDirectoryManager
     private static let ipaInfoPlistPattern: NSRegularExpression = {
-        let pattern = try! NSRegularExpression(pattern: "Payload/[^/]\\.ipa/Info.plist", options: .caseInsensitive)
+        let pattern = try! NSRegularExpression(pattern: "Payload/[^/]+\\.app/Info.plist", options: .caseInsensitive)
         return pattern
     }()
 
@@ -41,7 +41,7 @@ class AppPackageReader: NSObject {
         return nil
     }
     
-    func createAppPackage(fileURL: URL, platform: Platform, packageName: String) -> AppPackage? {
+    private func createAppPackage(fileURL: URL, platform: Platform, packageName: String) -> AppPackage? {
         guard let tempDir = tempDirMgr.create() else { return nil }
         let packageURL = tempDir.url.appendingPathComponent(String(format: "package%@", platform.fileExtension))
         if ((try? FileManager.default.linkItem(at: fileURL, to: packageURL)) == nil) {
@@ -54,7 +54,7 @@ class AppPackageReader: NSObject {
     private func isFileNameInfoPlist(fileName: String) -> Bool {
         guard let result = AppPackageReader.ipaInfoPlistPattern.firstMatch(in: fileName, options: NSRegularExpression.MatchingOptions.init(rawValue: 0), range: NSRange(location: 0, length: fileName.utf16.count))
             else { return false }
-        return result.range.location != NSNotFound
+        return !((result.range.location == NSNotFound) && (result.range.length == 0))
     }
     
     private func readInfoPlist(data: Data) -> String? {
@@ -66,10 +66,10 @@ class AppPackageReader: NSObject {
                 return nil
             }
         tempDir.cleanup()
-        return dictionary.value(forKey: kCFBundleNameKey as String) as? String
+        return dictionary.value(forKey: kCFBundleIdentifierKey as String) as? String
     }
 
-    func readAndroidManifest(data: Data) -> String? {
+    private func readAndroidManifest(data: Data) -> String? {
         guard let xml = EBIAXMLDecompressor.decompress(from: data) else { return nil }
         let parser = XMLParser(data: xml.data(using: .utf8)!)
         let parserDelegate = AndroidManifestParserDelegate()
@@ -78,7 +78,7 @@ class AppPackageReader: NSObject {
         return parserDelegate.packageName
     }
 
-    class AndroidManifestParserDelegate: NSObject, XMLParserDelegate {
+    private class AndroidManifestParserDelegate: NSObject, XMLParserDelegate {
         var packageName: String? = nil
         
         func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {

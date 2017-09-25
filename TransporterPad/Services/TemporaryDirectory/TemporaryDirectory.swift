@@ -19,9 +19,6 @@ class TemporaryDirectory {
     func writeNewTemporary(data: Data) -> URL? {
         let fm = FileManager.default
         let target = fm.createTemporaryName(inDirectoryURL: url)
-        if ((try? fm.createDirectory(at: target, withIntermediateDirectories: true, attributes: nil)) == nil) {
-            return nil
-        }
         if (try? data.write(to: target)) != nil {
             return target
         }
