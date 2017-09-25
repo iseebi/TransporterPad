@@ -14,7 +14,7 @@ extension Platform {
     var fileExtension: String {
         get {
             if self == .iOS {
-                return "ipa"
+                return ".ipa"
             }
             else {
                 return ".apk"
