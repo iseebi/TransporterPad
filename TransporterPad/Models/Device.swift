@@ -30,7 +30,14 @@ class Device: NSObject {
     let serialNumber: String
 
     /// 端末の認識状態
-    var status: DeviceStatus = .Initializing
+    var status: DeviceStatus = .Initializing {
+        willSet {
+            self.willChangeValue(forKey: "status")
+        }
+        didSet {
+            self.didChangeValue(forKey: "status")
+        }
+    }
     
     /// 互換性あり状態か
     var compatible: Bool = false {

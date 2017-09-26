@@ -38,13 +38,6 @@
                         <constraint firstAttribute="height" constant="180" id="LMb-cx-uTE"/>
                     </constraints>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="device_iphone" id="SXY-m8-Rfs"/>
-                    <connections>
-                        <binding destination="yY0-3n-FUy" name="value" keyPath="representedObject" id="ckQ-1l-Cqh">
-                            <dictionary key="options">
-                                <string key="NSValueTransformerName">DeviceImageValueTransformer</string>
-                            </dictionary>
-                        </binding>
-                    </connections>
                 </imageView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pwV-TZ-jlL">
                     <rect key="frame" x="225" y="36" width="31" height="13"/>
@@ -69,6 +62,7 @@
         </customView>
         <collectionViewItem id="yY0-3n-FUy" customClass="DeviceCollectionViewItem" customModule="TransporterPad" customModuleProvider="target">
             <connections>
+                <outlet property="deviceImageView" destination="kYC-Nb-c0B" id="1xf-Kv-3Dq"/>
                 <outlet property="textField" destination="sTq-gL-jQ8" id="Yfx-ZU-cCO"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="yo2-Xv-RcY"/>
             </connections>
