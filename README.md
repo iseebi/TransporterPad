@@ -1,6 +1,6 @@
 # TransporterPad
 
-TranspoterPad is app package deployment tool for everyone of development tool.
+TranspoterPad is app package deployment tool for everyone of development team.
 
 App package file (.ipa/.apk) is very popular exchange app binary in team, but it's install may difficult for not engineers(ex. designers, planners, etc.).
 
