@@ -95,7 +95,8 @@ extension MainViewModel {
         progressValue = -1
         Alamofire.download(at, to: destination)
             .downloadProgress { [weak self] progress in
-                self?.progressValue = Int(progress.fractionCompleted * 100)
+                guard let sself = self else { return }
+                sself.progressValue = Int(progress.fractionCompleted * 100)
         }
             .response { [weak self] response in
                 guard let sself = self else { return }
