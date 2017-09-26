@@ -12,6 +12,10 @@ class MainViewModel: NSObject {
     let deviceWatcher: DeviceWatcher
     let packageReader: AppPackageReader
     
+    var devices: [Device] {
+        get { return deviceWatcher.devices }
+    }
+    
     var appPackage: AppPackage? = nil {
         willSet {
             willChangeValue(forKey: "appPackage")
@@ -22,11 +26,7 @@ class MainViewModel: NSObject {
             didChangeValue(forKey: "appPackage")
         }
     }
-    
-    var devices: [Device] {
-        get { return deviceWatcher.devices }
-    }
-    
+
     init(deviceWatcher: DeviceWatcher, appPackageReader: AppPackageReader) {
         self.deviceWatcher = deviceWatcher
         self.packageReader = appPackageReader
@@ -34,6 +34,22 @@ class MainViewModel: NSObject {
         deviceWatcher.delegate = self
         deviceWatcher.start()
     }
+}
+
+extension MainViewModel {
+
+    func validateDevices() {
+        for device in devices {
+            validateDevice(device: device)
+        }
+    }
+    
+    func validateDevice(device: Device) {
+        device.compatible = appPackage?.platform == device.platform
+    }
+}
+
+extension MainViewModel {
     
     func dropLocalItem(at: URL) -> Bool {
         if let package = packageReader.read(fileURL: at) {
@@ -46,14 +62,8 @@ class MainViewModel: NSObject {
         }
     }
     
-    func validateDevices() {
-        for device in devices {
-            validateDevice(device: device)
-        }
-    }
-    
-    func validateDevice(device: Device) {
-        device.compatible = appPackage?.platform == device.platform
+    func dropRemoteItem(at: URL) {
+        
     }
 }
 
