@@ -17,11 +17,17 @@ class MainViewController: NSViewController {
     var viewModel: MainViewModel? {
         willSet {
             self.willChangeValue(forKey: "viewModel")
-            viewModel?.removeObserver(self, forKeyPath: "viewModel")
+            
+            guard let vm = viewModel else { return }
+            vm.removeObserver(self, forKeyPath: "downloading")
+            vm.removeObserver(self, forKeyPath: "progressValue")
         }
         didSet {
             self.didChangeValue(forKey: "viewModel")
-            viewModel?.addObserver(self, forKeyPath: "viewModel", options: [.new], context: nil)
+
+            guard let vm = viewModel else { return }
+            vm.addObserver(self, forKeyPath: "downloading", options: [.new], context: nil)
+            vm.addObserver(self, forKeyPath: "progressValue", options: [.new], context: nil)
         }
     }
     
@@ -61,6 +67,23 @@ class MainViewController: NSViewController {
         
         dragTargetView.delegate = self
         collectionView.register(NSNib.init(nibNamed: "DeviceCollectionViewItem", bundle: nil), forItemWithIdentifier: "DeviceCollectionViewItem")
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if (keyPath == "downloading") {
+            updateStatusIndicatorState()
+        }
+        if (keyPath == "progressValue") {
+            updateStatusIndicatorState()
+        }
+    }
+    
+    func updateStatusIndicatorState() {
+        guard let vm = viewModel else { return }
+        statusIndicatorVisible = NSNumber(value: vm.downloading)
+        progressIntermediate = NSNumber(value: vm.progressValue < 0)
+        progress = NSNumber(value: vm.progressValue)
+        
     }
 }
 
