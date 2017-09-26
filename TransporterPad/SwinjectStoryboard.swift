@@ -37,5 +37,9 @@ extension SwinjectStoryboard {
         defaultContainer.storyboardInitCompleted(MainViewController.self) { r, c in
             c.viewModel = r.resolve(MainViewModel.self)!
         }
+        
+        // WindowControllers (failed guard)
+        defaultContainer.storyboardInitCompleted(NSWindowController.self) { _, _ in
+        }
     }
 }
