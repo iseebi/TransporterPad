@@ -7,10 +7,12 @@
 //
 
 import Cocoa
+import Alamofire
 
 class MainViewModel: NSObject {
     let deviceWatcher: DeviceWatcher
     let packageReader: AppPackageReader
+    let tempDirManager: TemporaryDirectoryManager
     
     var devices: [Device] {
         get { return deviceWatcher.devices }
@@ -26,10 +28,29 @@ class MainViewModel: NSObject {
             didChangeValue(forKey: "appPackage")
         }
     }
+    
+    var downloading: Bool = false {
+        willSet {
+            willChangeValue(forKey: "downloading")
+        }
+        didSet(oldValue) {
+            didChangeValue(forKey: "downloading")
+        }
+    }
+    
+    var progressValue: Int = -1 {
+        willSet {
+            willChangeValue(forKey: "progressValue")
+        }
+        didSet(oldValue) {
+            didChangeValue(forKey: "progressValue")
+        }
+    }
 
-    init(deviceWatcher: DeviceWatcher, appPackageReader: AppPackageReader) {
+    init(deviceWatcher: DeviceWatcher, appPackageReader: AppPackageReader, temporaryDirectoryManager: TemporaryDirectoryManager) {
         self.deviceWatcher = deviceWatcher
         self.packageReader = appPackageReader
+        self.tempDirManager = temporaryDirectoryManager
         super.init()
         deviceWatcher.delegate = self
         deviceWatcher.start()
@@ -62,8 +83,33 @@ extension MainViewModel {
         }
     }
     
-    func dropRemoteItem(at: URL) {
+    func dropRemoteItem(at: URL, completeHandler:@escaping (Bool) -> (), errorHandler:@escaping (Error) -> ()) -> Bool {
+        guard let tempDir = tempDirManager.create() else { return false }
+        let tempFile = tempDir.url.appendingPathComponent("downloadtemp")
         
+        let destination: DownloadRequest.DownloadFileDestination = { _, _ in
+            return (tempFile, [.removePreviousFile, .createIntermediateDirectories])
+        }
+        
+        downloading = true
+        progressValue = -1
+        Alamofire.download(at, to: destination)
+            .downloadProgress { [weak self] progress in
+                self?.progressValue = Int(progress.fractionCompleted * 100)
+        }
+            .response { [weak self] response in
+                guard let sself = self else { return }
+                if let err = response.error {
+                    // call error handler
+                    errorHandler(err)
+                }
+                else if let _ = response.response {
+                    completeHandler(sself.dropLocalItem(at: tempFile))
+                }
+                tempDir.cleanup()
+                sself.downloading = false
+        }
+        return true
     }
 }
 

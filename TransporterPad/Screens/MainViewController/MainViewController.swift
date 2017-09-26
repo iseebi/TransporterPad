@@ -8,7 +8,7 @@
 
 import Cocoa
 import CoreFoundation
-import Alamofire
+//import Alamofire
 
 class MainViewController: NSViewController {
     @IBOutlet weak var dragTargetView: DragTargetView!
@@ -67,13 +67,21 @@ class MainViewController: NSViewController {
 extension MainViewController : DragTargetViewDelegate {
 
     func dragTargetView(_ dragTargetView: DragTargetView, dropRemoteURL fileName: String) {
-        NSLog("Remote file:%@", fileName)
-        
-        downloadFile(remoteURLString: fileName)
+        guard let vm = viewModel else { return }
+        guard let url = URL(string: fileName) else { return }
+
+        if !vm.dropRemoteItem(at: url, completeHandler: { result in
+            if !result {
+                // TODO: alert (ダウンロードしたファイルがipa/apkじゃなかった場合)
+            }
+        }, errorHandler: { err in
+            // TODO: alert (ダウンロード失敗した場合)
+        }) {
+            // TODO: alert (ダウンロード開始できなかった場合)
+        }
     }
     
     func dragTargetView(_ dragTargetView: DragTargetView, dropLocalFilePath fileName: String) {
-        NSLog("Local file:%@", fileName)
         guard let vm = viewModel else { return }
 
         let fileURL = URL(fileURLWithPath: fileName)
@@ -81,66 +89,4 @@ extension MainViewController : DragTargetViewDelegate {
             // TODO: alert
         }
     }
-    
-    func processBinary(fileName: String) {
-        // ipa かどうか
-        
-        // apk かどうか
-    }
-
-    func downloadFile(remoteURLString: String) {
-        guard let cacheDir = cacheDir() else { return }
-        let cachePath = cacheFilePath(remoteURLString: remoteURLString, cacheDir: cacheDir)
-        
-        let destination: DownloadRequest.DownloadFileDestination = { _, _ in
-            return (cachePath, [.removePreviousFile, .createIntermediateDirectories])
-        }
-        
-        Alamofire.download(remoteURLString, to: destination).response { [weak self] response in
-            if response.error == nil, let resultPath = response.destinationURL?.path {
-                self?.processBinary(fileName: resultPath)
-            }
-        }
-    }
-    
-    func cacheFilePath(remoteURLString: String, cacheDir: URL) -> URL {
-        var fileURL: URL = cacheDir
-        repeat {
-            let ext = remoteURLString.pathExtension
-            let fileName = String.random(count: 16).appending(ext)
-            fileURL = cacheDir.appendingPathComponent(fileName)
-        } while (!FileManager.default.fileExists(atPath: fileURL.absoluteString))
-        return fileURL
-    }
-
-    func cacheDir() -> URL? {
-        guard let cacheDir = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first else { return nil }
-        let binDir = cacheDir.appendingPathComponent("binaries", isDirectory: true)
-        if (!FileManager.default.fileExists(atPath: binDir.absoluteString)) {
-            if (try? FileManager.default.createDirectory(at: binDir, withIntermediateDirectories: true, attributes: nil)) == nil { return nil }
-        }
-        return binDir
-    }
 }
-
-/*
-extension MainViewController : NSCollectionViewDataSource {
-    func numberOfSections(in collectionView: NSCollectionView) -> Int {
-        return 0
-    }
-
-    func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let vm = viewModel else { return 0 }
-        return vm.devices.count
-    }
-
-    func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
-        let item = collectionView.makeItem(withIdentifier: "DeviceCollectionViewItem", for:indexPath)
-        if let vm = viewModel  {
-            item.representedObject = vm.devices[indexPath.item]
-        }
-        return item
-    }
-}
-*/
-
