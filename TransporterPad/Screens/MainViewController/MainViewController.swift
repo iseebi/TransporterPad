@@ -17,9 +17,38 @@ class MainViewController: NSViewController {
     var viewModel: MainViewModel? {
         willSet {
             self.willChangeValue(forKey: "viewModel")
+            viewModel?.removeObserver(self, forKeyPath: "viewModel")
         }
         didSet {
             self.didChangeValue(forKey: "viewModel")
+            viewModel?.addObserver(self, forKeyPath: "viewModel", options: [.new], context: nil)
+        }
+    }
+    
+    var statusIndicatorVisible: NSNumber = NSNumber(value: false) {
+        willSet {
+            self.willChangeValue(forKey: "statusIndicatorVisible")
+        }
+        didSet {
+            self.didChangeValue(forKey: "statusIndicatorVisible")
+        }
+    }
+    
+    var progress: NSNumber = NSNumber(value: 0) {
+        willSet {
+            self.willChangeValue(forKey: "progress")
+        }
+        didSet {
+            self.didChangeValue(forKey: "progress")
+        }
+    }
+    
+    var progressIntermediate: NSNumber = NSNumber(value: false) {
+        willSet {
+            self.willChangeValue(forKey: "progressIntermediate")
+        }
+        didSet {
+            self.didChangeValue(forKey: "progressIntermediate")
         }
     }
 

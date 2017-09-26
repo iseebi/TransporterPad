@@ -21,11 +21,11 @@ class DeviceCollectionViewItem: NSCollectionViewItem {
     }
     
     override var representedObject: Any? {
-        willSet(newValue) {
+        willSet {
             guard let device = representedObject as? Device else { return }
             device.removeObserver(self, forKeyPath: "compatible")
         }
-        didSet(oldValue) {
+        didSet {
             guard let device = representedObject as? Device else { return }
             device.addObserver(self, forKeyPath: "compatible", options: [.new], context: nil)
             updateImage()

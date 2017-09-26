@@ -17,12 +17,17 @@ import Cocoa
 
     @IBOutlet public weak var delegate: DragTargetViewDelegate!
     
+    var enabled: Bool = true
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         self.register(forDraggedTypes: [NSFilenamesPboardType, NSURLPboardType])
     }
     
     override func draggingEntered(_ sender: NSDraggingInfo) -> NSDragOperation {
+        if !enabled {
+            return .generic
+        }
         if let _ = sender.draggingPasteboard().propertyList(forType: NSFilenamesPboardType) as? [String] {
             return .copy
         }
@@ -33,6 +38,7 @@ import Cocoa
     }
     
     override func performDragOperation(_ sender: NSDraggingInfo) -> Bool {
+        if !enabled { return false }
         let pasteboard = sender.draggingPasteboard()
         if let path = (pasteboard.propertyList(forType: NSFilenamesPboardType) as? [String])?.first {
             self.delegate?.dragTargetView(self, dropLocalFilePath: path)

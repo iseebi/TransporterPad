@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13196"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="box content view" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -220,16 +221,51 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
+                            <progressIndicator wantsLayer="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="c65-78-SEZ">
+                                <rect key="frame" x="430" y="19" width="150" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="Ebt-8y-mEb"/>
+                                </constraints>
+                                <connections>
+                                    <binding destination="XfG-lQ-9wD" name="hidden" keyPath="statusIndicatorVisible" id="qjy-0E-S5a">
+                                        <dictionary key="options">
+                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                        </dictionary>
+                                    </binding>
+                                    <binding destination="XfG-lQ-9wD" name="isIndeterminate" keyPath="progressIntermediate" id="JnC-Qz-Tdq"/>
+                                    <binding destination="XfG-lQ-9wD" name="value" keyPath="progress" id="kEO-yw-ACl"/>
+                                </connections>
+                            </progressIndicator>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2iZ-kk-ezT">
+                                <rect key="frame" x="500" y="35" width="82" height="14"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Downloading..." id="1oA-46-yeh">
+                                    <font key="font" metaFont="smallSystem"/>
+                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <binding destination="XfG-lQ-9wD" name="hidden" keyPath="statusIndicatorVisible" id="Fut-gm-bPD">
+                                        <dictionary key="options">
+                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="8Nc-3S-3Ca" firstAttribute="top" secondItem="OxE-S3-8SB" secondAttribute="bottom" constant="21" id="0IY-oX-qOM"/>
+                            <constraint firstItem="2iZ-kk-ezT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="c65-78-SEZ" secondAttribute="leading" id="26A-lE-g1d"/>
                             <constraint firstItem="FtN-tE-caR" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="3Ip-qQ-NxR"/>
+                            <constraint firstAttribute="bottom" secondItem="c65-78-SEZ" secondAttribute="bottom" constant="20" id="8oy-dH-hD8"/>
                             <constraint firstItem="yhz-PK-Fxo" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="HuN-3R-xFW"/>
+                            <constraint firstItem="2iZ-kk-ezT" firstAttribute="baseline" secondItem="c65-78-SEZ" secondAttribute="firstBaseline" id="Ian-pA-Kjx"/>
+                            <constraint firstAttribute="trailing" secondItem="c65-78-SEZ" secondAttribute="trailing" constant="20" id="TPl-P3-w9M"/>
                             <constraint firstItem="Mar-xd-foB" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="ZII-HA-Wh5"/>
                             <constraint firstItem="yhz-PK-Fxo" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="b2F-ZB-iZV"/>
                             <constraint firstAttribute="trailing" secondItem="yhz-PK-Fxo" secondAttribute="trailing" id="cFi-cQ-jCb"/>
                             <constraint firstItem="FtN-tE-caR" firstAttribute="top" secondItem="M1a-mx-E9M" secondAttribute="bottom" constant="9" id="cgq-i2-U5R"/>
                             <constraint firstAttribute="bottom" secondItem="FtN-tE-caR" secondAttribute="bottom" constant="35" id="dam-Zy-BL1"/>
+                            <constraint firstItem="2iZ-kk-ezT" firstAttribute="trailing" secondItem="c65-78-SEZ" secondAttribute="trailing" id="jhf-Se-N1k"/>
                             <constraint firstItem="8Nc-3S-3Ca" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="sbr-1o-1S6"/>
                             <constraint firstItem="M1a-mx-E9M" firstAttribute="top" secondItem="8Nc-3S-3Ca" secondAttribute="bottom" constant="21" id="wFG-zy-9y9"/>
                         </constraints>
