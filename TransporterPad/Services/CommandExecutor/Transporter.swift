@@ -17,8 +17,11 @@ class Transporter: NSObject {
 
     let environment: Environment
     var delegate: TransporterDelegate?
+    var working: Bool = false
     
     fileprivate var commandQueue: [TransporterQueueItem] = []
+    fileprivate var workingExecutor: CommandExecutor? = nil
+    fileprivate var workingExecutorDelegate: TransporterCommandExecutorDelegate? = nil
     
     init(environment: Environment) {
         self.environment = environment
@@ -26,9 +29,8 @@ class Transporter: NSObject {
     }
     
     func transport(package: AppPackage, targetDevices: [Device], reInstall: Bool) {
+        if working { return }
         let devices = targetDevices.filter { d in d.platform == package.platform }
-        
-        // TODO execution lock
         
         commandQueue = []
         
@@ -40,13 +42,19 @@ class Transporter: NSObject {
         }
         
         // begin
-        
+        NSLog("[TP] begin work")
+        working = true
+        delegate?.transporterStart(self)
         executeNextItem()
     }
     
     private func executeNextItem() {
         if commandQueue.count == 0 {
             // complete
+            NSLog("[TP] finish work")
+            working = false
+            delegate?.transporterFinished(self)
+            return
         }
         let item = commandQueue.removeFirst()
         let env = environment
@@ -59,12 +67,18 @@ class Transporter: NSObject {
             }
             preconditionFailure("Missing command implementation")
         }()
-        executor.delegate = TransporterCommandExecutorDelegate(device: item.device, completionHandler: { [weak self] code in
+        workingExecutor = executor
+        workingExecutorDelegate = TransporterCommandExecutorDelegate(device: item.device, completionHandler: { [weak self] code in
+            NSLog("[TP][%@] command finished", item.device.name)
             guard let sself = self else { return }
             item.device.status = (code == 0) ? .Complete : .Error
+            sself.workingExecutor = nil
+            sself.workingExecutorDelegate = nil
             sself.executeNextItem()
         })
+        executor.delegate = workingExecutorDelegate
         item.device.status = .Transporting
+        NSLog("[TP][%@] command run: %@ %@", item.device.name, executor.launchPath, executor.arguments.joined(separator: " "))
         executor.run()
     }
 }
@@ -98,15 +112,18 @@ fileprivate class TransporterCommandExecutorDelegate: NSObject, CommandExecutorD
     }
     
     func commandExecutor(_: CommandExecutor, receiveStandardInput input: String) {
+        NSLog("[TP][%@] %@", device.name, input)
         self.device.log.append(input)
     }
     
     func commandExecutor(_: CommandExecutor, receiveStandardError input: String) {
+        NSLog("[TP][%@] %@", device.name, input)
         self.device.log.append(input)
     }
     
     func commandExecutor(_: CommandExecutor, processTerminated statusCode: Int) {
         if statusCode != 0 {
+            NSLog("[TP][%@] Program exited with code \(statusCode)", device.name)
             self.device.log.append("\nProgram exited with code \(statusCode)")
         }
         if let handler = completionHandler {

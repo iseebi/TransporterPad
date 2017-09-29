@@ -21,6 +21,7 @@ class MainViewController: NSViewController {
             guard let vm = viewModel else { return }
             vm.removeObserver(self, forKeyPath: "downloading")
             vm.removeObserver(self, forKeyPath: "progressValue")
+            vm.removeObserver(self, forKeyPath: "beamupAvaliable")
         }
         didSet {
             self.didChangeValue(forKey: "viewModel")
@@ -28,6 +29,7 @@ class MainViewController: NSViewController {
             guard let vm = viewModel else { return }
             vm.addObserver(self, forKeyPath: "downloading", options: [.new], context: nil)
             vm.addObserver(self, forKeyPath: "progressValue", options: [.new], context: nil)
+            vm.addObserver(self, forKeyPath: "beamupAvaliable", options: [.new], context: nil)
         }
     }
     
@@ -57,6 +59,15 @@ class MainViewController: NSViewController {
             self.didChangeValue(forKey: "progressIntermediate")
         }
     }
+    
+    var beamupEnabled: NSNumber = NSNumber(value: false) {
+        willSet {
+            self.willChangeValue(forKey: "beamupEnabled")
+        }
+        didSet {
+            self.didChangeValue(forKey: "beamupEnabled")
+        }
+    }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -69,11 +80,22 @@ class MainViewController: NSViewController {
         collectionView.register(NSNib.init(nibNamed: "DeviceCollectionViewItem", bundle: nil), forItemWithIdentifier: "DeviceCollectionViewItem")
     }
     
+    @IBAction func beamupTapped(_ sender: Any) {
+        guard let vm = viewModel else { return }
+        vm.startTransporter(reInstall: false) // TODO checkbox
+    }
+}
+
+extension MainViewController {
+
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if (keyPath == "downloading") {
             updateStatusIndicatorState()
         }
         if (keyPath == "progressValue") {
+            updateStatusIndicatorState()
+        }
+        if (keyPath == "beamupAvaliable") {
             updateStatusIndicatorState()
         }
     }
@@ -83,7 +105,7 @@ class MainViewController: NSViewController {
         statusIndicatorVisible = NSNumber(value: vm.downloading)
         progressIntermediate = NSNumber(value: vm.progressValue < 0)
         progress = NSNumber(value: vm.progressValue)
-        
+        beamupEnabled = NSNumber(value: vm.beamupAvaliable)
     }
 }
 

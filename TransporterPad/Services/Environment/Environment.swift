@@ -33,10 +33,10 @@ class Environment: NSObject {
         embeddedIosDeployToolPath = resourceURL
                 .appendingPathComponent("ios-deploy")
                 .appendingPathComponent("ios-deploy")
-                .absoluteString
+                .path
         embeddedAdbToolPath = resourceURL
                 .appendingPathComponent("android-platform-tools")
                 .appendingPathComponent("adb")
-                .absoluteString
+                .path
     }
 }

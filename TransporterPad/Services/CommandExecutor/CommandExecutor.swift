@@ -17,71 +17,77 @@ protocol CommandExecutorDelegate: class {
 class CommandExecutor: NSObject {
 
     let environment: Environment
+    let launchPath: String
+    let arguments: [String]
+
     weak var delegate: CommandExecutorDelegate?
 
-    fileprivate let proc: Process
-    fileprivate let stdOutPipe: Pipe
-    fileprivate let stdErrPipe: Pipe
+    fileprivate var proc: Process? = nil
+    fileprivate var stdOutPipe: Pipe? = nil
+    fileprivate var stdErrPipe: Pipe? = nil
 
-    init(environment: Environment) {
+    init(environment: Environment, launchPath: String, arguments: [String]) {
         self.environment = environment
-        proc = Process()
-        stdOutPipe = Pipe()
-        stdErrPipe = Pipe()
-        proc.standardOutput = stdOutPipe
-        proc.standardError = stdErrPipe
+        self.launchPath = launchPath
+        self.arguments = arguments
         super.init()
     }
     
     func run() {
-        if (proc.isRunning) { return }
+        if (self.proc?.isRunning ?? false) { return }
 
-        proc.terminationHandler = { [weak self] _ in
+        Thread.detachNewThread { [weak self] in
             guard let sself = self else { return }
+            let proc = Process()
+            let stdOutPipe = Pipe()
+            let stdErrPipe = Pipe()
+            
+            sself.proc = proc
+            sself.stdOutPipe = stdOutPipe
+            sself.stdErrPipe = stdErrPipe
+            
+            proc.standardInput = Pipe()
+            proc.standardOutput = stdOutPipe
+            proc.standardError = stdErrPipe
+            proc.environment = ["NSUnbufferedIO": "YES"]
+            proc.launchPath = sself.launchPath
+            proc.arguments = sself.arguments
+            
+            stdOutPipe.fileHandleForReading.readabilityHandler = { [weak self] h in
+                self?.onStandardInputReceived(data: h.availableData)
+            }
+            stdErrPipe.fileHandleForReading.readabilityHandler = { [weak self] h in
+                self?.onErrorInputReceived(data: h.availableData)
+            }
+            proc.launch()
+            proc.waitUntilExit()
             sself.onTerminate()
         }
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(onStandardInputReceived),
-                                               name: FileHandle.readCompletionNotification,
-                                               object: stdOutPipe.fileHandleForReading)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(onErrorInputReceived),
-                                               name: FileHandle.readCompletionNotification,
-                                               object: stdErrPipe.fileHandleForReading)
-        
-        stdOutPipe.fileHandleForReading.readInBackgroundAndNotify()
-        stdErrPipe.fileHandleForReading.readInBackgroundAndNotify()
-        
-        proc.launch()
     }
     
-    @objc private func onStandardInputReceived(notification: Notification) {
-        if let d = delegate,
-            let userInfo = notification.userInfo,
-            let dataItem = userInfo[NSFileHandleNotificationDataItem] as? Data,
-            let str = String.init(data: dataItem, encoding: .utf8) {
-            d.commandExecutor(self, receiveStandardInput: str)
-        }
-        if proc.isRunning {
-            stdOutPipe.fileHandleForReading.readInBackgroundAndNotify()
+    func onStandardInputReceived(data: Data) {
+        if let delegate = self.delegate,
+            let str = String.init(data: data, encoding: .utf8) {
+            delegate.commandExecutor(self, receiveStandardInput: str)
         }
     }
     
-    @objc private func onErrorInputReceived(notification: Notification) {
-        if let d = delegate,
-            let userInfo = notification.userInfo,
-            let dataItem = userInfo[NSFileHandleNotificationDataItem] as? Data,
-            let str = String.init(data: dataItem, encoding: .utf8) {
-            d.commandExecutor(self, receiveStandardError: str)
-        }
-        if proc.isRunning {
-            stdErrPipe.fileHandleForReading.readInBackgroundAndNotify()
+    func onErrorInputReceived(data: Data) {
+        if let delegate = self.delegate,
+            let str = String.init(data: data, encoding: .utf8) {
+            delegate.commandExecutor(self, receiveStandardError: str)
         }
     }
     
-    private func onTerminate() {
+    func onTerminate() {
+        guard let proc = proc else { return }
+        stdOutPipe?.fileHandleForReading.readabilityHandler = nil
+        stdErrPipe?.fileHandleForReading.readabilityHandler = nil
         proc.terminationHandler = nil
-        NotificationCenter.default.removeObserver(self)
+        
+        stdOutPipe = nil
+        stdErrPipe = nil
+        self.proc = nil
         
         guard let d = delegate else { return }
         d.commandExecutor(self, processTerminated: Int(proc.terminationStatus))
@@ -90,34 +96,36 @@ class CommandExecutor: NSObject {
 
 extension CommandExecutor {
     class func deployCommandExecutor(environment: Environment, package: AppPackage, device: Device) -> CommandExecutor {
-        let executor = CommandExecutor(environment: environment)
+        var launchPath: String
+        var arguments: [String]
         if package.platform == .Android {
-            executor.proc.launchPath = environment.adbToolPath
-            executor.proc.arguments = ["-s", device.serialNumber, "install", package.fileURL.absoluteString]
+            launchPath = environment.adbToolPath
+            arguments = ["-s", device.serialNumber, "install", package.fileURL.path]
         }
         else if package.platform == .iOS {
-            executor.proc.launchPath = environment.iosDeployToolPath
-            executor.proc.arguments = ["-i", device.serialNumber, "-b", package.fileURL.absoluteString]
+            launchPath = environment.iosDeployToolPath
+            arguments = ["-i", device.serialNumber, "-b", package.fileURL.path]
         }
         else {
             preconditionFailure("missing deployCommand implementation")
         }
-        return executor
+        return CommandExecutor(environment: environment, launchPath: launchPath, arguments: arguments)
     }
 
     class func uninstallCommandExecutor(environment: Environment, package: AppPackage, device: Device) -> CommandExecutor {
-        let executor = CommandExecutor(environment: environment)
+        var launchPath: String
+        var arguments: [String]
         if package.platform == .Android {
-            executor.proc.launchPath = environment.adbToolPath
-            executor.proc.arguments = ["-s", device.serialNumber, "uninstall", package.packageName]
+            launchPath = environment.adbToolPath
+            arguments = ["-s", device.serialNumber, "uninstall", package.packageName]
         }
         else if package.platform == .iOS {
-            executor.proc.launchPath = environment.iosDeployToolPath
-            executor.proc.arguments = ["-i", device.serialNumber, "-9", "-1", package.packageName]
+            launchPath = environment.iosDeployToolPath
+            arguments = ["-i", device.serialNumber, "-9", "-1", package.packageName]
         }
         else {
             preconditionFailure("missing uninstallCommand implementation")
         }
-        return executor
+        return CommandExecutor(environment: environment, launchPath: launchPath, arguments: arguments)
     }
 }

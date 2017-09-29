@@ -13,6 +13,7 @@ class MainViewModel: NSObject {
     let deviceWatcher: DeviceWatcher
     let packageReader: AppPackageReader
     let tempDirManager: TemporaryDirectoryManager
+    let transporter: Transporter
     
     var devices: [Device] {
         get { return deviceWatcher.devices }
@@ -21,15 +22,17 @@ class MainViewModel: NSObject {
     var appPackage: AppPackage? = nil {
         willSet {
             willChangeValue(forKey: "appPackage")
+            willChangeValue(forKey: "beamupAvaliable")
         }
         didSet(oldValue) {
             oldValue?.cleanup()
             validateDevices()
             didChangeValue(forKey: "appPackage")
+            didChangeValue(forKey: "beamupAvaliable")
         }
     }
     
-    var downloading: Bool = false {
+    fileprivate(set) var downloading: Bool = false {
         willSet {
             willChangeValue(forKey: "downloading")
         }
@@ -38,7 +41,7 @@ class MainViewModel: NSObject {
         }
     }
     
-    var progressValue: Int = -1 {
+    fileprivate(set) var progressValue: Int = -1 {
         willSet {
             willChangeValue(forKey: "progressValue")
         }
@@ -46,14 +49,39 @@ class MainViewModel: NSObject {
             didChangeValue(forKey: "progressValue")
         }
     }
+    
+    fileprivate(set) var transportWorking: Bool = false {
+        willSet {
+            willChangeValue(forKey: "transportWorking")
+            willChangeValue(forKey: "beamupAvaliable")
+        }
+        didSet(oldValue) {
+            didChangeValue(forKey: "transportWorking")
+            didChangeValue(forKey: "beamupAvaliable")
+        }
+    }
 
-    init(deviceWatcher: DeviceWatcher, appPackageReader: AppPackageReader, temporaryDirectoryManager: TemporaryDirectoryManager) {
+    var beamupAvaliable: Bool {
+        get {
+            return (appPackage != nil) && (devices.first { d in d.compatible } != nil) && (!transportWorking)
+        }
+    }
+
+    init(deviceWatcher: DeviceWatcher, appPackageReader: AppPackageReader, temporaryDirectoryManager: TemporaryDirectoryManager, transporter: Transporter) {
         self.deviceWatcher = deviceWatcher
         self.packageReader = appPackageReader
         self.tempDirManager = temporaryDirectoryManager
+        self.transporter = transporter
         super.init()
         deviceWatcher.delegate = self
         deviceWatcher.start()
+        transporter.delegate = self
+    }
+    
+    func startTransporter(reInstall: Bool) {
+        guard let package = appPackage else { return }
+        
+        self.transporter.transport(package: package, targetDevices: devices, reInstall: reInstall)
     }
 }
 
@@ -124,5 +152,16 @@ extension MainViewModel: DeviceWatcherDelegate {
     func deviceWatcher(_: DeviceWatcher, didRemovedDevice at: Int) {
         willChangeValue(forKey: "devices")
         didChangeValue(forKey: "devices")
+    }
+}
+
+extension MainViewModel: TransporterDelegate {
+    func transporterStart(_: Transporter) {
+        transportWorking = true
+    }
+    
+    func transporterFinished(_: Transporter) {
+        transportWorking = false
+        // TODO: ring bell
     }
 }

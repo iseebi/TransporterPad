@@ -173,6 +173,10 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="beamupTapped:" target="XfG-lQ-9wD" id="eRs-M0-Can"/>
+                                    <binding destination="XfG-lQ-9wD" name="enabled" keyPath="beamupEnabled" id="dl3-8j-Zwc"/>
+                                </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FtN-tE-caR">
                                 <rect key="frame" x="232" y="35" width="136" height="17"/>
@@ -227,13 +231,13 @@
                                     <constraint firstAttribute="width" constant="150" id="Ebt-8y-mEb"/>
                                 </constraints>
                                 <connections>
+                                    <binding destination="XfG-lQ-9wD" name="value" keyPath="progress" id="kEO-yw-ACl"/>
+                                    <binding destination="XfG-lQ-9wD" name="isIndeterminate" keyPath="progressIntermediate" id="JnC-Qz-Tdq"/>
                                     <binding destination="XfG-lQ-9wD" name="hidden" keyPath="statusIndicatorVisible" id="qjy-0E-S5a">
                                         <dictionary key="options">
                                             <string key="NSValueTransformerName">NSNegateBoolean</string>
                                         </dictionary>
                                     </binding>
-                                    <binding destination="XfG-lQ-9wD" name="isIndeterminate" keyPath="progressIntermediate" id="JnC-Qz-Tdq"/>
-                                    <binding destination="XfG-lQ-9wD" name="value" keyPath="progress" id="kEO-yw-ACl"/>
                                 </connections>
                             </progressIndicator>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2iZ-kk-ezT">

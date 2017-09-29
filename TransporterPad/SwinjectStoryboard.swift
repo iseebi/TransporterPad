@@ -25,12 +25,15 @@ extension SwinjectStoryboard {
             .inObjectScope(.container)
         defaultContainer.register(DeviceWatcher.self) { _ in DeviceWatcher() }
             .inObjectScope(.container)
+        defaultContainer.register(Transporter.self) { r in Transporter(environment: r.resolve(Environment.self)!) }
+            .inObjectScope(.container)
 
         // ViewModels
         defaultContainer.register(MainViewModel.self) { r in
             MainViewModel(deviceWatcher: r.resolve(DeviceWatcher.self)!,
                           appPackageReader: r.resolve(AppPackageReader.self)!,
-                          temporaryDirectoryManager: r.resolve(TemporaryDirectoryManager.self)!)
+                          temporaryDirectoryManager: r.resolve(TemporaryDirectoryManager.self)!,
+                          transporter: r.resolve(Transporter.self)!)
         }
 
         // ViewControllers
