@@ -161,7 +161,18 @@ extension MainViewModel: TransporterDelegate {
     }
     
     func transporterFinished(_: Transporter) {
-        transportWorking = false
-        // TODO: ring bell
+        let completion: () -> () = { [weak self] in
+            guard let sself = self else { return }
+            sself.transportWorking = false
+            // TODO: ring bell
+        }
+        if Thread.isMainThread {
+            completion()
+        }
+        else {
+            DispatchQueue.main.async {
+                completion()
+            }
+        }
     }
 }

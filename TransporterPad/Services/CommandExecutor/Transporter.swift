@@ -69,7 +69,7 @@ class Transporter: NSObject {
         }()
         workingExecutor = executor
         workingExecutorDelegate = TransporterCommandExecutorDelegate(device: item.device, completionHandler: { [weak self] code in
-            NSLog("[TP][%@] command finished", item.device.name)
+            item.device.appendLog(string: "command finished")
             guard let sself = self else { return }
             item.device.status = (code == 0) ? .Complete : .Error
             sself.workingExecutor = nil
@@ -78,7 +78,7 @@ class Transporter: NSObject {
         })
         executor.delegate = workingExecutorDelegate
         item.device.status = .Transporting
-        NSLog("[TP][%@] command run: %@ %@", item.device.name, executor.launchPath, executor.arguments.joined(separator: " "))
+        item.device.appendLog(string: "command run \(executor.launchPath) \(executor.arguments.joined(separator: " "))")
         executor.run()
     }
 }
@@ -112,19 +112,16 @@ fileprivate class TransporterCommandExecutorDelegate: NSObject, CommandExecutorD
     }
     
     func commandExecutor(_: CommandExecutor, receiveStandardInput input: String) {
-        NSLog("[TP][%@] %@", device.name, input)
-        self.device.log.append(input)
+        self.device.appendLog(string: input)
     }
     
     func commandExecutor(_: CommandExecutor, receiveStandardError input: String) {
-        NSLog("[TP][%@] %@", device.name, input)
-        self.device.log.append(input)
+        self.device.appendLog(string: input)
     }
     
     func commandExecutor(_: CommandExecutor, processTerminated statusCode: Int) {
         if statusCode != 0 {
-            NSLog("[TP][%@] Program exited with code \(statusCode)", device.name)
-            self.device.log.append("\nProgram exited with code \(statusCode)")
+            self.device.appendLog(string: "Program exited with code \(statusCode)")
         }
         if let handler = completionHandler {
             handler(statusCode)

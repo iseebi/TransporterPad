@@ -50,7 +50,14 @@ class Device: NSObject {
     }
 
     /// 最終の転送ログ
-    var log: String = ""
+    var log: String = "" {
+        willSet {
+            self.willChangeValue(forKey: "log")
+        }
+        didSet {
+            self.didChangeValue(forKey: "log")
+        }
+    }
 
     /// 対応するモバイルデバイスインスタンス
     weak var mobileDevice: EBIMobileDevice?
@@ -69,6 +76,17 @@ class Device: NSObject {
             formfactorName = device.deviceName
             name = ""
         }
+    }
+    
+    func appendLog(string: String) {
+        if !Thread.isMainThread {
+            DispatchQueue.main.async { [weak self] in
+                self?.appendLog(string: string)
+            }
+            return
+        }
+        NSLog("[%@] %@", name, string)
+        log.append(string)
     }
 }
 
