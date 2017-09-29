@@ -25,6 +25,7 @@
 		827682D71F760FDA009B3BAC /* FileManagerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827682D61F760FDA009B3BAC /* FileManagerExtensions.swift */; };
 		827683041F7738FF009B3BAC /* AppPackageReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827683031F7738FF009B3BAC /* AppPackageReader.swift */; };
 		827683061F78DBA0009B3BAC /* AppPackageIconValueTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827683051F78DBA0009B3BAC /* AppPackageIconValueTransformer.swift */; };
+		827AA8001F7DCA65002535FC /* CommandExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827AA7FF1F7DCA65002535FC /* CommandExecutor.swift */; };
 		82AC88FE1F70A54100197ADF /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AC88FD1F70A54100197ADF /* MainViewModel.swift */; };
 		82AC89021F70B22C00197ADF /* DeviceCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AC89001F70B22C00197ADF /* DeviceCollectionViewItem.swift */; };
 		82AC89031F70B22C00197ADF /* DeviceCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82AC89011F70B22C00197ADF /* DeviceCollectionViewItem.xib */; };
@@ -33,6 +34,7 @@
 		82E310411E265A2200A5AD50 /* PlatformCommandManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E310401E265A2200A5AD50 /* PlatformCommandManager.swift */; };
 		82E310471E267F9F00A5AD50 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 82E310461E267F9F00A5AD50 /* libz.tbd */; };
 		82E310661E26820300A5AD50 /* SimpleUnzipper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82E310651E26820300A5AD50 /* SimpleUnzipper.framework */; };
+		82E9D91F1F7E0EDF0088978A /* Transporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E9D91E1F7E0EDF0088978A /* Transporter.swift */; };
 		EAFEC465B20F902792363CF5 /* Pods_TransporterPad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA8C7657480B416EC8EC1324 /* Pods_TransporterPad.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +61,7 @@
 		827682D61F760FDA009B3BAC /* FileManagerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExtensions.swift; sourceTree = "<group>"; };
 		827683031F7738FF009B3BAC /* AppPackageReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPackageReader.swift; sourceTree = "<group>"; };
 		827683051F78DBA0009B3BAC /* AppPackageIconValueTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPackageIconValueTransformer.swift; sourceTree = "<group>"; };
+		827AA7FF1F7DCA65002535FC /* CommandExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandExecutor.swift; sourceTree = "<group>"; };
 		82AC88FD1F70A54100197ADF /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		82AC89001F70B22C00197ADF /* DeviceCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCollectionViewItem.swift; sourceTree = "<group>"; };
 		82AC89011F70B22C00197ADF /* DeviceCollectionViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeviceCollectionViewItem.xib; sourceTree = "<group>"; };
@@ -67,6 +70,7 @@
 		82E310401E265A2200A5AD50 /* PlatformCommandManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlatformCommandManager.swift; sourceTree = "<group>"; };
 		82E310461E267F9F00A5AD50 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		82E310651E26820300A5AD50 /* SimpleUnzipper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SimpleUnzipper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		82E9D91E1F7E0EDF0088978A /* Transporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transporter.swift; sourceTree = "<group>"; };
 		FA8C7657480B416EC8EC1324 /* Pods_TransporterPad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TransporterPad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -132,6 +136,7 @@
 		822300A21F6BA31D00D7E363 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				827AA7FE1F7DC9BC002535FC /* CommandExecutor */,
 				827683021F7738D1009B3BAC /* AppPackage */,
 				827682D11F74F9F3009B3BAC /* TemporaryDirectory */,
 				8207341E1F7265CE00936BA3 /* DeviceWatcher */,
@@ -210,6 +215,15 @@
 				827683031F7738FF009B3BAC /* AppPackageReader.swift */,
 			);
 			path = AppPackage;
+			sourceTree = "<group>";
+		};
+		827AA7FE1F7DC9BC002535FC /* CommandExecutor */ = {
+			isa = PBXGroup;
+			children = (
+				82E9D91E1F7E0EDF0088978A /* Transporter.swift */,
+				827AA7FF1F7DCA65002535FC /* CommandExecutor.swift */,
+			);
+			path = CommandExecutor;
 			sourceTree = "<group>";
 		};
 		82AC88FC1F70A52900197ADF /* ViewModels */ = {
@@ -431,6 +445,7 @@
 				822300C21F6BDFBB00D7E363 /* Environment.swift in Sources */,
 				82E310411E265A2200A5AD50 /* PlatformCommandManager.swift in Sources */,
 				8273D1061F6F8B88005D50B5 /* Device.swift in Sources */,
+				82E9D91F1F7E0EDF0088978A /* Transporter.swift in Sources */,
 				827682D51F74FA5B009B3BAC /* TemporaryDirectory.swift in Sources */,
 				822300C71F6BE79600D7E363 /* SwinjectStoryboard.swift in Sources */,
 				82AC89051F70D77D00197ADF /* DeviceCollectionView.swift in Sources */,
@@ -439,6 +454,7 @@
 				8271BAF41E23AFD900C2EFC1 /* DragTargetView.swift in Sources */,
 				827683061F78DBA0009B3BAC /* AppPackageIconValueTransformer.swift in Sources */,
 				8273D1081F6F8BB7005D50B5 /* AppPackage.swift in Sources */,
+				827AA8001F7DCA65002535FC /* CommandExecutor.swift in Sources */,
 				822300C41F6BE00500D7E363 /* UserSettings.swift in Sources */,
 				8271BAE71E23A76700C2EFC1 /* MainViewController.swift in Sources */,
 				827682D71F760FDA009B3BAC /* FileManagerExtensions.swift in Sources */,
