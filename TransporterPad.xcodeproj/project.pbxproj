@@ -425,7 +425,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "rsync -av $BUILT_PRODUCTS_DIR/SimpleUnzipper.framework $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME/Contents/Frameworks\n";
+			shellScript = "FRAMEWORK_PATH=$BUILT_PRODUCTS_DIR/SimpleUnzipper.framework\nREADLINK_PATH=`readlink $FRAMEWORK_PATH`\nif [ -n $READLINK_PATH ]; then\n  FRAMEWORK_PATH=$READLINK_PATH\nfi\n\nrsync -av $FRAMEWORK_PATH $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME/Contents/Frameworks/\n";
 		};
 		DC0723FA4D6947009988A39B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -520,7 +520,6 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -575,7 +574,6 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -601,7 +599,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = NARTSSS6TY;
 				INFOPLIST_FILE = TransporterPad/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.iseteki.TransporterPad;
@@ -616,7 +613,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = NARTSSS6TY;
 				INFOPLIST_FILE = TransporterPad/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.iseteki.TransporterPad;
