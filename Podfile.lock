@@ -1,8 +1,8 @@
 PODS:
   - Alamofire (4.5.1)
   - EBIAXMLDecompressor (0.1.0)
-  - EBIiOSDeviceWatcher (0.1.0)
-  - EBIMobileDeviceWatcher (0.1.0)
+  - EBIiOSDeviceWatcher (0.1.1)
+  - EBIMobileDeviceWatcher (0.1.1)
   - Swinject (2.1.1)
   - SwinjectStoryboard (1.1.2):
     - Swinject (~> 2.1)
@@ -28,17 +28,17 @@ CHECKOUT OPTIONS:
     :commit: 66a7ff328a86bad2c00c1b7d7630dee39b0b6f47
     :git: https://github.com/iseebi/EBIAXMLDecompressor.git
   EBIiOSDeviceWatcher:
-    :commit: 867da72365f01e811bbb47e6d4d5d62888440932
+    :commit: 127b9773b87dd1827b4b1ceb6e85731ef8924d08
     :git: https://github.com/iseebi/EBIiOSDeviceWatcher.git
   EBIMobileDeviceWatcher:
-    :commit: 1a23aeb192d07ddbce86fdb2ab2db12016e020bf
+    :commit: 14811c1b1417097c0ad7d2c1d2c565f099a0491c
     :git: https://github.com/iseebi/EBIMobileDeviceWatcher.git
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   EBIAXMLDecompressor: 88c66a50cd17a17cdda348177fa4269ab96a6dcc
-  EBIiOSDeviceWatcher: ed1c21403ac6f208c4951be6e3e84529ce8f4153
-  EBIMobileDeviceWatcher: d98e9626a6c4ef8fc3e1ec909470da1158726fbe
+  EBIiOSDeviceWatcher: b61138bed4d84c7c11c29f8611a3f5bc9fd7f81d
+  EBIMobileDeviceWatcher: dec5857f476c369e6b35f92eac538271432ae828
   Swinject: afea49fd95f392b41171669f165842879c48fad6
   SwinjectStoryboard: 92e75763c3299cdf627bef98a5180dc894864336
 

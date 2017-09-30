@@ -24,6 +24,7 @@ class CommandExecutor: NSObject {
 
     weak var delegate: CommandExecutorDelegate?
 
+    fileprivate var runningThread: Thread? = nil
     fileprivate var proc: Process? = nil
     fileprivate var stdOutPipe: Pipe? = nil
     fileprivate var stdErrPipe: Pipe? = nil
@@ -37,34 +38,36 @@ class CommandExecutor: NSObject {
     
     func run() {
         if (self.proc?.isRunning ?? false) { return }
-
-        Thread.detachNewThread { [weak self] in
-            guard let sself = self else { return }
-            let proc = Process()
-            let stdOutPipe = Pipe()
-            let stdErrPipe = Pipe()
-            
-            sself.proc = proc
-            sself.stdOutPipe = stdOutPipe
-            sself.stdErrPipe = stdErrPipe
-            
-            proc.standardInput = Pipe()
-            proc.standardOutput = stdOutPipe
-            proc.standardError = stdErrPipe
-            proc.environment = ["NSUnbufferedIO": "YES"]
-            proc.launchPath = sself.launchPath
-            proc.arguments = sself.arguments
-            
-            stdOutPipe.fileHandleForReading.readabilityHandler = { [weak self] h in
-                self?.onStandardInputReceived(data: h.availableData)
-            }
-            stdErrPipe.fileHandleForReading.readabilityHandler = { [weak self] h in
-                self?.onErrorInputReceived(data: h.availableData)
-            }
-            proc.launch()
-            proc.waitUntilExit()
-            sself.onTerminate()
+        let thread = Thread.init(target: self, selector: #selector(CommandExecutor.threadAction), object: nil)
+        runningThread = thread
+        thread.start()
+    }
+    
+    @objc fileprivate func threadAction() {
+        let proc = Process()
+        let stdOutPipe = Pipe()
+        let stdErrPipe = Pipe()
+        
+        self.proc = proc
+        self.stdOutPipe = stdOutPipe
+        self.stdErrPipe = stdErrPipe
+        
+        proc.standardInput = Pipe()
+        proc.standardOutput = stdOutPipe
+        proc.standardError = stdErrPipe
+        proc.environment = ["NSUnbufferedIO": "YES"]
+        proc.launchPath = self.launchPath
+        proc.arguments = self.arguments
+        
+        stdOutPipe.fileHandleForReading.readabilityHandler = { [weak self] h in
+            self?.onStandardInputReceived(data: h.availableData)
         }
+        stdErrPipe.fileHandleForReading.readabilityHandler = { [weak self] h in
+            self?.onErrorInputReceived(data: h.availableData)
+        }
+        proc.launch()
+        proc.waitUntilExit()
+        self.onTerminate()
     }
     
     func onStandardInputReceived(data: Data) {
@@ -90,6 +93,7 @@ class CommandExecutor: NSObject {
         stdOutPipe = nil
         stdErrPipe = nil
         self.proc = nil
+        runningThread = nil
         
         guard let d = delegate else { return }
         d.commandExecutor(self, processTerminated: Int(proc.terminationStatus))
