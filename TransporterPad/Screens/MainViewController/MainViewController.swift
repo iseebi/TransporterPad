@@ -12,7 +12,7 @@ import CoreFoundation
 
 class MainViewController: NSViewController {
     @IBOutlet weak var dragTargetView: DragTargetView!
-    @IBOutlet weak var collectionView: NSCollectionView!
+    @IBOutlet weak var collectionView: DeviceCollectionView!
 
     var viewModel: MainViewModel? {
         willSet {
@@ -68,6 +68,8 @@ class MainViewController: NSViewController {
             self.didChangeValue(forKey: "beamupEnabled")
         }
     }
+    
+    var detailRequestedDevice: Device? = nil
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -78,6 +80,13 @@ class MainViewController: NSViewController {
         
         dragTargetView.delegate = self
         collectionView.register(NSNib.init(nibNamed: "DeviceCollectionViewItem", bundle: nil), forItemWithIdentifier: "DeviceCollectionViewItem")
+        collectionView.deviceCollectionViewDelegate = self
+    }
+    
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+        if let detailVC = segue.destinationController as? DeviceDetailViewController {
+            detailVC.representedObject = detailRequestedDevice
+        }
     }
     
     @IBAction func beamupTapped(_ sender: Any) {
@@ -106,6 +115,13 @@ extension MainViewController {
         progressIntermediate = NSNumber(value: vm.progressValue < 0)
         progress = NSNumber(value: vm.progressValue)
         beamupEnabled = NSNumber(value: vm.beamupAvaliable)
+    }
+}
+
+extension MainViewController: DeviceCollectionViewDelegate {
+    func deviceCollectionView(_: DeviceCollectionView, deviceDetailRequested device: Device) {
+        detailRequestedDevice = device
+        performSegue(withIdentifier: "deviceDetail", sender: self)
     }
 }
 

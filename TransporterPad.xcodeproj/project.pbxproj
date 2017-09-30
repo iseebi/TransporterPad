@@ -26,10 +26,11 @@
 		827683041F7738FF009B3BAC /* AppPackageReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827683031F7738FF009B3BAC /* AppPackageReader.swift */; };
 		827683061F78DBA0009B3BAC /* AppPackageIconValueTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827683051F78DBA0009B3BAC /* AppPackageIconValueTransformer.swift */; };
 		827AA8001F7DCA65002535FC /* CommandExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827AA7FF1F7DCA65002535FC /* CommandExecutor.swift */; };
+		82A19A2D1F7F37BE003B3490 /* DeviceCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A19A2C1F7F37BE003B3490 /* DeviceCollectionView.swift */; };
+		82A19A301F7F3A78003B3490 /* DeviceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A19A2F1F7F3A78003B3490 /* DeviceDetailViewController.swift */; };
 		82AC88FE1F70A54100197ADF /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AC88FD1F70A54100197ADF /* MainViewModel.swift */; };
 		82AC89021F70B22C00197ADF /* DeviceCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AC89001F70B22C00197ADF /* DeviceCollectionViewItem.swift */; };
 		82AC89031F70B22C00197ADF /* DeviceCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82AC89011F70B22C00197ADF /* DeviceCollectionViewItem.xib */; };
-		82AC89051F70D77D00197ADF /* DeviceCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AC89041F70D77D00197ADF /* DeviceCollectionView.swift */; };
 		82E30FAA1E258CE700A5AD50 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E30FA91E258CE700A5AD50 /* StringExtensions.swift */; };
 		82E310411E265A2200A5AD50 /* PlatformCommandManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E310401E265A2200A5AD50 /* PlatformCommandManager.swift */; };
 		82E310471E267F9F00A5AD50 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 82E310461E267F9F00A5AD50 /* libz.tbd */; };
@@ -62,10 +63,11 @@
 		827683031F7738FF009B3BAC /* AppPackageReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPackageReader.swift; sourceTree = "<group>"; };
 		827683051F78DBA0009B3BAC /* AppPackageIconValueTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPackageIconValueTransformer.swift; sourceTree = "<group>"; };
 		827AA7FF1F7DCA65002535FC /* CommandExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandExecutor.swift; sourceTree = "<group>"; };
+		82A19A2C1F7F37BE003B3490 /* DeviceCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCollectionView.swift; sourceTree = "<group>"; };
+		82A19A2F1F7F3A78003B3490 /* DeviceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetailViewController.swift; sourceTree = "<group>"; };
 		82AC88FD1F70A54100197ADF /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		82AC89001F70B22C00197ADF /* DeviceCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCollectionViewItem.swift; sourceTree = "<group>"; };
 		82AC89011F70B22C00197ADF /* DeviceCollectionViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeviceCollectionViewItem.xib; sourceTree = "<group>"; };
-		82AC89041F70D77D00197ADF /* DeviceCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCollectionView.swift; sourceTree = "<group>"; };
 		82E30FA91E258CE700A5AD50 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		82E310401E265A2200A5AD50 /* PlatformCommandManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlatformCommandManager.swift; sourceTree = "<group>"; };
 		82E310461E267F9F00A5AD50 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -110,6 +112,7 @@
 			children = (
 				8223009F1F6BA2D400D7E363 /* ViewParts */,
 				82AC88FF1F70B1F700197ADF /* MainViewController */,
+				82A19A2E1F7F3A53003B3490 /* DeviceDetailViewController */,
 				8271BAEA1E23A76700C2EFC1 /* Main.storyboard */,
 			);
 			path = Screens;
@@ -226,6 +229,14 @@
 			path = CommandExecutor;
 			sourceTree = "<group>";
 		};
+		82A19A2E1F7F3A53003B3490 /* DeviceDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				82A19A2F1F7F3A78003B3490 /* DeviceDetailViewController.swift */,
+			);
+			path = DeviceDetailViewController;
+			sourceTree = "<group>";
+		};
 		82AC88FC1F70A52900197ADF /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,8 +249,8 @@
 			isa = PBXGroup;
 			children = (
 				8271BAE61E23A76700C2EFC1 /* MainViewController.swift */,
+				82A19A2C1F7F37BE003B3490 /* DeviceCollectionView.swift */,
 				82AC89001F70B22C00197ADF /* DeviceCollectionViewItem.swift */,
-				82AC89041F70D77D00197ADF /* DeviceCollectionView.swift */,
 				82AC89011F70B22C00197ADF /* DeviceCollectionViewItem.xib */,
 			);
 			path = MainViewController;
@@ -443,12 +454,13 @@
 			files = (
 				82E30FAA1E258CE700A5AD50 /* StringExtensions.swift in Sources */,
 				822300C21F6BDFBB00D7E363 /* Environment.swift in Sources */,
+				82A19A301F7F3A78003B3490 /* DeviceDetailViewController.swift in Sources */,
+				82A19A2D1F7F37BE003B3490 /* DeviceCollectionView.swift in Sources */,
 				82E310411E265A2200A5AD50 /* PlatformCommandManager.swift in Sources */,
 				8273D1061F6F8B88005D50B5 /* Device.swift in Sources */,
 				82E9D91F1F7E0EDF0088978A /* Transporter.swift in Sources */,
 				827682D51F74FA5B009B3BAC /* TemporaryDirectory.swift in Sources */,
 				822300C71F6BE79600D7E363 /* SwinjectStoryboard.swift in Sources */,
-				82AC89051F70D77D00197ADF /* DeviceCollectionView.swift in Sources */,
 				82AC88FE1F70A54100197ADF /* MainViewModel.swift in Sources */,
 				827683041F7738FF009B3BAC /* AppPackageReader.swift in Sources */,
 				8271BAF41E23AFD900C2EFC1 /* DragTargetView.swift in Sources */,

@@ -21,6 +21,13 @@ class DeviceCollectionViewItem: NSCollectionViewItem {
         updateDeviceImage()
     }
     
+    @IBAction func detailButtonTapped(_ sender: Any) {
+        guard let deviceCollectionView = collectionView as? DeviceCollectionView,
+            let device = self.representedObject as? Device
+            else { return }
+        deviceCollectionView.onDeviceDetailRequesting(device)
+    }
+    
     override var representedObject: Any? {
         willSet {
             guard let device = representedObject as? Device else { return }

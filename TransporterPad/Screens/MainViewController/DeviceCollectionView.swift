@@ -2,20 +2,21 @@
 //  DeviceCollectionView.swift
 //  TransporterPad
 //
-//  Created by Nobuhiro Ito on 2017/09/19.
+//  Created by Nobuhiro Ito on 9/30/17.
 //  Copyright © 2017 Nobuhiro Ito. All rights reserved.
 //
 
 import Cocoa
 
-class DeviceCollectionView: NSView {
+protocol DeviceCollectionViewDelegate : class {
+    func deviceCollectionView(_: DeviceCollectionView, deviceDetailRequested device: Device)
+}
 
-    /* debug purpose
-    override func draw(_ dirtyRect: NSRect) {
-        NSColor.gray.setFill()
-        NSRectFill(dirtyRect)
-        super.draw(dirtyRect)
-    }
-     */
+class DeviceCollectionView: NSCollectionView {
+
+    var deviceCollectionViewDelegate: DeviceCollectionViewDelegate?
     
+    func onDeviceDetailRequesting(_ device:Device) {
+        deviceCollectionViewDelegate?.deviceCollectionView(self, deviceDetailRequested: device)
+    }
 }
