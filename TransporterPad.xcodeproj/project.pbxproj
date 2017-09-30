@@ -425,7 +425,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "FRAMEWORK_PATH=$BUILT_PRODUCTS_DIR/SimpleUnzipper.framework\nREADLINK_PATH=`readlink $FRAMEWORK_PATH`\nif [ -n $READLINK_PATH ]; then\n  FRAMEWORK_PATH=$READLINK_PATH\nfi\n\nrsync -av $FRAMEWORK_PATH $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME/Contents/Frameworks/\n";
+			shellScript = "FRAMEWORK_PATH=$BUILT_PRODUCTS_DIR/SimpleUnzipper.framework\nREADLINK_PATH=`readlink $FRAMEWORK_PATH`\nif [ -n $READLINK_PATH ]; then\n  FRAMEWORK_PATH=$READLINK_PATH\nfi\nmkdir -p $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME/Contents/Frameworks/\n\nrsync -av $FRAMEWORK_PATH $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME/Contents/Frameworks/\n";
 		};
 		DC0723FA4D6947009988A39B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
