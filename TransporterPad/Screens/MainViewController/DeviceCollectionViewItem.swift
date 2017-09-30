@@ -10,6 +10,7 @@ import Cocoa
 
 class DeviceCollectionViewItem: NSCollectionViewItem {
     @IBOutlet weak var deviceImageView: NSImageView!
+    @IBOutlet weak var statusImageView: NSImageView!
     
     deinit {
         self.representedObject = nil
@@ -17,40 +18,71 @@ class DeviceCollectionViewItem: NSCollectionViewItem {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateImage()
+        updateDeviceImage()
     }
     
     override var representedObject: Any? {
         willSet {
             guard let device = representedObject as? Device else { return }
             device.removeObserver(self, forKeyPath: "compatible")
+            device.removeObserver(self, forKeyPath: "status")
         }
         didSet {
             guard let device = representedObject as? Device else { return }
             device.addObserver(self, forKeyPath: "compatible", options: [.new], context: nil)
-            updateImage()
+            device.addObserver(self, forKeyPath: "status", options: [.new], context: nil)
+            updateDeviceImage()
         }
     }
 
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if (keyPath == "compatible") {
-            updateImage()
+            updateDeviceImage()
+        }
+        else if (keyPath == "status") {
+            updateStatusImage()
         }
     }
-    
-    func updateImage() {
+
+    private func updateDeviceImage() {
         if deviceImageView == nil { return }
         if let device = representedObject as? Device {
             if (device.platform == .Android) {
                 deviceImageView.image =  device.compatible
-                    ? NSImage(named: "device_android")
-                    : NSImage(named: "device_android_disable")
+                    ? #imageLiteral(resourceName: "device_android")
+                    : #imageLiteral(resourceName: "device_android_disable")
             }
             else if (device.platform == .iOS) {
                 deviceImageView.image = device.compatible
-                    ? NSImage(named: "device_iphone")
-                    : NSImage(named: "device_iphone_disable")
+                    ? #imageLiteral(resourceName: "device_iphone")
+                    : #imageLiteral(resourceName: "device_iphone_disable")
+            }
+            else {
+                preconditionFailure("Unimplemented platform")
             }
         }
+    }
+
+    private func updateStatusImage() {
+        if statusImageView == nil { return }
+        if let device = representedObject as? Device {
+            if device.status == .Waiting {
+                statusImageView.image = #imageLiteral(resourceName: "status_waiting")
+                return
+            }
+            else if device.status == .Transporting {
+                statusImageView.image = #imageLiteral(resourceName: "status_transporting")
+                return
+            }
+            else if device.status == .Complete {
+                statusImageView.image = #imageLiteral(resourceName: "status_complete")
+                return
+            }
+            else if device.status == .Error {
+                statusImageView.image = #imageLiteral(resourceName: "status_error")
+                return
+            }
+        }
+        statusImageView.image = nil
     }
 }

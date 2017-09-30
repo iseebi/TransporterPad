@@ -5,7 +5,7 @@
 
 import Foundation
 
-enum DeviceStatus {
+@objc enum DeviceStatus: Int {
     case Initializing
     case Idle
     case Waiting

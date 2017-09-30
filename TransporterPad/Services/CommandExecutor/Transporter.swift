@@ -31,7 +31,7 @@ class Transporter: NSObject {
     func transport(package: AppPackage, targetDevices: [Device], reInstall: Bool) {
         if working { return }
         let devices = targetDevices.filter { d in d.platform == package.platform }
-        
+        devices.forEach{ d in d.status = .Waiting }
         commandQueue = []
         
         for device in devices {
@@ -68,13 +68,15 @@ class Transporter: NSObject {
             preconditionFailure("Missing command implementation")
         }()
         workingExecutor = executor
-        workingExecutorDelegate = TransporterCommandExecutorDelegate(device: item.device, completionHandler: { [weak self] code in
-            item.device.appendLog(string: "command finished")
-            guard let sself = self else { return }
-            item.device.status = (code == 0) ? .Complete : .Error
-            sself.workingExecutor = nil
-            sself.workingExecutorDelegate = nil
-            sself.executeNextItem()
+        workingExecutorDelegate = TransporterCommandExecutorDelegate(device: item.device, completionHandler: { code in
+            DispatchQueue.main.async { [weak self] in
+                item.device.appendLog(string: "command finished")
+                guard let sself = self else { return }
+                item.device.status = (code == 0) ? .Complete : .Error
+                sself.workingExecutor = nil
+                sself.workingExecutorDelegate = nil
+                sself.executeNextItem()
+            }
         })
         executor.delegate = workingExecutorDelegate
         item.device.status = .Transporting
