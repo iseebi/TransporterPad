@@ -132,17 +132,17 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="MainViewController" customModule="TransporterPad" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl" customClass="DragTargetView" customModule="TransporterPad" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="505"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="545"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <box boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="Mar-xd-foB">
-                                <rect key="frame" x="234" y="60" width="133" height="133"/>
+                                <rect key="frame" x="229" y="60" width="143" height="143"/>
                                 <view key="contentView" id="M1a-mx-E9M">
-                                    <rect key="frame" x="1" y="1" width="131" height="131"/>
+                                    <rect key="frame" x="1" y="1" width="141" height="141"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button translatesAutoresizingMaskIntoConstraints="NO" id="1cM-aQ-QM8">
-                                            <rect key="frame" x="-1" y="0.0" width="132" height="132"/>
+                                            <rect key="frame" x="-1" y="0.0" width="142" height="142"/>
                                             <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="kuZ-xb-kCH">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -168,7 +168,7 @@
                                 </constraints>
                             </box>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8Nc-3S-3Ca">
-                                <rect key="frame" x="252" y="206" width="96" height="32"/>
+                                <rect key="frame" x="252" y="216" width="96" height="32"/>
                                 <buttonCell key="cell" type="push" title="Beam UP" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aeU-f9-tLP">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -194,16 +194,16 @@
                                 </connections>
                             </textField>
                             <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhz-PK-Fxo">
-                                <rect key="frame" x="0.0" y="255" width="600" height="250"/>
+                                <rect key="frame" x="0.0" y="265" width="600" height="280"/>
                                 <clipView key="contentView" drawsBackground="NO" id="OxE-S3-8SB">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="250"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="280"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <collectionView id="e9g-75-4uO" customClass="DeviceCollectionView" customModule="TransporterPad" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="158"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" scrollDirection="horizontal" id="Zcz-2a-NgI">
-                                                <size key="itemSize" width="140" height="240"/>
+                                                <size key="itemSize" width="140" height="280"/>
                                             </collectionViewFlowLayout>
                                             <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <connections>
@@ -214,7 +214,7 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="250" id="Cke-A5-j0n"/>
+                                    <constraint firstAttribute="height" constant="280" id="Cke-A5-j0n"/>
                                 </constraints>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="3JH-oc-yPS">
                                     <rect key="frame" x="1" y="-15" width="0.0" height="16"/>
@@ -310,7 +310,7 @@
                     </connections>
                 </objectController>
             </objects>
-            <point key="canvasLocation" x="832" y="322.5"/>
+            <point key="canvasLocation" x="832" y="342.5"/>
         </scene>
         <!--Device Detail View Controller-->
         <scene sceneID="bN4-w0-dkX">

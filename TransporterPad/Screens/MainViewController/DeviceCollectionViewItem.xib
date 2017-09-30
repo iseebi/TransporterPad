@@ -43,16 +43,6 @@
                         <binding destination="yY0-3n-FUy" name="value" keyPath="representedObject.formfactorName" id="XOm-Nc-POb"/>
                     </connections>
                 </textField>
-                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="M5s-mg-pDF">
-                    <rect key="frame" x="256" y="21" width="39" height="38"/>
-                    <buttonCell key="cell" type="round" title="i" bezelStyle="circular" alignment="center" borderStyle="border" inset="2" id="vul-k5-WVF">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="detailButtonTapped:" target="yY0-3n-FUy" id="L3v-WS-CBL"/>
-                    </connections>
-                </button>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jfz-le-fTy">
                     <rect key="frame" x="252" y="82" width="48" height="48"/>
                     <constraints>
@@ -61,16 +51,26 @@
                     </constraints>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="3EU-zu-qgI"/>
                 </imageView>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="M5s-mg-pDF">
+                    <rect key="frame" x="221" y="-7" width="39" height="38"/>
+                    <buttonCell key="cell" type="round" title="i" bezelStyle="circular" alignment="center" borderStyle="border" inset="2" id="vul-k5-WVF">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="detailButtonTapped:" target="yY0-3n-FUy" id="L3v-WS-CBL"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstItem="pwV-TZ-jlL" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="0i6-nM-Lcf"/>
                 <constraint firstItem="kYC-Nb-c0B" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="10" id="73U-gl-WJT"/>
                 <constraint firstItem="sTq-gL-jQ8" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="9Jp-2b-Gkf"/>
                 <constraint firstItem="Jfz-le-fTy" firstAttribute="trailing" secondItem="kYC-Nb-c0B" secondAttribute="trailing" id="BhB-6b-8bt"/>
-                <constraint firstItem="M5s-mg-pDF" firstAttribute="leading" secondItem="pwV-TZ-jlL" secondAttribute="trailing" constant="8" id="CAH-MG-B4r"/>
+                <constraint firstItem="M5s-mg-pDF" firstAttribute="top" secondItem="pwV-TZ-jlL" secondAttribute="bottom" constant="8" id="Dbi-bY-aLz"/>
+                <constraint firstItem="M5s-mg-pDF" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="EdV-Yc-j7j"/>
                 <constraint firstItem="kYC-Nb-c0B" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="Hgu-nr-PjT"/>
                 <constraint firstItem="pwV-TZ-jlL" firstAttribute="top" secondItem="sTq-gL-jQ8" secondAttribute="bottom" constant="8" id="MRT-zg-syN"/>
-                <constraint firstItem="M5s-mg-pDF" firstAttribute="centerY" secondItem="pwV-TZ-jlL" secondAttribute="centerY" id="bw2-tX-b50"/>
                 <constraint firstItem="sTq-gL-jQ8" firstAttribute="top" secondItem="kYC-Nb-c0B" secondAttribute="bottom" constant="8" id="g7P-g3-yln"/>
                 <constraint firstItem="Jfz-le-fTy" firstAttribute="bottom" secondItem="kYC-Nb-c0B" secondAttribute="bottom" id="iib-uw-mbc"/>
             </constraints>
