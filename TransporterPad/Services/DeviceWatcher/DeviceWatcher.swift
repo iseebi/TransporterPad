@@ -50,6 +50,7 @@ class DeviceWatcher: NSObject {
                 device.name = name
             }
         }
+        device.status = .Idle
         devices.append(device)
         delegate?.deviceWatcher(self, addedDevice: device)
     }

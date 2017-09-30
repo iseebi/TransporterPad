@@ -80,7 +80,11 @@ class MainViewModel: NSObject {
     
     func startTransporter(reInstall: Bool) {
         guard let package = appPackage else { return }
-        
+        devices.forEach { d in
+            if d.status != .Initializing {
+                d.status = .Idle
+            }
+        }
         self.transporter.transport(package: package, targetDevices: devices, reInstall: reInstall)
     }
 }
