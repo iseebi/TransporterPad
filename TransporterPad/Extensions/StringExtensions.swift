@@ -2,9 +2,6 @@
 //  StringExtensions.swift
 //  TransporterPad
 //
-//  Created by Nobuhiro Ito on 2017/01/11.
-//  Copyright © 2017 Nobuhiro Ito. All rights reserved.
-//
 
 import Foundation
 

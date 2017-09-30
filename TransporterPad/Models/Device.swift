@@ -3,7 +3,9 @@
 //  TransporterPad
 //
 //  Created by Nobuhiro Ito on 2017/09/18.
-//  Copyright © 2017 Nobuhiro Ito. All rights reserved.
+//  Copyright © 2017 Nobuhiro Ito.
+//
+//  This file is part of TranspoterPad. Licensed in GPLv3.
 //
 
 import Foundation
