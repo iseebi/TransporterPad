@@ -255,6 +255,13 @@
                                     </binding>
                                 </connections>
                             </textField>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="50d-6n-Pim">
+                                <rect key="frame" x="18" y="18" width="80" height="18"/>
+                                <buttonCell key="cell" type="check" title="Re-Install" bezelStyle="regularSquare" imagePosition="left" inset="2" id="gTx-wu-UZ4">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="8Nc-3S-3Ca" firstAttribute="top" secondItem="OxE-S3-8SB" secondAttribute="bottom" constant="21" id="0IY-oX-qOM"/>
@@ -263,6 +270,7 @@
                             <constraint firstAttribute="bottom" secondItem="c65-78-SEZ" secondAttribute="bottom" constant="20" id="8oy-dH-hD8"/>
                             <constraint firstItem="yhz-PK-Fxo" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="HuN-3R-xFW"/>
                             <constraint firstItem="2iZ-kk-ezT" firstAttribute="baseline" secondItem="c65-78-SEZ" secondAttribute="firstBaseline" id="Ian-pA-Kjx"/>
+                            <constraint firstItem="50d-6n-Pim" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="Ie5-ZR-q2o"/>
                             <constraint firstAttribute="trailing" secondItem="c65-78-SEZ" secondAttribute="trailing" constant="20" id="TPl-P3-w9M"/>
                             <constraint firstItem="Mar-xd-foB" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="ZII-HA-Wh5"/>
                             <constraint firstItem="yhz-PK-Fxo" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="b2F-ZB-iZV"/>
@@ -270,13 +278,16 @@
                             <constraint firstItem="FtN-tE-caR" firstAttribute="top" secondItem="M1a-mx-E9M" secondAttribute="bottom" constant="9" id="cgq-i2-U5R"/>
                             <constraint firstAttribute="bottom" secondItem="FtN-tE-caR" secondAttribute="bottom" constant="35" id="dam-Zy-BL1"/>
                             <constraint firstItem="2iZ-kk-ezT" firstAttribute="trailing" secondItem="c65-78-SEZ" secondAttribute="trailing" id="jhf-Se-N1k"/>
+                            <constraint firstItem="FtN-tE-caR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="50d-6n-Pim" secondAttribute="trailing" constant="20" id="sSZ-Lu-cCq"/>
                             <constraint firstItem="8Nc-3S-3Ca" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="sbr-1o-1S6"/>
+                            <constraint firstAttribute="bottom" secondItem="50d-6n-Pim" secondAttribute="bottom" constant="20" id="w1t-BY-qQb"/>
                             <constraint firstItem="M1a-mx-E9M" firstAttribute="top" secondItem="8Nc-3S-3Ca" secondAttribute="bottom" constant="21" id="wFG-zy-9y9"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="e9g-75-4uO" id="20k-U7-3cl"/>
                         <outlet property="dragTargetView" destination="m2S-Jp-Qdl" id="Q77-pC-hoS"/>
+                        <outlet property="reInstallCheck" destination="50d-6n-Pim" id="E4t-Gy-bjD"/>
                         <segue destination="n4c-5G-7yB" kind="sheet" identifier="deviceDetail" id="Ge6-KF-b83"/>
                     </connections>
                 </viewController>

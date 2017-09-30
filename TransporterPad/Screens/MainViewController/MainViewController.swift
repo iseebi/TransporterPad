@@ -13,6 +13,7 @@ import CoreFoundation
 class MainViewController: NSViewController {
     @IBOutlet weak var dragTargetView: DragTargetView!
     @IBOutlet weak var collectionView: DeviceCollectionView!
+    @IBOutlet weak var reInstallCheck: NSButton!
 
     var viewModel: MainViewModel? {
         willSet {
@@ -91,7 +92,8 @@ class MainViewController: NSViewController {
     
     @IBAction func beamupTapped(_ sender: Any) {
         guard let vm = viewModel else { return }
-        vm.startTransporter(reInstall: false) // TODO checkbox
+        let reinstall = (reInstallCheck.state == NSOnState)
+        vm.startTransporter(reInstall: reinstall)
     }
 }
 
