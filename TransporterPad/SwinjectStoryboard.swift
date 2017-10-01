@@ -44,9 +44,15 @@ extension SwinjectStoryboard {
         }
         defaultContainer.storyboardInitCompleted(DeviceDetailViewController.self) { r, c in
         }
+        defaultContainer.storyboardInitCompleted(AboutViewController.self) { _, _ in
+        }
+        defaultContainer.storyboardInitCompleted(LicenseViewController.self) { _, _ in
+        }
 
-        // WindowControllers (failed guard)
+        // (Fail Guards)
         defaultContainer.storyboardInitCompleted(NSWindowController.self) { _, _ in
+        }
+        defaultContainer.storyboardInitCompleted(NSViewController.self) { _, _ in
         }
     }
 }

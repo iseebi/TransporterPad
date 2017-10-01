@@ -13,6 +13,9 @@
 		822300C21F6BDFBB00D7E363 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822300C11F6BDFBB00D7E363 /* Environment.swift */; };
 		822300C41F6BE00500D7E363 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822300C31F6BE00500D7E363 /* UserSettings.swift */; };
 		822300C71F6BE79600D7E363 /* SwinjectStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822300C61F6BE79600D7E363 /* SwinjectStoryboard.swift */; };
+		824D63A81F80F01A00C47E6F /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824D63A71F80F01A00C47E6F /* AboutViewController.swift */; };
+		824D63AB1F80F04800C47E6F /* LicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824D63AA1F80F04800C47E6F /* LicenseViewController.swift */; };
+		824D63AD1F81173C00C47E6F /* acknowledgements.html in Resources */ = {isa = PBXBuildFile; fileRef = 824D63AC1F8113A400C47E6F /* acknowledgements.html */; };
 		8271BAE51E23A76700C2EFC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8271BAE41E23A76700C2EFC1 /* AppDelegate.swift */; };
 		8271BAE71E23A76700C2EFC1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8271BAE61E23A76700C2EFC1 /* MainViewController.swift */; };
 		8271BAE91E23A76700C2EFC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8271BAE81E23A76700C2EFC1 /* Assets.xcassets */; };
@@ -48,6 +51,9 @@
 		822300C11F6BDFBB00D7E363 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		822300C31F6BE00500D7E363 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		822300C61F6BE79600D7E363 /* SwinjectStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwinjectStoryboard.swift; sourceTree = "<group>"; };
+		824D63A71F80F01A00C47E6F /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		824D63AA1F80F04800C47E6F /* LicenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseViewController.swift; sourceTree = "<group>"; };
+		824D63AC1F8113A400C47E6F /* acknowledgements.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = acknowledgements.html; sourceTree = "<group>"; };
 		8271BAE11E23A76700C2EFC1 /* TransporterPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransporterPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8271BAE41E23A76700C2EFC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8271BAE61E23A76700C2EFC1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +119,8 @@
 				8223009F1F6BA2D400D7E363 /* ViewParts */,
 				82AC88FF1F70B1F700197ADF /* MainViewController */,
 				82A19A2E1F7F3A53003B3490 /* DeviceDetailViewController */,
+				824D63A61F80EFE800C47E6F /* AboutViewController */,
+				824D63A91F80F02600C47E6F /* LicenseViewController */,
 				8271BAEA1E23A76700C2EFC1 /* Main.storyboard */,
 			);
 			path = Screens;
@@ -158,6 +166,22 @@
 			path = Environment;
 			sourceTree = "<group>";
 		};
+		824D63A61F80EFE800C47E6F /* AboutViewController */ = {
+			isa = PBXGroup;
+			children = (
+				824D63A71F80F01A00C47E6F /* AboutViewController.swift */,
+			);
+			path = AboutViewController;
+			sourceTree = "<group>";
+		};
+		824D63A91F80F02600C47E6F /* LicenseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				824D63AA1F80F04800C47E6F /* LicenseViewController.swift */,
+			);
+			path = LicenseViewController;
+			sourceTree = "<group>";
+		};
 		8271BAD81E23A76700C2EFC1 = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +211,7 @@
 				8271BAE41E23A76700C2EFC1 /* AppDelegate.swift */,
 				822300C61F6BE79600D7E363 /* SwinjectStoryboard.swift */,
 				8271BAE81E23A76700C2EFC1 /* Assets.xcassets */,
+				824D63AC1F8113A400C47E6F /* acknowledgements.html */,
 				8271BAED1E23A76700C2EFC1 /* Info.plist */,
 			);
 			path = TransporterPad;
@@ -336,6 +361,7 @@
 				8271BAE91E23A76700C2EFC1 /* Assets.xcassets in Resources */,
 				82AC89031F70B22C00197ADF /* DeviceCollectionViewItem.xib in Resources */,
 				8271BAEC1E23A76700C2EFC1 /* Main.storyboard in Resources */,
+				824D63AD1F81173C00C47E6F /* acknowledgements.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,7 +437,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "TOOLS_SRC_DIR=\"${SRCROOT}/DeployTools/tools/\"\nRES_TARGET_DIR=\"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}\"\nCMD_RSYNC=\"rsync -a\"\n\n$CMD_RSYNC $TOOLS_SRC_DIR/ios-deploy $RES_TARGET_DIR/\n$CMD_RSYNC $TOOLS_SRC_DIR/android-platform-tools $RES_TARGET_DIR/";
+			shellScript = "TOOLS_SRC_DIR=\"${SRCROOT}/DeployTools/tools/\"\nRES_TARGET_DIR=\"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}\"\nCMD_RSYNC=\"rsync -av\"\n\n$CMD_RSYNC $TOOLS_SRC_DIR/ios-deploy $RES_TARGET_DIR/\n$CMD_RSYNC --include='android-platform-tools/' --include='adb' --exclude='*' $TOOLS_SRC_DIR/android-platform-tools $RES_TARGET_DIR/";
 		};
 		82E310671E2686F500A5AD50 /* Embed SimpleUnzipper */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -470,7 +496,9 @@
 				822300C41F6BE00500D7E363 /* UserSettings.swift in Sources */,
 				8271BAE71E23A76700C2EFC1 /* MainViewController.swift in Sources */,
 				827682D71F760FDA009B3BAC /* FileManagerExtensions.swift in Sources */,
+				824D63A81F80F01A00C47E6F /* AboutViewController.swift in Sources */,
 				8271BAE51E23A76700C2EFC1 /* AppDelegate.swift in Sources */,
+				824D63AB1F80F04800C47E6F /* LicenseViewController.swift in Sources */,
 				82AC89021F70B22C00197ADF /* DeviceCollectionViewItem.swift in Sources */,
 				5BD6AE452575DAD458C4CD66 /* Platform.swift in Sources */,
 				820734201F7265E500936BA3 /* DeviceWatcher.swift in Sources */,
