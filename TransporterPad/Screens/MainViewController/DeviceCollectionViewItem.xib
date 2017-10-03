@@ -15,7 +15,7 @@
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sTq-gL-jQ8">
                     <rect key="frame" x="222" y="57" width="37" height="17"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="ZXA-Lc-0Vz">
+                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Label" id="ZXA-Lc-0Vz">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -72,7 +72,9 @@
                 <constraint firstItem="kYC-Nb-c0B" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="Hgu-nr-PjT"/>
                 <constraint firstItem="pwV-TZ-jlL" firstAttribute="top" secondItem="sTq-gL-jQ8" secondAttribute="bottom" constant="8" id="MRT-zg-syN"/>
                 <constraint firstItem="sTq-gL-jQ8" firstAttribute="top" secondItem="kYC-Nb-c0B" secondAttribute="bottom" constant="8" id="g7P-g3-yln"/>
+                <constraint firstItem="sTq-gL-jQ8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="10" id="hH6-cL-LZB"/>
                 <constraint firstItem="Jfz-le-fTy" firstAttribute="bottom" secondItem="kYC-Nb-c0B" secondAttribute="bottom" id="iib-uw-mbc"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="sTq-gL-jQ8" secondAttribute="trailing" constant="10" id="twN-2a-LGn"/>
             </constraints>
         </customView>
         <collectionViewItem id="yY0-3n-FUy" customClass="DeviceCollectionViewItem" customModule="TransporterPad" customModuleProvider="target">
