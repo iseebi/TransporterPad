@@ -10,8 +10,21 @@ import Cocoa
 
 class AboutViewController: NSViewController {
 
+    var versionString: String? {
+        willSet {
+            willChangeValue(forKey: "versionString")
+        }
+        didSet {
+            didChangeValue(forKey: "versionString")
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let infoDict = Bundle.main.infoDictionary,
+            let version = infoDict["CFBundleShortVersionString"] as? String {
+            versionString = String(format:"Version %@", version)
+        }
     }
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
