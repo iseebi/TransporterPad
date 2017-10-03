@@ -76,6 +76,7 @@
 		82AC89001F70B22C00197ADF /* DeviceCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCollectionViewItem.swift; sourceTree = "<group>"; };
 		82AC89011F70B22C00197ADF /* DeviceCollectionViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeviceCollectionViewItem.xib; sourceTree = "<group>"; };
 		82DE400F1F83A9A800965F77 /* license.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = license.html; sourceTree = "<group>"; };
+		82DE40111F83B3DC00965F77 /* TransporterPad.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TransporterPad.entitlements; sourceTree = "<group>"; };
 		82E30FA91E258CE700A5AD50 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		82E310401E265A2200A5AD50 /* PlatformCommandManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlatformCommandManager.swift; sourceTree = "<group>"; };
 		82E310461E267F9F00A5AD50 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -205,6 +206,7 @@
 		8271BAE31E23A76700C2EFC1 /* TransporterPad */ = {
 			isa = PBXGroup;
 			children = (
+				82DE40111F83B3DC00965F77 /* TransporterPad.entitlements */,
 				8223009D1F6BA2BD00D7E363 /* Screens */,
 				82AC88FC1F70A52900197ADF /* ViewModels */,
 				8273D1041F6F8B69005D50B5 /* Models */,
@@ -335,6 +337,11 @@
 						DevelopmentTeam = NARTSSS6TY;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -630,6 +637,7 @@
 			baseConfigurationReference = 3774B15FD04409214392F658 /* Pods-TransporterPad.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TransporterPad/TransporterPad.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = TransporterPad/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -644,6 +652,7 @@
 			baseConfigurationReference = 07D2E46E78FA1208A11CB593 /* Pods-TransporterPad.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TransporterPad/TransporterPad.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = TransporterPad/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
