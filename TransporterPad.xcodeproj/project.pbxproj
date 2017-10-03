@@ -34,6 +34,7 @@
 		82AC88FE1F70A54100197ADF /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AC88FD1F70A54100197ADF /* MainViewModel.swift */; };
 		82AC89021F70B22C00197ADF /* DeviceCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AC89001F70B22C00197ADF /* DeviceCollectionViewItem.swift */; };
 		82AC89031F70B22C00197ADF /* DeviceCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82AC89011F70B22C00197ADF /* DeviceCollectionViewItem.xib */; };
+		82DE40101F83A9BC00965F77 /* license.html in Resources */ = {isa = PBXBuildFile; fileRef = 82DE400F1F83A9A800965F77 /* license.html */; };
 		82E30FAA1E258CE700A5AD50 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E30FA91E258CE700A5AD50 /* StringExtensions.swift */; };
 		82E310411E265A2200A5AD50 /* PlatformCommandManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E310401E265A2200A5AD50 /* PlatformCommandManager.swift */; };
 		82E310471E267F9F00A5AD50 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 82E310461E267F9F00A5AD50 /* libz.tbd */; };
@@ -74,6 +75,7 @@
 		82AC88FD1F70A54100197ADF /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		82AC89001F70B22C00197ADF /* DeviceCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCollectionViewItem.swift; sourceTree = "<group>"; };
 		82AC89011F70B22C00197ADF /* DeviceCollectionViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeviceCollectionViewItem.xib; sourceTree = "<group>"; };
+		82DE400F1F83A9A800965F77 /* license.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = license.html; sourceTree = "<group>"; };
 		82E30FA91E258CE700A5AD50 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		82E310401E265A2200A5AD50 /* PlatformCommandManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlatformCommandManager.swift; sourceTree = "<group>"; };
 		82E310461E267F9F00A5AD50 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -212,6 +214,7 @@
 				822300C61F6BE79600D7E363 /* SwinjectStoryboard.swift */,
 				8271BAE81E23A76700C2EFC1 /* Assets.xcassets */,
 				824D63AC1F8113A400C47E6F /* acknowledgements.html */,
+				82DE400F1F83A9A800965F77 /* license.html */,
 				8271BAED1E23A76700C2EFC1 /* Info.plist */,
 			);
 			path = TransporterPad;
@@ -361,6 +364,7 @@
 				8271BAE91E23A76700C2EFC1 /* Assets.xcassets in Resources */,
 				82AC89031F70B22C00197ADF /* DeviceCollectionViewItem.xib in Resources */,
 				8271BAEC1E23A76700C2EFC1 /* Main.storyboard in Resources */,
+				82DE40101F83A9BC00965F77 /* license.html in Resources */,
 				824D63AD1F81173C00C47E6F /* acknowledgements.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
