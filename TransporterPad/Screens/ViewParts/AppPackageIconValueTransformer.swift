@@ -5,6 +5,8 @@
 //  Created by Nobuhiro Ito on 2017/09/25.
 //  Copyright © 2017 Nobuhiro Ito. All rights reserved.
 //
+//  This file is part of TranspoterPad. Licensed in GPLv3.
+//
 
 import Cocoa
 
