@@ -106,7 +106,7 @@ extension CommandExecutor {
         var arguments: [String]
         if package.platform == .Android {
             launchPath = environment.adbToolPath
-            arguments = ["-s", device.serialNumber, "install", package.fileURL.path]
+            arguments = ["-s", device.serialNumber, "install", "-r", package.fileURL.path]
         }
         else if package.platform == .iOS {
             launchPath = environment.iosDeployToolPath
