@@ -1,5 +1,8 @@
 # TransporterPad
 
+![Swift: 3.2](https://img.shields.io/badge/Swift-3.2-orange.svg)
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
 TranspoterPad is app package deployment tool for everyone of development team.
 
 App package file (.ipa/.apk) is very popular exchange app binary in team, but it's install may difficult for not engineers(ex. designers, planners, etc.).
