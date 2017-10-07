@@ -43,6 +43,7 @@
 		82E310471E267F9F00A5AD50 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 82E310461E267F9F00A5AD50 /* libz.tbd */; };
 		82E310661E26820300A5AD50 /* SimpleUnzipper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82E310651E26820300A5AD50 /* SimpleUnzipper.framework */; };
 		82E9D91F1F7E0EDF0088978A /* Transporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E9D91E1F7E0EDF0088978A /* Transporter.swift */; };
+		82FB52FF1F887F9400CA6A82 /* HighlightDisableButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB52FE1F887F9400CA6A82 /* HighlightDisableButtonCell.swift */; };
 		EAFEC465B20F902792363CF5 /* Pods_TransporterPad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA8C7657480B416EC8EC1324 /* Pods_TransporterPad.framework */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +89,7 @@
 		82E310461E267F9F00A5AD50 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		82E310651E26820300A5AD50 /* SimpleUnzipper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SimpleUnzipper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		82E9D91E1F7E0EDF0088978A /* Transporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transporter.swift; sourceTree = "<group>"; };
+		82FB52FE1F887F9400CA6A82 /* HighlightDisableButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightDisableButtonCell.swift; sourceTree = "<group>"; };
 		FA8C7657480B416EC8EC1324 /* Pods_TransporterPad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TransporterPad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -142,6 +144,7 @@
 				8271BAF31E23AFD900C2EFC1 /* DragTargetView.swift */,
 				827683051F78DBA0009B3BAC /* AppPackageIconValueTransformer.swift */,
 				82DE40121F884C3A00965F77 /* ImageButton.swift */,
+				82FB52FE1F887F9400CA6A82 /* HighlightDisableButtonCell.swift */,
 			);
 			path = ViewParts;
 			sourceTree = "<group>";
@@ -518,6 +521,7 @@
 				82DE40151F884F9200965F77 /* ExtendedDrawingView.swift in Sources */,
 				822300C41F6BE00500D7E363 /* UserSettings.swift in Sources */,
 				8271BAE71E23A76700C2EFC1 /* MainViewController.swift in Sources */,
+				82FB52FF1F887F9400CA6A82 /* HighlightDisableButtonCell.swift in Sources */,
 				827682D71F760FDA009B3BAC /* FileManagerExtensions.swift in Sources */,
 				824D63A81F80F01A00C47E6F /* AboutViewController.swift in Sources */,
 				8271BAE51E23A76700C2EFC1 /* AppDelegate.swift in Sources */,

@@ -395,7 +395,7 @@ DQ
                                     <constraint firstAttribute="width" constant="160" id="3dq-ry-I9w"/>
                                     <constraint firstAttribute="height" constant="160" id="edP-CR-45j"/>
                                 </constraints>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="bg_drophere" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="kuZ-xb-kCH">
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="bg_drophere" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="kuZ-xb-kCH" customClass="HighlightDisableButtonCell" customModule="TransporterPad" customModuleProvider="target">
                                     <behavior key="behavior" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                     <connections>
@@ -433,7 +433,7 @@ DQ
                                     <constraint firstAttribute="height" constant="170" id="gKJ-el-amJ"/>
                                     <constraint firstAttribute="width" constant="160" id="yOl-0f-rc6"/>
                                 </constraints>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="image_connectdevice" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="3yq-bp-n6P">
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="image_connectdevice" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="3yq-bp-n6P" customClass="HighlightDisableButtonCell" customModule="TransporterPad" customModuleProvider="target">
                                     <behavior key="behavior" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
