@@ -29,6 +29,6 @@ class AppPackageIconValueTransformer: ValueTransformer {
                 return #imageLiteral(resourceName: "ipa")
             }
         }
-        return #imageLiteral(resourceName: "bg_drophere")
+        return nil
     }
 }

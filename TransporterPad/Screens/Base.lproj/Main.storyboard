@@ -389,6 +389,13 @@ DQ
                                 </constraints>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageAlignment="top" image="background_base" id="Fpc-2K-O0t"/>
                             </imageView>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="X9M-0d-h71">
+                                <rect key="frame" x="220" y="54" width="160" height="160"/>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="bg_drophere" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="IMh-30-X23">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
                             <button translatesAutoresizingMaskIntoConstraints="NO" id="1cM-aQ-QM8">
                                 <rect key="frame" x="220" y="54" width="160" height="160"/>
                                 <constraints>
@@ -446,6 +453,7 @@ DQ
                             <constraint firstItem="2iZ-kk-ezT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="c65-78-SEZ" secondAttribute="leading" id="26A-lE-g1d"/>
                             <constraint firstAttribute="bottom" secondItem="c65-78-SEZ" secondAttribute="bottom" constant="20" id="8oy-dH-hD8"/>
                             <constraint firstItem="Fxc-lC-2ND" firstAttribute="top" secondItem="OxE-S3-8SB" secondAttribute="bottom" id="Bfn-U9-4gC"/>
+                            <constraint firstItem="X9M-0d-h71" firstAttribute="height" secondItem="1cM-aQ-QM8" secondAttribute="height" id="CB1-03-fW9"/>
                             <constraint firstItem="uLT-e7-LOo" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="CCr-qf-R1p"/>
                             <constraint firstItem="6T5-G0-yFn" firstAttribute="top" secondItem="Fxc-lC-2ND" secondAttribute="bottom" id="Dm7-ZE-mOo"/>
                             <constraint firstAttribute="bottom" secondItem="6T5-G0-yFn" secondAttribute="bottom" id="Duc-Vd-PVo"/>
@@ -458,6 +466,7 @@ DQ
                             <constraint firstAttribute="trailing" secondItem="c65-78-SEZ" secondAttribute="trailing" constant="20" id="TPl-P3-w9M"/>
                             <constraint firstItem="Fxc-lC-2ND" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="Us1-Tj-D1J"/>
                             <constraint firstItem="1cM-aQ-QM8" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="W4f-XA-POg"/>
+                            <constraint firstItem="X9M-0d-h71" firstAttribute="width" secondItem="1cM-aQ-QM8" secondAttribute="width" id="ZSX-U8-F4K"/>
                             <constraint firstItem="yhz-PK-Fxo" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="b2F-ZB-iZV"/>
                             <constraint firstItem="DEk-If-WM5" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="bIP-UE-0lk"/>
                             <constraint firstItem="FtN-tE-caR" firstAttribute="top" secondItem="1cM-aQ-QM8" secondAttribute="bottom" constant="5" id="c0s-ea-Fx2"/>
@@ -467,6 +476,8 @@ DQ
                             <constraint firstItem="2iZ-kk-ezT" firstAttribute="trailing" secondItem="c65-78-SEZ" secondAttribute="trailing" id="jhf-Se-N1k"/>
                             <constraint firstItem="uLT-e7-LOo" firstAttribute="top" secondItem="Fxc-lC-2ND" secondAttribute="top" id="rcj-Zd-j4L"/>
                             <constraint firstItem="6T5-G0-yFn" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="rob-vf-ZaN"/>
+                            <constraint firstItem="X9M-0d-h71" firstAttribute="centerX" secondItem="1cM-aQ-QM8" secondAttribute="centerX" id="u3r-XA-iTf"/>
+                            <constraint firstItem="X9M-0d-h71" firstAttribute="centerY" secondItem="1cM-aQ-QM8" secondAttribute="centerY" id="uMZ-tS-W7T"/>
                             <constraint firstAttribute="bottom" secondItem="50d-6n-Pim" secondAttribute="bottom" constant="20" id="w1t-BY-qQb"/>
                             <constraint firstItem="FtN-tE-caR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="50d-6n-Pim" secondAttribute="trailing" constant="10" id="z1L-qJ-5IW"/>
                         </constraints>
