@@ -315,7 +315,7 @@ DQ
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </customView>
-                            <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhz-PK-Fxo">
+                            <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" verticalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="yhz-PK-Fxo">
                                 <rect key="frame" x="0.0" y="290" width="600" height="255"/>
                                 <clipView key="contentView" drawsBackground="NO" id="OxE-S3-8SB">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="255"/>
@@ -324,9 +324,7 @@ DQ
                                         <collectionView id="e9g-75-4uO" customClass="DeviceCollectionView" customModule="TransporterPad" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="158"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" scrollDirection="horizontal" id="Zcz-2a-NgI">
-                                                <size key="itemSize" width="150" height="250"/>
-                                            </collectionViewFlowLayout>
+                                            <collectionViewLayout key="collectionViewLayout" id="5mu-sF-Wy6" customClass="DeviceCollectionViewLayout" customModule="TransporterPad" customModuleProvider="target"/>
                                             <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <connections>
                                                 <binding destination="nib-QS-9rT" name="content" keyPath="arrangedObjects" id="IBh-C0-mj4"/>
@@ -343,7 +341,7 @@ DQ
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="bN0-4p-a2G">
-                                    <rect key="frame" x="-15" y="1" width="16" height="0.0"/>
+                                    <rect key="frame" x="-100" y="-100" width="16" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
