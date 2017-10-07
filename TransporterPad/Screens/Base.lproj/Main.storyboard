@@ -288,7 +288,7 @@ DQ
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="6T5-G0-yFn" customClass="ExtendedDrawingView" customModule="TransporterPad" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="242"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="264"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FtN-tE-caR">
                                         <rect key="frame" x="232" y="32" width="136" height="17"/>
@@ -383,9 +383,9 @@ DQ
                                 </buttonCell>
                             </button>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fxc-lC-2ND">
-                                <rect key="frame" x="0.0" y="242" width="600" height="48"/>
+                                <rect key="frame" x="0.0" y="264" width="600" height="26"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="toQ-Lp-3c0"/>
+                                    <constraint firstAttribute="height" constant="26" id="toQ-Lp-3c0"/>
                                 </constraints>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageAlignment="top" image="background_base" id="Fpc-2K-O0t"/>
                             </imageView>
