@@ -25,6 +25,7 @@ class MainViewController: NSViewController {
             vm.removeObserver(self, forKeyPath: "downloading")
             vm.removeObserver(self, forKeyPath: "progressValue")
             vm.removeObserver(self, forKeyPath: "beamupAvaliable")
+            vm.removeObserver(self, forKeyPath: "devices")
         }
         didSet {
             self.didChangeValue(forKey: "viewModel")
@@ -33,6 +34,7 @@ class MainViewController: NSViewController {
             vm.addObserver(self, forKeyPath: "downloading", options: [.new], context: nil)
             vm.addObserver(self, forKeyPath: "progressValue", options: [.new], context: nil)
             vm.addObserver(self, forKeyPath: "beamupAvaliable", options: [.new], context: nil)
+            vm.addObserver(self, forKeyPath: "devices", options: [.new], context: nil)
         }
     }
     
@@ -72,6 +74,15 @@ class MainViewController: NSViewController {
         }
     }
     
+    var hasDevices: NSNumber = NSNumber(value: false) {
+        willSet {
+            self.willChangeValue(forKey: "hasDevices")
+        }
+        didSet {
+            self.didChangeValue(forKey: "hasDevices")
+        }
+    }
+
     var detailRequestedDevice: Device? = nil
 
     required init?(coder: NSCoder) {
@@ -111,6 +122,9 @@ extension MainViewController {
         if (keyPath == "beamupAvaliable") {
             updateStatusIndicatorState()
         }
+        if (keyPath == "devices") {
+            updateHasDevices()
+        }
     }
     
     func updateStatusIndicatorState() {
@@ -119,6 +133,11 @@ extension MainViewController {
         progressIntermediate = NSNumber(value: vm.progressValue < 0)
         progress = NSNumber(value: vm.progressValue)
         beamupEnabled = NSNumber(value: vm.beamupAvaliable)
+    }
+    
+    func updateHasDevices() {
+        guard let vm = viewModel else { return }
+        hasDevices = NSNumber(value: vm.devices.count > 0)
     }
 }
 

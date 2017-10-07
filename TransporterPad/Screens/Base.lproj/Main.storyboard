@@ -396,7 +396,7 @@ DQ
                                     <constraint firstAttribute="height" constant="160" id="edP-CR-45j"/>
                                 </constraints>
                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="bg_drophere" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="kuZ-xb-kCH">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <behavior key="behavior" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                     <connections>
                                         <binding destination="XfG-lQ-9wD" name="image" keyPath="viewModel.appPackage" id="dww-bI-Of3">
@@ -427,6 +427,20 @@ DQ
                                     <binding destination="XfG-lQ-9wD" name="enabled" keyPath="viewModel.beamupAvaliable" id="d0m-qd-vod"/>
                                 </connections>
                             </button>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="DEk-If-WM5">
+                                <rect key="frame" x="220" y="326" width="160" height="170"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="170" id="gKJ-el-amJ"/>
+                                    <constraint firstAttribute="width" constant="160" id="yOl-0f-rc6"/>
+                                </constraints>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="image_connectdevice" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="3yq-bp-n6P">
+                                    <behavior key="behavior" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <binding destination="XfG-lQ-9wD" name="hidden" keyPath="hasDevices" id="e91-6m-R7d"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="2iZ-kk-ezT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="c65-78-SEZ" secondAttribute="leading" id="26A-lE-g1d"/>
@@ -445,9 +459,11 @@ DQ
                             <constraint firstItem="Fxc-lC-2ND" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="Us1-Tj-D1J"/>
                             <constraint firstItem="1cM-aQ-QM8" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="W4f-XA-POg"/>
                             <constraint firstItem="yhz-PK-Fxo" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="b2F-ZB-iZV"/>
+                            <constraint firstItem="DEk-If-WM5" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="bIP-UE-0lk"/>
                             <constraint firstItem="FtN-tE-caR" firstAttribute="top" secondItem="1cM-aQ-QM8" secondAttribute="bottom" constant="5" id="c0s-ea-Fx2"/>
                             <constraint firstAttribute="trailing" secondItem="yhz-PK-Fxo" secondAttribute="trailing" id="cFi-cQ-jCb"/>
                             <constraint firstAttribute="trailing" secondItem="Fxc-lC-2ND" secondAttribute="trailing" id="e1R-ya-5U0"/>
+                            <constraint firstItem="DEk-If-WM5" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="49" id="e3D-1Y-xg7"/>
                             <constraint firstItem="2iZ-kk-ezT" firstAttribute="trailing" secondItem="c65-78-SEZ" secondAttribute="trailing" id="jhf-Se-N1k"/>
                             <constraint firstItem="uLT-e7-LOo" firstAttribute="top" secondItem="Fxc-lC-2ND" secondAttribute="top" id="rcj-Zd-j4L"/>
                             <constraint firstItem="6T5-G0-yFn" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="rob-vf-ZaN"/>
@@ -580,6 +596,7 @@ DQ
         <image name="button_beamup_highlighted" width="174" height="60"/>
         <image name="button_beamup_normal" width="174" height="60"/>
         <image name="device_iphone" width="150" height="150"/>
+        <image name="image_connectdevice" width="160" height="170"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="EeS-2G-Pbq"/>
