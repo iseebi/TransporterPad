@@ -62,9 +62,16 @@ class DeviceCollectionViewItem: NSCollectionViewItem {
                     : #imageLiteral(resourceName: "device_android_disable")
             }
             else if (device.platform == .iOS) {
-                deviceImageView.image = device.compatible
-                    ? #imageLiteral(resourceName: "device_iphone")
-                    : #imageLiteral(resourceName: "device_iphone_disable")
+                if (device.formfactorName.starts(with: "iPad")) {
+                    deviceImageView.image = device.compatible
+                        ? #imageLiteral(resourceName: "device_ipad")
+                        : #imageLiteral(resourceName: "device_ipad_disable")
+                }
+                else {
+                    deviceImageView.image = device.compatible
+                        ? #imageLiteral(resourceName: "device_iphone")
+                        : #imageLiteral(resourceName: "device_iphone_disable")
+                }
             }
             else {
                 preconditionFailure("Unimplemented platform")

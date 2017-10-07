@@ -23,12 +23,12 @@ class AppPackageIconValueTransformer: ValueTransformer {
     override func transformedValue(_ value: Any?) -> Any? {
         if let v = value as? AppPackage {
             if (v.platform == .Android) {
-                return NSImage.init(named: "apk")
+                return #imageLiteral(resourceName: "apk")
             }
             else if (v.platform == .iOS) {
-                return NSImage.init(named: "ipa")
+                return #imageLiteral(resourceName: "ipa")
             }
         }
-        return nil
+        return #imageLiteral(resourceName: "bg_drophere")
     }
 }

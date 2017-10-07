@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13196"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="box content view" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -288,75 +287,45 @@ DQ
                         <rect key="frame" x="0.0" y="0.0" width="600" height="545"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <box boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="Mar-xd-foB">
-                                <rect key="frame" x="229" y="60" width="143" height="143"/>
-                                <view key="contentView" id="M1a-mx-E9M">
-                                    <rect key="frame" x="1" y="1" width="141" height="141"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <button translatesAutoresizingMaskIntoConstraints="NO" id="1cM-aQ-QM8">
-                                            <rect key="frame" x="-1" y="0.0" width="142" height="142"/>
-                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="kuZ-xb-kCH">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                                <connections>
-                                                    <binding destination="XfG-lQ-9wD" name="image" keyPath="viewModel.appPackage" id="dww-bI-Of3">
-                                                        <dictionary key="options">
-                                                            <string key="NSValueTransformerName">AppPackageIconValueTransformer</string>
-                                                        </dictionary>
-                                                    </binding>
-                                                </connections>
-                                            </buttonCell>
-                                        </button>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="1cM-aQ-QM8" secondAttribute="bottom" id="3DQ-cf-jUE"/>
-                                        <constraint firstItem="1cM-aQ-QM8" firstAttribute="leading" secondItem="M1a-mx-E9M" secondAttribute="leading" constant="-1" id="I2J-ZU-zum"/>
-                                        <constraint firstItem="1cM-aQ-QM8" firstAttribute="top" secondItem="M1a-mx-E9M" secondAttribute="top" constant="-1" id="hQk-69-Dmh"/>
-                                        <constraint firstAttribute="trailing" secondItem="1cM-aQ-QM8" secondAttribute="trailing" id="xyG-PY-21B"/>
-                                    </constraints>
-                                </view>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="6T5-G0-yFn" customClass="ExtendedDrawingView" customModule="TransporterPad" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="242"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FtN-tE-caR">
+                                        <rect key="frame" x="232" y="32" width="136" height="17"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Drop app binary here!" id="YSi-26-u4a">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" red="0.1803921568627451" green="0.1803921568627451" blue="0.1803921568627451" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <connections>
+                                            <binding destination="XfG-lQ-9wD" name="value" keyPath="viewModel.appPackage.packageName" id="shh-0C-m92">
+                                                <dictionary key="options">
+                                                    <string key="NSNullPlaceholder">Drop app binary here!</string>
+                                                </dictionary>
+                                            </binding>
+                                        </connections>
+                                    </textField>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="Mar-xd-foB" secondAttribute="height" multiplier="1:1" id="6Xf-9u-bTi"/>
+                                    <constraint firstItem="FtN-tE-caR" firstAttribute="centerX" secondItem="6T5-G0-yFn" secondAttribute="centerX" id="DaM-Mf-uDR"/>
                                 </constraints>
-                            </box>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8Nc-3S-3Ca">
-                                <rect key="frame" x="252" y="216" width="96" height="32"/>
-                                <buttonCell key="cell" type="push" title="Beam UP" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aeU-f9-tLP">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="beamupTapped:" target="XfG-lQ-9wD" id="eRs-M0-Can"/>
-                                    <binding destination="XfG-lQ-9wD" name="enabled" keyPath="beamupEnabled" id="dl3-8j-Zwc"/>
-                                </connections>
-                            </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FtN-tE-caR">
-                                <rect key="frame" x="232" y="35" width="136" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Drop app binary here!" id="YSi-26-u4a">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                                <connections>
-                                    <binding destination="XfG-lQ-9wD" name="value" keyPath="viewModel.appPackage.packageName" id="shh-0C-m92">
-                                        <dictionary key="options">
-                                            <string key="NSNullPlaceholder">Drop app binary here!</string>
-                                        </dictionary>
-                                    </binding>
-                                </connections>
-                            </textField>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                        <color key="value" red="0.87368720769882202" green="0.88606417179107666" blue="0.89467310905456543" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </customView>
                             <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhz-PK-Fxo">
-                                <rect key="frame" x="0.0" y="265" width="600" height="280"/>
+                                <rect key="frame" x="0.0" y="290" width="600" height="255"/>
                                 <clipView key="contentView" drawsBackground="NO" id="OxE-S3-8SB">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="280"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="255"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <collectionView id="e9g-75-4uO" customClass="DeviceCollectionView" customModule="TransporterPad" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="158"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" scrollDirection="horizontal" id="Zcz-2a-NgI">
-                                                <size key="itemSize" width="140" height="280"/>
+                                                <size key="itemSize" width="150" height="250"/>
                                             </collectionViewFlowLayout>
                                             <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <connections>
@@ -367,7 +336,7 @@ DQ
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="280" id="Cke-A5-j0n"/>
+                                    <constraint firstAttribute="height" constant="255" id="Cke-A5-j0n"/>
                                 </constraints>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="3JH-oc-yPS">
                                     <rect key="frame" x="1" y="-15" width="0.0" height="16"/>
@@ -415,27 +384,83 @@ DQ
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </button>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fxc-lC-2ND">
+                                <rect key="frame" x="0.0" y="242" width="600" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="toQ-Lp-3c0"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageAlignment="top" image="background_base" id="Fpc-2K-O0t"/>
+                            </imageView>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="1cM-aQ-QM8">
+                                <rect key="frame" x="220" y="54" width="160" height="160"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="3dq-ry-I9w"/>
+                                    <constraint firstAttribute="height" constant="160" id="edP-CR-45j"/>
+                                </constraints>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="bg_drophere" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="kuZ-xb-kCH">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <connections>
+                                        <binding destination="XfG-lQ-9wD" name="image" keyPath="viewModel.appPackage" id="dww-bI-Of3">
+                                            <dictionary key="options">
+                                                <string key="NSValueTransformerName">AppPackageIconValueTransformer</string>
+                                            </dictionary>
+                                        </binding>
+                                    </connections>
+                                </buttonCell>
+                            </button>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="uLT-e7-LOo" customClass="ImageButton" customModule="TransporterPad" customModuleProvider="target">
+                                <rect key="frame" x="213" y="230" width="174" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="U61-wk-syY"/>
+                                    <constraint firstAttribute="width" constant="174" id="XGB-Z4-gHb"/>
+                                </constraints>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="button_beamup_normal" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="LNk-wl-pWP">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="normalImage" value="button_beamup_normal"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="highlightImage" value="button_beamup_highlighted"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="disableImage" value="button_beamup_disable"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="beamupTapped:" target="XfG-lQ-9wD" id="1iy-s1-8ha"/>
+                                    <binding destination="XfG-lQ-9wD" name="enabled" keyPath="viewModel.beamupAvaliable" id="d0m-qd-vod"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="8Nc-3S-3Ca" firstAttribute="top" secondItem="OxE-S3-8SB" secondAttribute="bottom" constant="21" id="0IY-oX-qOM"/>
                             <constraint firstItem="2iZ-kk-ezT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="c65-78-SEZ" secondAttribute="leading" id="26A-lE-g1d"/>
-                            <constraint firstItem="FtN-tE-caR" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="3Ip-qQ-NxR"/>
                             <constraint firstAttribute="bottom" secondItem="c65-78-SEZ" secondAttribute="bottom" constant="20" id="8oy-dH-hD8"/>
+                            <constraint firstItem="Fxc-lC-2ND" firstAttribute="top" secondItem="OxE-S3-8SB" secondAttribute="bottom" id="Bfn-U9-4gC"/>
+                            <constraint firstItem="uLT-e7-LOo" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="CCr-qf-R1p"/>
+                            <constraint firstItem="6T5-G0-yFn" firstAttribute="top" secondItem="Fxc-lC-2ND" secondAttribute="bottom" id="Dm7-ZE-mOo"/>
+                            <constraint firstAttribute="bottom" secondItem="6T5-G0-yFn" secondAttribute="bottom" id="Duc-Vd-PVo"/>
+                            <constraint firstAttribute="trailing" secondItem="6T5-G0-yFn" secondAttribute="trailing" id="FeA-JW-Lwj"/>
                             <constraint firstItem="yhz-PK-Fxo" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="HuN-3R-xFW"/>
+                            <constraint firstItem="Fxc-lC-2ND" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="Hv3-Oj-w1J"/>
                             <constraint firstItem="2iZ-kk-ezT" firstAttribute="baseline" secondItem="c65-78-SEZ" secondAttribute="firstBaseline" id="Ian-pA-Kjx"/>
                             <constraint firstItem="50d-6n-Pim" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="Ie5-ZR-q2o"/>
+                            <constraint firstItem="1cM-aQ-QM8" firstAttribute="top" secondItem="uLT-e7-LOo" secondAttribute="bottom" constant="16" id="KxF-qO-fs1"/>
                             <constraint firstAttribute="trailing" secondItem="c65-78-SEZ" secondAttribute="trailing" constant="20" id="TPl-P3-w9M"/>
-                            <constraint firstItem="Mar-xd-foB" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="ZII-HA-Wh5"/>
+                            <constraint firstItem="Fxc-lC-2ND" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="Us1-Tj-D1J"/>
+                            <constraint firstItem="1cM-aQ-QM8" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="W4f-XA-POg"/>
                             <constraint firstItem="yhz-PK-Fxo" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="b2F-ZB-iZV"/>
+                            <constraint firstItem="FtN-tE-caR" firstAttribute="top" secondItem="1cM-aQ-QM8" secondAttribute="bottom" constant="5" id="c0s-ea-Fx2"/>
                             <constraint firstAttribute="trailing" secondItem="yhz-PK-Fxo" secondAttribute="trailing" id="cFi-cQ-jCb"/>
-                            <constraint firstItem="FtN-tE-caR" firstAttribute="top" secondItem="M1a-mx-E9M" secondAttribute="bottom" constant="9" id="cgq-i2-U5R"/>
-                            <constraint firstAttribute="bottom" secondItem="FtN-tE-caR" secondAttribute="bottom" constant="35" id="dam-Zy-BL1"/>
+                            <constraint firstAttribute="trailing" secondItem="Fxc-lC-2ND" secondAttribute="trailing" id="e1R-ya-5U0"/>
                             <constraint firstItem="2iZ-kk-ezT" firstAttribute="trailing" secondItem="c65-78-SEZ" secondAttribute="trailing" id="jhf-Se-N1k"/>
-                            <constraint firstItem="FtN-tE-caR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="50d-6n-Pim" secondAttribute="trailing" constant="20" id="sSZ-Lu-cCq"/>
-                            <constraint firstItem="8Nc-3S-3Ca" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="sbr-1o-1S6"/>
+                            <constraint firstItem="uLT-e7-LOo" firstAttribute="top" secondItem="Fxc-lC-2ND" secondAttribute="top" id="rcj-Zd-j4L"/>
+                            <constraint firstItem="6T5-G0-yFn" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="rob-vf-ZaN"/>
                             <constraint firstAttribute="bottom" secondItem="50d-6n-Pim" secondAttribute="bottom" constant="20" id="w1t-BY-qQb"/>
-                            <constraint firstItem="M1a-mx-E9M" firstAttribute="top" secondItem="8Nc-3S-3Ca" secondAttribute="bottom" constant="21" id="wFG-zy-9y9"/>
+                            <constraint firstItem="FtN-tE-caR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="50d-6n-Pim" secondAttribute="trailing" constant="10" id="z1L-qJ-5IW"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="e9g-75-4uO" id="20k-U7-3cl"/>
@@ -551,7 +576,12 @@ DQ
         </scene>
     </scenes>
     <resources>
-        <image name="device_iphone" width="120" height="180"/>
+        <image name="background_base" width="600" height="290"/>
+        <image name="bg_drophere" width="160" height="160"/>
+        <image name="button_beamup_disable" width="174" height="60"/>
+        <image name="button_beamup_highlighted" width="174" height="60"/>
+        <image name="button_beamup_normal" width="174" height="60"/>
+        <image name="device_iphone" width="150" height="150"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="EeS-2G-Pbq"/>

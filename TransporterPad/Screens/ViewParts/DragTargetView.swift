@@ -15,7 +15,7 @@ import Cocoa
     func dragTargetView(_ dragTargetView: DragTargetView, dropRemoteURL fileName: String)
 }
 
-@objc class DragTargetView: NSView {
+@objc class DragTargetView: ExtendedDrawingView {
 
     @IBOutlet public weak var delegate: DragTargetViewDelegate!
     
