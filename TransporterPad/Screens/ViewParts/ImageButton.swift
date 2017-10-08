@@ -19,8 +19,19 @@ class ImageButton: NSButton {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        updateButtonImage()
+    }
+    
+    override var isEnabled: Bool {
+        didSet {
+            updateButtonImage()
+        }
+    }
 
-    override func updateLayer() {
+    func updateButtonImage() {
         if isEnabled {
             if isHighlighted {
                 image = highlightImage ?? normalImage
