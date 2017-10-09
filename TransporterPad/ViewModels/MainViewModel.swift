@@ -65,7 +65,7 @@ class MainViewModel: NSObject {
 
     var beamupAvaliable: Bool {
         get {
-            return (appPackage != nil) && (devices.first { d in d.compatible } != nil) && (!transportWorking)
+            return (appPackage != nil) && (devices.count > 0) && (devices.first { d in d.compatible } != nil) && (!transportWorking)
         }
     }
 
@@ -151,13 +151,17 @@ extension MainViewModel {
 extension MainViewModel: DeviceWatcherDelegate {
     func deviceWatcher(_: DeviceWatcher, addedDevice device: Device) {
         willChangeValue(forKey: "devices")
+        willChangeValue(forKey: "beamupAvaliable")
         validateDevice(device: device)
         didChangeValue(forKey: "devices")
+        didChangeValue(forKey: "beamupAvaliable")
     }
     
     func deviceWatcher(_: DeviceWatcher, didRemovedDevice at: Int) {
         willChangeValue(forKey: "devices")
+        willChangeValue(forKey: "beamupAvaliable")
         didChangeValue(forKey: "devices")
+        didChangeValue(forKey: "beamupAvaliable")
     }
 }
 
