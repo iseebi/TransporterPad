@@ -16,6 +16,7 @@ class MainViewModel: NSObject {
     let packageReader: AppPackageReader
     let tempDirManager: TemporaryDirectoryManager
     let transporter: Transporter
+    let notificationManager: NotificationManager
     
     var devices: [Device] {
         get { return deviceWatcher.devices }
@@ -69,11 +70,16 @@ class MainViewModel: NSObject {
         }
     }
 
-    init(deviceWatcher: DeviceWatcher, appPackageReader: AppPackageReader, temporaryDirectoryManager: TemporaryDirectoryManager, transporter: Transporter) {
+    init(deviceWatcher: DeviceWatcher,
+         appPackageReader: AppPackageReader,
+         temporaryDirectoryManager: TemporaryDirectoryManager,
+         transporter: Transporter,
+         notificationManager: NotificationManager) {
         self.deviceWatcher = deviceWatcher
         self.packageReader = appPackageReader
         self.tempDirManager = temporaryDirectoryManager
         self.transporter = transporter
+        self.notificationManager = notificationManager
         super.init()
         deviceWatcher.delegate = self
         deviceWatcher.start()
@@ -174,7 +180,7 @@ extension MainViewModel: TransporterDelegate {
         let completion: () -> () = { [weak self] in
             guard let sself = self else { return }
             sself.transportWorking = false
-            // TODO: ring bell
+            sself.notificationManager.completed()
         }
         if Thread.isMainThread {
             completion()

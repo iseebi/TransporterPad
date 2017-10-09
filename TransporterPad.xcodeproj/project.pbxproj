@@ -30,6 +30,7 @@
 		827683061F78DBA0009B3BAC /* AppPackageIconValueTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827683051F78DBA0009B3BAC /* AppPackageIconValueTransformer.swift */; };
 		827AA8001F7DCA65002535FC /* CommandExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827AA7FF1F7DCA65002535FC /* CommandExecutor.swift */; };
 		828757091F89AB0300D2F534 /* ImageButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828757081F89AB0300D2F534 /* ImageButtonCell.swift */; };
+		8287570B1F8BC05400D2F534 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8287570A1F8BC05400D2F534 /* NotificationManager.swift */; };
 		82A19A2D1F7F37BE003B3490 /* DeviceCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A19A2C1F7F37BE003B3490 /* DeviceCollectionView.swift */; };
 		82A19A301F7F3A78003B3490 /* DeviceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A19A2F1F7F3A78003B3490 /* DeviceDetailViewController.swift */; };
 		82AC88FE1F70A54100197ADF /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AC88FD1F70A54100197ADF /* MainViewModel.swift */; };
@@ -76,6 +77,7 @@
 		827683051F78DBA0009B3BAC /* AppPackageIconValueTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPackageIconValueTransformer.swift; sourceTree = "<group>"; };
 		827AA7FF1F7DCA65002535FC /* CommandExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandExecutor.swift; sourceTree = "<group>"; };
 		828757081F89AB0300D2F534 /* ImageButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageButtonCell.swift; sourceTree = "<group>"; };
+		8287570A1F8BC05400D2F534 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		82A19A2C1F7F37BE003B3490 /* DeviceCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCollectionView.swift; sourceTree = "<group>"; };
 		82A19A2F1F7F3A78003B3490 /* DeviceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetailViewController.swift; sourceTree = "<group>"; };
 		82AC88FD1F70A54100197ADF /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				8207341E1F7265CE00936BA3 /* DeviceWatcher */,
 				822300C51F6BE00C00D7E363 /* Environment */,
 				82E310401E265A2200A5AD50 /* PlatformCommandManager.swift */,
+				8287570A1F8BC05400D2F534 /* NotificationManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 				828757091F89AB0300D2F534 /* ImageButtonCell.swift in Sources */,
 				8271BAE71E23A76700C2EFC1 /* MainViewController.swift in Sources */,
 				82FB52FF1F887F9400CA6A82 /* HighlightDisableButtonCell.swift in Sources */,
+				8287570B1F8BC05400D2F534 /* NotificationManager.swift in Sources */,
 				827682D71F760FDA009B3BAC /* FileManagerExtensions.swift in Sources */,
 				824D63A81F80F01A00C47E6F /* AboutViewController.swift in Sources */,
 				8271BAE51E23A76700C2EFC1 /* AppDelegate.swift in Sources */,

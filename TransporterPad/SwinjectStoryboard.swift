@@ -29,13 +29,16 @@ extension SwinjectStoryboard {
             .inObjectScope(.container)
         defaultContainer.register(Transporter.self) { r in Transporter(environment: r.resolve(Environment.self)!) }
             .inObjectScope(.container)
+        defaultContainer.register(NotificationManager.self) { _ in NotificationManager() }
+            .inObjectScope(.container)
 
         // ViewModels
         defaultContainer.register(MainViewModel.self) { r in
             MainViewModel(deviceWatcher: r.resolve(DeviceWatcher.self)!,
                           appPackageReader: r.resolve(AppPackageReader.self)!,
                           temporaryDirectoryManager: r.resolve(TemporaryDirectoryManager.self)!,
-                          transporter: r.resolve(Transporter.self)!)
+                          transporter: r.resolve(Transporter.self)!,
+                          notificationManager: r.resolve(NotificationManager.self)!)
         }
 
         // ViewControllers
