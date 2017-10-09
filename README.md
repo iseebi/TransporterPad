@@ -11,8 +11,11 @@ This tool provide more easy app installation process!
 
 ## How to use
 
+Not required install Xcode or Android SDK!
+
 - Start TranspoterPad.app
 - Tether USB to your Mac and you can see device in TranspoterPad.
+    - iOS device need authorize for connection (by iTunes or Xcode)
     - Android device need to switch Developer Mode and enable Debug Interface.
 - Drop App Package file(.ipa/.apk) in TranspoterPad window
     - also accept drop App Package link (ex. Drag Artifact link in Jenkins from Safari)
