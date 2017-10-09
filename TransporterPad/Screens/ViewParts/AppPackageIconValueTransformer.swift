@@ -3,7 +3,7 @@
 //  TransporterPad
 //
 //  Created by Nobuhiro Ito on 2017/09/25.
-//  Copyright © 2017 Nobuhiro Ito. All rights reserved.
+//  Copyright © 2017 Nobuhiro Ito.
 //
 //  This file is part of TransporterPad. Licensed in GPLv3.
 //

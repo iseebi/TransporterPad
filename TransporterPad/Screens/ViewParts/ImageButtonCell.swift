@@ -3,7 +3,7 @@
 //  TransporterPad
 //
 //  Created by Nobuhiro Ito on 10/8/17.
-//  Copyright © 2017 Nobuhiro Ito. All rights reserved.
+//  Copyright © 2017 Nobuhiro Ito.
 //
 
 import Cocoa
