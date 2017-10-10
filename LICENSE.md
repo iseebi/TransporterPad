@@ -1,6 +1,9 @@
 # TransporterPad License
 
-Copyright (C) 2017 Nobuhiro Ito.
+Copyright (C) 2017 Nobuhiro Ito.<br/>
+Artworks by Yu Hayakawa.
+
+## TranspoterPad Application
 
 Licensed under GPLv3
 
@@ -680,3 +683,7 @@ the library.  If this is what you want to do, use the GNU Lesser General
 Public License instead of this License.  But first, please read
 <http://www.gnu.org/philosophy/why-not-lgpl.html>.
 ```
+
+## Artworks
+
+Artworks by Yu Hayakawa. licensed in [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
