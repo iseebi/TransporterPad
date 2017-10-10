@@ -161,7 +161,7 @@
                                     <constraint firstAttribute="width" constant="128" id="9aW-Jd-Ov7"/>
                                     <constraint firstAttribute="width" secondItem="Com-Wt-vm5" secondAttribute="height" multiplier="1:1" id="Isg-Dm-Xdh"/>
                                 </constraints>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="device_iphone" id="ljq-K9-RFR"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="icon_about" id="ljq-K9-RFR"/>
                             </imageView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7gn-ye-jOq">
                                 <rect key="frame" x="139" y="129" width="99" height="17"/>
@@ -606,7 +606,7 @@ DQ
         <image name="button_beamup_disable" width="174" height="60"/>
         <image name="button_beamup_highlighted" width="174" height="60"/>
         <image name="button_beamup_normal" width="174" height="60"/>
-        <image name="device_iphone" width="150" height="150"/>
+        <image name="icon_about" width="128" height="128"/>
         <image name="image_connectdevice" width="160" height="170"/>
     </resources>
     <inferredMetricsTieBreakers>
