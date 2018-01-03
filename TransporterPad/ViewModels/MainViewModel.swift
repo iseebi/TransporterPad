@@ -84,6 +84,7 @@ class MainViewModel: NSObject {
         deviceWatcher.delegate = self
         deviceWatcher.start()
         transporter.delegate = self
+        transporter.setup()
     }
     
     func startTransporter(reInstall: Bool) {

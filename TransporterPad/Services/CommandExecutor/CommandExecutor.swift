@@ -134,4 +134,10 @@ extension CommandExecutor {
         }
         return CommandExecutor(environment: environment, launchPath: launchPath, arguments: arguments)
     }
+    
+    class func startAdbServerIfNeeded(environment: Environment) -> CommandExecutor {
+        let launchPath = environment.adbToolPath
+        let arguments = ["devices"]
+        return CommandExecutor(environment: environment, launchPath: launchPath, arguments: arguments)
+    }
 }

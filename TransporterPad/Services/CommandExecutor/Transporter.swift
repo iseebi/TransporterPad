@@ -30,6 +30,10 @@ class Transporter: NSObject {
         super.init()
     }
     
+    func setup() {
+        CommandExecutor.startAdbServerIfNeeded(environment: environment).run()
+    }
+    
     func transport(package: AppPackage, targetDevices: [Device], reInstall: Bool) {
         if working { return }
         let devices = targetDevices.filter { d in d.platform == package.platform }
