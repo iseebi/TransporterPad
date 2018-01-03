@@ -3,7 +3,7 @@
 ![Swift: 3.2](https://img.shields.io/badge/Swift-3.2-orange.svg)
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-[Download from here!](https://github.com/iseebi/TransporterPad/releases/tag/v2.0.0)
+[Download from here!](https://github.com/iseebi/TransporterPad/releases/tag/v2.0.1)
 
 TranspoterPad is app package deployment tool for everyone of development team.
 
