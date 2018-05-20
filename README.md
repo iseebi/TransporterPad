@@ -2,6 +2,7 @@
 
 ![Swift: 3.2](https://img.shields.io/badge/Swift-3.2-orange.svg)
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Build status](https://build.appcenter.ms/v0.1/apps/aa2762dc-3ac3-42e0-818b-3cc436853435/branches/master/badge)](https://appcenter.ms)
 
 [Download from here!](https://github.com/iseebi/TransporterPad/releases/tag/v2.0.1)
 
