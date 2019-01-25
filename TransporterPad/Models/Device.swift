@@ -11,7 +11,7 @@
 import Foundation
 import EBIMobileDeviceWatcher
 
-class Device: NSObject {
+@objcMembers class Device: NSObject {
 
     /// プラットフォーム
     let platform: Platform
@@ -67,8 +67,8 @@ class Device: NSObject {
     init(device: EBIMobileDevice) {
         mobileDevice = device
         
-        serialNumber = device.serialNumber
         if (device.type == EBIMobileDeviceTypeAndroid) {
+            serialNumber = device.serialNumber
             platform = .Android
             formfactorName = "Android"
             name = device.deviceName
@@ -77,6 +77,16 @@ class Device: NSObject {
             platform = .iOS
             formfactorName = device.deviceName
             name = ""
+            
+            // XS / XS Max format
+            if device.serialNumber.count == 24 {
+                let chip = device.serialNumber.substring(with: NSRange(location: 0, length: 8))
+                let ecid = device.serialNumber.substring(with: NSRange(location: 8, length: 16))
+                serialNumber = String(format: "%@-%@", chip, ecid)
+            }
+            else {
+                serialNumber = device.serialNumber
+            }
         }
     }
     

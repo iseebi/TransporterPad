@@ -31,7 +31,7 @@ class NotificationManager: NSObject, NSUserNotificationCenterDelegate {
             else { return }
         
         if (key == "completed") {
-            NSApplication.shared().activate(ignoringOtherApps: true)
+            NSApplication.shared.activate(ignoringOtherApps: true)
         }
     }
 }

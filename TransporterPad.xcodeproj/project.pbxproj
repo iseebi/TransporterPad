@@ -33,6 +33,7 @@
 		8287570B1F8BC05400D2F534 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8287570A1F8BC05400D2F534 /* NotificationManager.swift */; };
 		82A19A2D1F7F37BE003B3490 /* DeviceCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A19A2C1F7F37BE003B3490 /* DeviceCollectionView.swift */; };
 		82A19A301F7F3A78003B3490 /* DeviceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A19A2F1F7F3A78003B3490 /* DeviceDetailViewController.swift */; };
+		82A6314F21FAA9A200480054 /* NSPasteboardExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A6314E21FAA9A200480054 /* NSPasteboardExtensions.swift */; };
 		82AC88FE1F70A54100197ADF /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AC88FD1F70A54100197ADF /* MainViewModel.swift */; };
 		82AC89021F70B22C00197ADF /* DeviceCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AC89001F70B22C00197ADF /* DeviceCollectionViewItem.swift */; };
 		82AC89031F70B22C00197ADF /* DeviceCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82AC89011F70B22C00197ADF /* DeviceCollectionViewItem.xib */; };
@@ -80,6 +81,7 @@
 		8287570A1F8BC05400D2F534 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		82A19A2C1F7F37BE003B3490 /* DeviceCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCollectionView.swift; sourceTree = "<group>"; };
 		82A19A2F1F7F3A78003B3490 /* DeviceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetailViewController.swift; sourceTree = "<group>"; };
+		82A6314E21FAA9A200480054 /* NSPasteboardExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPasteboardExtensions.swift; sourceTree = "<group>"; };
 		82AC88FD1F70A54100197ADF /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		82AC89001F70B22C00197ADF /* DeviceCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCollectionViewItem.swift; sourceTree = "<group>"; };
 		82AC89011F70B22C00197ADF /* DeviceCollectionViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeviceCollectionViewItem.xib; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 			children = (
 				82E30FA91E258CE700A5AD50 /* StringExtensions.swift */,
 				827682D61F760FDA009B3BAC /* FileManagerExtensions.swift */,
+				82A6314E21FAA9A200480054 /* NSPasteboardExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -329,7 +332,6 @@
 				82E310671E2686F500A5AD50 /* Embed SimpleUnzipper */,
 				822300C01F6BDD4E00D7E363 /* Copy Deployment Dependency */,
 				54F16668E73F2BC4522906F4 /* [CP] Embed Pods Frameworks */,
-				1A0FBBD766E0927DF9EC21C8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -347,13 +349,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Nobuhiro Ito";
 				TargetAttributes = {
 					8271BAE01E23A76700C2EFC1 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = NARTSSS6TY;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
@@ -397,21 +399,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1A0FBBD766E0927DF9EC21C8 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TransporterPad/Pods-TransporterPad-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		54F16668E73F2BC4522906F4 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -452,7 +439,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ -f $SRCROOT/DeployTools/tools/ios-deploy/ios-deploy -a -f $SRCROOT/DeployTools/tools/android-platform-tools/adb ]; then\n  echo \"Dependency already prepared\"\nelse\n  $SRCROOT/DeployTools/build.sh\nfi";
+			shellScript = "if [ -f $SRCROOT/DeployTools/tools/ios-deploy/ios-deploy -a -f $SRCROOT/DeployTools/tools/android-platform-tools/adb ]; then\n  echo \"Dependency already prepared\"\nelse\n  $SRCROOT/DeployTools/build.sh\nfi\n";
 		};
 		822300C01F6BDD4E00D7E363 /* Copy Deployment Dependency */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -510,6 +497,7 @@
 				82E30FAA1E258CE700A5AD50 /* StringExtensions.swift in Sources */,
 				822300C21F6BDFBB00D7E363 /* Environment.swift in Sources */,
 				82A19A301F7F3A78003B3490 /* DeviceDetailViewController.swift in Sources */,
+				82A6314F21FAA9A200480054 /* NSPasteboardExtensions.swift in Sources */,
 				82A19A2D1F7F37BE003B3490 /* DeviceCollectionView.swift in Sources */,
 				82E310411E265A2200A5AD50 /* PlatformCommandManager.swift in Sources */,
 				8273D1061F6F8B88005D50B5 /* Device.swift in Sources */,
@@ -569,6 +557,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -576,6 +565,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -583,6 +573,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -623,6 +614,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -630,6 +622,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -637,6 +630,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -661,13 +655,15 @@
 			baseConfigurationReference = 3774B15FD04409214392F658 /* Pods-TransporterPad.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = TransporterPad/TransporterPad.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
+				EXPANDED_CODE_SIGN_IDENTITY = "-";
+				EXPANDED_CODE_SIGN_IDENTITY_NAME = "-";
 				INFOPLIST_FILE = TransporterPad/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.iseteki.TransporterPad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -678,11 +674,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TransporterPad/TransporterPad.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
+				EXPANDED_CODE_SIGN_IDENTITY = "-";
+				EXPANDED_CODE_SIGN_IDENTITY_NAME = "-";
 				INFOPLIST_FILE = TransporterPad/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.iseteki.TransporterPad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};

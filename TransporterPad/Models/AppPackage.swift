@@ -10,7 +10,7 @@
 
 import Foundation
 
-class AppPackage: NSObject {
+@objcMembers class AppPackage: NSObject {
     let platform: Platform
     let packageName: String
     let fileURL: URL

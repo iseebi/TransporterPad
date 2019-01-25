@@ -43,7 +43,7 @@ class LicenseViewController: NSViewController {
     }
     
     @IBAction func okTapped(_ sender: Any) {
-        dismissViewController(self)
+        dismiss(self)
     }
     
     func loadPage() {
