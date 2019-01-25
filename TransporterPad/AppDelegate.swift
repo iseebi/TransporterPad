@@ -28,7 +28,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         let sb = SwinjectStoryboard.create(name: "Main", bundle: nil)
         
-        windowController = sb.instantiateController(withIdentifier: "MainWindow") as! NSWindowController
+        windowController = sb.instantiateController(withIdentifier: "MainWindow") as? NSWindowController
         windowController.showWindow(self)
     }
 

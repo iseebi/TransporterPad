@@ -17,7 +17,7 @@ class MainViewController: NSViewController {
     @IBOutlet weak var collectionView: DeviceCollectionView!
     @IBOutlet weak var reInstallCheck: NSButton!
 
-    var viewModel: MainViewModel? {
+    @objc var viewModel: MainViewModel? {
         willSet {
             self.willChangeValue(forKey: "viewModel")
             
@@ -38,7 +38,7 @@ class MainViewController: NSViewController {
         }
     }
     
-    var statusIndicatorVisible: NSNumber = NSNumber(value: false) {
+    @objc var statusIndicatorVisible: NSNumber = NSNumber(value: false) {
         willSet {
             self.willChangeValue(forKey: "statusIndicatorVisible")
         }
@@ -47,7 +47,7 @@ class MainViewController: NSViewController {
         }
     }
     
-    var progress: NSNumber = NSNumber(value: 0) {
+    @objc var progress: NSNumber = NSNumber(value: 0) {
         willSet {
             self.willChangeValue(forKey: "progress")
         }
@@ -56,7 +56,7 @@ class MainViewController: NSViewController {
         }
     }
     
-    var progressIntermediate: NSNumber = NSNumber(value: false) {
+    @objc var progressIntermediate: NSNumber = NSNumber(value: false) {
         willSet {
             self.willChangeValue(forKey: "progressIntermediate")
         }
@@ -65,7 +65,7 @@ class MainViewController: NSViewController {
         }
     }
     
-    var beamupEnabled: NSNumber = NSNumber(value: false) {
+    @objc var beamupEnabled: NSNumber = NSNumber(value: false) {
         willSet {
             self.willChangeValue(forKey: "beamupEnabled")
         }
@@ -74,7 +74,7 @@ class MainViewController: NSViewController {
         }
     }
     
-    var hasDevices: NSNumber = NSNumber(value: false) {
+    @objc var hasDevices: NSNumber = NSNumber(value: false) {
         willSet {
             self.willChangeValue(forKey: "hasDevices")
         }
@@ -83,7 +83,7 @@ class MainViewController: NSViewController {
         }
     }
 
-    var detailRequestedDevice: Device? = nil
+    @objc var detailRequestedDevice: Device? = nil
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -93,7 +93,7 @@ class MainViewController: NSViewController {
         super.viewDidLoad()
         
         dragTargetView.delegate = self
-        collectionView.register(NSNib.init(nibNamed: "DeviceCollectionViewItem", bundle: nil), forItemWithIdentifier: "DeviceCollectionViewItem")
+        collectionView.register(NSNib.init(nibNamed: "DeviceCollectionViewItem", bundle: nil), forItemWithIdentifier: convertToNSUserInterfaceItemIdentifier("DeviceCollectionViewItem"))
         collectionView.deviceCollectionViewDelegate = self
     }
     
@@ -105,7 +105,7 @@ class MainViewController: NSViewController {
     
     @IBAction func beamupTapped(_ sender: Any) {
         guard let vm = viewModel else { return }
-        let reinstall = (reInstallCheck.state == NSOnState)
+        let reinstall = (reInstallCheck.state == .on)
         vm.startTransporter(reInstall: reinstall)
     }
 }
@@ -173,4 +173,9 @@ extension MainViewController : DragTargetViewDelegate {
             // TODO: alert
         }
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToNSUserInterfaceItemIdentifier(_ input: String) -> NSUserInterfaceItemIdentifier {
+	return NSUserInterfaceItemIdentifier(rawValue: input)
 }

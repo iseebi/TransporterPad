@@ -12,14 +12,14 @@ import Cocoa
 
 class ExtendedDrawingView: NSView {
 
-    var backgroundColor: NSColor?
+    @objc var backgroundColor: NSColor?
     
     override func draw(_ dirtyRect: NSRect) {
+        super.draw(dirtyRect)
         if let backgroundColor = self.backgroundColor {
             backgroundColor.setFill()
-            NSRectFill(dirtyRect)
+            dirtyRect.fill()
         }
-        super.draw(dirtyRect)
     }
     
 }

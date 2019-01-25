@@ -18,11 +18,11 @@ class MainViewModel: NSObject {
     let transporter: Transporter
     let notificationManager: NotificationManager
     
-    var devices: [Device] {
+    @objc var devices: [Device] {
         get { return deviceWatcher.devices }
     }
     
-    var appPackage: AppPackage? = nil {
+    @objc var appPackage: AppPackage? = nil {
         willSet {
             willChangeValue(forKey: "appPackage")
             willChangeValue(forKey: "beamupAvaliable")
@@ -64,7 +64,7 @@ class MainViewModel: NSObject {
         }
     }
 
-    var beamupAvaliable: Bool {
+    @objc var beamupAvaliable: Bool {
         get {
             return (appPackage != nil) && (devices.count > 0) && (devices.first { d in d.compatible } != nil) && (!transportWorking)
         }

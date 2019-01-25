@@ -11,7 +11,7 @@
 import Foundation
 import EBIMobileDeviceWatcher
 
-class Device: NSObject {
+@objcMembers class Device: NSObject {
 
     /// プラットフォーム
     let platform: Platform
@@ -67,8 +67,8 @@ class Device: NSObject {
     init(device: EBIMobileDevice) {
         mobileDevice = device
         
-        serialNumber = device.serialNumber
         if (device.type == EBIMobileDeviceTypeAndroid) {
+            serialNumber = device.serialNumber
             platform = .Android
             formfactorName = "Android"
             name = device.deviceName

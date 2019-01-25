@@ -10,7 +10,7 @@
 
 import Cocoa
 
-class DeviceCollectionViewLayout: NSCollectionViewLayout {
+@objcMembers class DeviceCollectionViewLayout: NSCollectionViewLayout {
     
     let itemSize: CGSize = CGSize(width: 150, height: 250)
 
@@ -95,7 +95,7 @@ class DeviceCollectionViewLayout: NSCollectionViewLayout {
     }
 
     // hack for scroll
-    func scrollDirection() -> NSCollectionViewScrollDirection {
+    func scrollDirection() -> NSCollectionView.ScrollDirection {
         return .horizontal
     }
 }

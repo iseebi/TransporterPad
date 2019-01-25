@@ -56,12 +56,12 @@ class DeviceDetailViewController: NSViewController {
         layoutManager.replaceTextStorage(NSTextStorage(string: device.log, attributes: nil))
         
         if smartScroll {
-            logTextView.scrollRangeToVisible(NSRange(location: logTextView.string?.count ?? 0, length: 0))
+            logTextView.scrollRangeToVisible(NSRange(location: logTextView.string.count , length: 0))
         }
     }
     
     @IBAction func okTapped(_ sender: Any) {
-        dismissViewController(self)
+        dismiss(self)
     }
 }
 

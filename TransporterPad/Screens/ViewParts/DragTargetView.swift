@@ -15,7 +15,7 @@ import Cocoa
     func dragTargetView(_ dragTargetView: DragTargetView, dropRemoteURL fileName: String)
 }
 
-@objc class DragTargetView: ExtendedDrawingView {
+@objcMembers class DragTargetView: ExtendedDrawingView {
 
     @IBOutlet public weak var delegate: DragTargetViewDelegate!
     
@@ -23,17 +23,17 @@ import Cocoa
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        self.register(forDraggedTypes: [NSFilenamesPboardType, NSURLPboardType])
+        self.registerForDraggedTypes([.backwardsCompatibleFileURL])
     }
     
     override func draggingEntered(_ sender: NSDraggingInfo) -> NSDragOperation {
         if !enabled {
             return .generic
         }
-        if let _ = sender.draggingPasteboard().propertyList(forType: NSFilenamesPboardType) as? [String] {
+        if let _ = sender.draggingPasteboard.propertyList(forType: .backwardsCompatibleFileURL) {
             return .copy
         }
-        if let _ = sender.draggingPasteboard().propertyList(forType: NSURLPboardType) as? [String] {
+        if let _ = sender.draggingPasteboard.propertyList(forType: .backwardsCompatibleURL) {
             return .copy
         }
         return NSDragOperation()
@@ -41,15 +41,18 @@ import Cocoa
     
     override func performDragOperation(_ sender: NSDraggingInfo) -> Bool {
         if !enabled { return false }
-        let pasteboard = sender.draggingPasteboard()
-        if let path = (pasteboard.propertyList(forType: NSFilenamesPboardType) as? [String])?.first {
+        guard let urls = sender.draggingPasteboard.readObjects(forClasses: [NSURL.self], options: nil) as? [NSURL],
+            let url = urls.first
+            else { return false }
+        
+        if url.isFileURL {
+            guard let path = url.path else { return false }
             self.delegate?.dragTargetView(self, dropLocalFilePath: path)
-            return true;
         }
-        if let path = (pasteboard.propertyList(forType: NSURLPboardType) as? [String])?.first {
-            self.delegate?.dragTargetView(self, dropRemoteURL: path)
-            return true;
+        else {
+            guard let absoluteString = url.absoluteString else { return false }
+            self.delegate?.dragTargetView(self, dropRemoteURL: absoluteString)
         }
-        return false;
+        return false
     }
 }

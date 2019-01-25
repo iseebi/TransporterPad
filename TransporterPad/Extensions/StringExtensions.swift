@@ -60,9 +60,7 @@ extension String {
         var rv = ""
         for _ in 0..<count {
             let startIndex = Int(arc4random_uniform(UInt32(chars.lengthOfBytes(using: .utf8))))
-            rv.append(chars.substring(with:
-                chars.index(chars.startIndex, offsetBy: startIndex)..<chars.index(chars.startIndex, offsetBy: startIndex + 1)
-            ))
+            rv.append(String(chars[chars.index(chars.startIndex, offsetBy: startIndex)..<chars.index(chars.startIndex, offsetBy: startIndex + 1)]))
         }
         return rv
     }

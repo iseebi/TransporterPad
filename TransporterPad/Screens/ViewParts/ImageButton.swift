@@ -10,7 +10,7 @@
 
 import Cocoa
 
-class ImageButton: NSButton {
+@objcMembers class ImageButton: NSButton {
     
     var normalImage: NSImage?
     var highlightImage: NSImage?
