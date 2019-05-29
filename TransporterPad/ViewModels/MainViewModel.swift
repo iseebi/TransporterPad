@@ -119,7 +119,6 @@ extension MainViewModel {
             return true
         }
         else {
-            appPackage = nil
             return false
         }
     }

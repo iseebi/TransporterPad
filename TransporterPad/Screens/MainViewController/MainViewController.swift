@@ -165,13 +165,11 @@ extension MainViewController : DragTargetViewDelegate {
         }
     }
     
-    func dragTargetView(_ dragTargetView: DragTargetView, dropLocalFilePath fileName: String) {
-        guard let vm = viewModel else { return }
+    func dragTargetView(_ dragTargetView: DragTargetView, dropLocalFilePath fileName: String) -> Bool {
+        guard let vm = viewModel else { return false }
 
         let fileURL = URL(fileURLWithPath: fileName)
-        if !vm.dropLocalItem(at: fileURL) {
-            // TODO: alert
-        }
+        return vm.dropLocalItem(at: fileURL)
     }
 }
 
