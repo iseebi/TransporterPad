@@ -11,7 +11,7 @@
 import Cocoa
 
 @objc protocol DragTargetViewDelegate: class {
-    func dragTargetView(_ dragTargetView: DragTargetView, dropLocalFilePath fileName: String)
+    func dragTargetView(_ dragTargetView: DragTargetView, dropLocalFilePath fileName: String) -> Bool
     func dragTargetView(_ dragTargetView: DragTargetView, dropRemoteURL fileName: String)
 }
 
@@ -42,17 +42,18 @@ import Cocoa
     override func performDragOperation(_ sender: NSDraggingInfo) -> Bool {
         if !enabled { return false }
         guard let urls = sender.draggingPasteboard.readObjects(forClasses: [NSURL.self], options: nil) as? [NSURL],
-            let url = urls.first
+            let url = urls.first,
+            let delegate = self.delegate
             else { return false }
         
         if url.isFileURL {
             guard let path = url.path else { return false }
-            self.delegate?.dragTargetView(self, dropLocalFilePath: path)
+            return delegate.dragTargetView(self, dropLocalFilePath: path)
         }
         else {
             guard let absoluteString = url.absoluteString else { return false }
-            self.delegate?.dragTargetView(self, dropRemoteURL: absoluteString)
+            delegate.dragTargetView(self, dropRemoteURL: absoluteString)
+            return true
         }
-        return false
     }
 }
