@@ -12,7 +12,7 @@ import Cocoa
 
 class AboutViewController: NSViewController {
 
-    var versionString: String? {
+    @objc var versionString: String? {
         willSet {
             willChangeValue(forKey: "versionString")
         }
