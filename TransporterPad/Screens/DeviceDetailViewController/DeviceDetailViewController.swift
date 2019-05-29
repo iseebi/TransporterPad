@@ -30,7 +30,7 @@ class DeviceDetailViewController: NSViewController {
         }
     }
 
-    var deviceInformationString: String {
+    @objc var deviceInformationString: String {
         get {
             var result = ""
             if let device = representedObject as? Device {
