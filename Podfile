@@ -9,6 +9,6 @@ target 'TransporterPad' do
   pod 'EBIiOSDeviceWatcher', :git => 'https://github.com/iseebi/EBIiOSDeviceWatcher.git'
   pod 'EBIAXMLDecompressor', :git => 'https://github.com/iseebi/EBIAXMLDecompressor.git'
   pod 'Alamofire', '~> 4.8'
-  pod 'Swinject', '~> 2.5'
-  pod 'SwinjectStoryboard', '~> 2.1'
+  pod 'Swinject', '~> 2.6'
+  pod 'SwinjectStoryboard', '~> 2.2'
 end
