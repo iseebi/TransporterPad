@@ -2,17 +2,38 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "icon_info.png",
+      "filename" : "button_icon_info-1.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "icon_info@2x.png",
+      "filename" : "button_icon_info.png",
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "button_icon_info@2x-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "icon_info@3x.png",
+      "filename" : "button_icon_info@2x.png",
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
       "scale" : "3x"
     }
   ],

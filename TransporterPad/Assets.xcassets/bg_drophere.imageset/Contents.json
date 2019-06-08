@@ -2,17 +2,38 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "bg_drophere.png",
+      "filename" : "image_bg_drophere.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "bg_drophere@2x.png",
+      "filename" : "image_bg_drophere-1.png",
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "image_bg_drophere@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "bg_drophere@3x.png",
+      "filename" : "image_bg_drophere@2x-1.png",
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
       "scale" : "3x"
     }
   ],
