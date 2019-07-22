@@ -50,6 +50,16 @@ import EBIMobileDeviceWatcher
             self.didChangeValue(forKey: "compatible")
         }
     }
+    
+    /// ノッチつきデバイスか(iPhone の X 系表示の切り替えに使用)
+    var isNotchDevice: Bool = false {
+        willSet {
+            self.willChangeValue(forKey: "isNotchDevice")
+        }
+        didSet {
+            self.didChangeValue(forKey: "isNotchDevice")
+        }
+    }
 
     /// 最終の転送ログ
     var log: String = "" {

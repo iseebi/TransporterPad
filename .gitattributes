@@ -1,1 +1,3 @@
 TransporterPad/*.html linguist-documentation
+DeployTools/* linguist-detectable=false
+Podfile linguist-detectable=false

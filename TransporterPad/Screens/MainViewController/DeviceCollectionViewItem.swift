@@ -34,18 +34,20 @@ class DeviceCollectionViewItem: NSCollectionViewItem {
         willSet {
             guard let device = representedObject as? Device else { return }
             device.removeObserver(self, forKeyPath: "compatible")
+            device.removeObserver(self, forKeyPath: "isNotchDevice")
             device.removeObserver(self, forKeyPath: "status")
         }
         didSet {
             guard let device = representedObject as? Device else { return }
             device.addObserver(self, forKeyPath: "compatible", options: [.new], context: nil)
+            device.addObserver(self, forKeyPath: "isNotchDevice", options: [.new], context: nil)
             device.addObserver(self, forKeyPath: "status", options: [.new], context: nil)
             updateDeviceImage()
         }
     }
 
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if (keyPath == "compatible") {
+        if (keyPath == "compatible" || keyPath == "isNotchDevice") {
             updateDeviceImage()
         }
         else if (keyPath == "status") {
@@ -66,6 +68,11 @@ class DeviceCollectionViewItem: NSCollectionViewItem {
                     deviceImageView.image = device.compatible
                         ? #imageLiteral(resourceName: "device_ipad")
                         : #imageLiteral(resourceName: "device_ipad_disable")
+                }
+                else if (device.isNotchDevice) {
+                    deviceImageView.image = device.compatible
+                        ? #imageLiteral(resourceName: "device_iphonex")
+                        : #imageLiteral(resourceName: "device_iphonex_disable")
                 }
                 else {
                     deviceImageView.image = device.compatible

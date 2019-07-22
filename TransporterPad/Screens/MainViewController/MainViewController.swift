@@ -16,6 +16,7 @@ class MainViewController: NSViewController {
     @IBOutlet weak var dragTargetView: DragTargetView!
     @IBOutlet weak var collectionView: DeviceCollectionView!
     @IBOutlet weak var reInstallCheck: NSButton!
+    @IBOutlet weak var dropTargetButton: NSButton!
 
     @objc var viewModel: MainViewModel? {
         willSet {
@@ -95,6 +96,18 @@ class MainViewController: NSViewController {
         dragTargetView.delegate = self
         collectionView.register(NSNib.init(nibNamed: "DeviceCollectionViewItem", bundle: nil), forItemWithIdentifier: convertToNSUserInterfaceItemIdentifier("DeviceCollectionViewItem"))
         collectionView.deviceCollectionViewDelegate = self
+        
+        dropTargetButton.wantsLayer = true
+        dropTargetButton.shadow = NSShadow()
+        if let layer = dropTargetButton.layer {
+            layer.shadowPath = NSBezierPath(rect: layer.bounds).cgPath
+            layer.shouldRasterize = true
+            layer.rasterizationScale = view.window?.screen?.backingScaleFactor ?? 1.0
+            layer.shadowColor = NSColor(calibratedRed: 25.0/255.0, green: 25.0/255.0, blue: 26.0/255.0, alpha: 0.4).cgColor
+            layer.shadowOffset = CGSize(width: 0, height: 0)
+            layer.shadowRadius = 20
+            layer.shadowOpacity = 1.0
+        }
     }
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {

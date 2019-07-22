@@ -19,11 +19,28 @@ protocol DeviceWatcherDelegate: class {
 
 class DeviceWatcher: NSObject {
     
+    fileprivate struct AppleDeviceInfo {
+        static let notchDevices = [
+            "D22AP",  // X
+            "D221AP", // X
+            "D321AP", // XS
+            "D331pAP",// XS Max
+            "N841AP", // XR
+        ]
+        
+        let name: String
+        let model: String
+        
+        var isNotchDevice: Bool {
+            return AppleDeviceInfo.notchDevices.contains(model)
+        }
+    }
+    
     var devices: [Device] = []
     weak var delegate: DeviceWatcherDelegate?
     
     /// iOS デバイスのUDIDから端末名を取得するディクショナリ
-    var iosNames: [String:String] = [:]
+    fileprivate var iosValues: [String:AppleDeviceInfo] = [:]
 
     private let mobileDeviceWatcher = EBIMobileDeviceWatcher()
     private let iosDeviceWatcher = EBIiOSDeviceWatcher()
@@ -48,8 +65,8 @@ class DeviceWatcher: NSObject {
     fileprivate func connectedDevice(newDevice: EBIMobileDevice) {
         let device = Device(device: newDevice)
         if (device.platform == .iOS) {
-            if let name = iosNames[device.serialNumber] {
-                device.name = name
+            if let value = iosValues[device.serialNumber] {
+                device.name = value.name
             }
         }
         device.status = .Idle
@@ -72,15 +89,14 @@ class DeviceWatcher: NSObject {
         }
     }
 
-    fileprivate func iosDeviceNameChanged(newName: String, udid: String) {
-        if (iosNames[udid] != newName) {
-            iosNames[udid] = newName
-            devices.forEach({ device in
-                if ((device.platform == .iOS) && (device.serialNumber.caseInsensitiveCompare(udid) == .orderedSame)) {
-                    device.name = newName
-                }
-            })
-        }
+    fileprivate func iosDeviceNameChanged(newValue: AppleDeviceInfo, udid: String) {
+        iosValues[udid] = newValue
+        devices.forEach({ device in
+            if ((device.platform == .iOS) && (device.serialNumber.caseInsensitiveCompare(udid) == .orderedSame)) {
+                device.name = newValue.name
+                device.isNotchDevice = newValue.isNotchDevice
+            }
+        })
     }
 }
 
@@ -112,7 +128,7 @@ extension DeviceWatcher: EBIiOSDeviceWatcherDelegate {
     }
     
     func iosDeviceWatcher(_ watcher: EBIiOSDeviceWatcher!, didDiscoveredMobileDevice device: EBIiOSDevice!) {
-        iosDeviceNameChanged(newName: device.name, udid: device.udid)
+        iosDeviceNameChanged(newValue: AppleDeviceInfo(name: device.name, model: device.model), udid: device.udid)
     }
     
     func iosDeviceWatcher(_ watcher: EBIiOSDeviceWatcher!, didDisconnectedMobileDevice device: EBIiOSDevice!) {
