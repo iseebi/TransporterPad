@@ -466,6 +466,7 @@ DQ
                     <connections>
                         <outlet property="collectionView" destination="e9g-75-4uO" id="20k-U7-3cl"/>
                         <outlet property="dragTargetView" destination="m2S-Jp-Qdl" id="Q77-pC-hoS"/>
+                        <outlet property="dropTargetButton" destination="X9M-0d-h71" id="TpW-gw-VD2"/>
                         <outlet property="reInstallCheck" destination="50d-6n-Pim" id="E4t-Gy-bjD"/>
                         <segue destination="n4c-5G-7yB" kind="sheet" identifier="deviceDetail" id="Ge6-KF-b83"/>
                     </connections>
