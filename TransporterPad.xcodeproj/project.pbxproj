@@ -476,7 +476,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "TOOLS_SRC_DIR=\"${SRCROOT}/DeployTools/tools/\"\nRES_TARGET_DIR=\"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}\"\nCMD_RSYNC=\"rsync -av\"\n\n$CMD_RSYNC $TOOLS_SRC_DIR/ios-deploy $RES_TARGET_DIR/\n$CMD_RSYNC --include='android-platform-tools/' --include='adb' --exclude='*' $TOOLS_SRC_DIR/android-platform-tools $RES_TARGET_DIR/";
+			shellScript = "TOOLS_SRC_DIR=\"${SRCROOT}/DeployTools/tools/\"\nRES_TARGET_DIR=\"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}\"\nCMD_RSYNC=\"rsync -av\"\n\n$CMD_RSYNC $TOOLS_SRC_DIR/ios-deploy --include='ios-deploy' --exclude='*' $RES_TARGET_DIR/\n$CMD_RSYNC --include='android-platform-tools/' --include='adb' --exclude='*' $TOOLS_SRC_DIR/android-platform-tools $RES_TARGET_DIR/\n\nfind $RES_TARGET_DIR/\n\ncodesign --force --options runtime --sign \"$CODE_SIGN_IDENTITY\" \"$RES_TARGET_DIR/ios-deploy/ios-deploy\"\ncodesign --force --options runtime --sign \"$CODE_SIGN_IDENTITY\" \"$RES_TARGET_DIR/android-platform-tools/adb\"\n";
 		};
 		82E310671E2686F500A5AD50 /* Embed SimpleUnzipper */ = {
 			isa = PBXShellScriptBuildPhase;
