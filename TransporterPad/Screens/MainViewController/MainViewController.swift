@@ -105,8 +105,8 @@ class MainViewController: NSViewController {
             layer.rasterizationScale = view.window?.screen?.backingScaleFactor ?? 1.0
             layer.shadowColor = NSColor(calibratedRed: 25.0/255.0, green: 25.0/255.0, blue: 26.0/255.0, alpha: 0.4).cgColor
             layer.shadowOffset = CGSize(width: 0, height: 0)
-            layer.shadowRadius = 20
-            layer.shadowOpacity = 1.0
+            layer.shadowRadius = 18
+            layer.shadowOpacity = 0.5
         }
     }
     
