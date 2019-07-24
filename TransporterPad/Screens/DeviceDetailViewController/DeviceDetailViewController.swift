@@ -53,7 +53,7 @@ class DeviceDetailViewController: NSViewController {
         
         let smartScroll = (NSMaxY(logTextView.visibleRect) == NSMaxY(logTextView.bounds));
     
-        layoutManager.replaceTextStorage(NSTextStorage(string: device.log, attributes: nil))
+        layoutManager.replaceTextStorage(NSTextStorage(string: device.log, attributes: [.foregroundColor:NSColor.textColor]))
         
         if smartScroll {
             logTextView.scrollRangeToVisible(NSRange(location: logTextView.string.count , length: 0))
