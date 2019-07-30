@@ -23,20 +23,16 @@ import Cocoa
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        self.registerForDraggedTypes([.backwardsCompatibleFileURL])
+        self.registerForDraggedTypes([.backwardsCompatibleFileURL, .backwardsCompatibleURL])
     }
     
     override func draggingEntered(_ sender: NSDraggingInfo) -> NSDragOperation {
         if !enabled {
             return .generic
         }
-        if let _ = sender.draggingPasteboard.propertyList(forType: .backwardsCompatibleFileURL) {
-            return .copy
-        }
-        if let _ = sender.draggingPasteboard.propertyList(forType: .backwardsCompatibleURL) {
-            return .copy
-        }
-        return NSDragOperation()
+        guard let urls = sender.draggingPasteboard.readObjects(forClasses: [NSURL.self], options: nil) as? [NSURL]
+            else { return NSDragOperation() }
+        return urls.isEmpty ? NSDragOperation() : .copy
     }
     
     override func performDragOperation(_ sender: NSDraggingInfo) -> Bool {

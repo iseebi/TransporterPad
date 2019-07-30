@@ -35,7 +35,7 @@ class MainViewModel: NSObject {
         }
     }
     
-    fileprivate(set) var downloading: Bool = false {
+    @objc fileprivate(set) var downloading: Bool = false {
         willSet {
             willChangeValue(forKey: "downloading")
         }
@@ -44,7 +44,7 @@ class MainViewModel: NSObject {
         }
     }
     
-    fileprivate(set) var progressValue: Int = -1 {
+    @objc fileprivate(set) var progressValue: Int = -1 {
         willSet {
             willChangeValue(forKey: "progressValue")
         }
@@ -53,7 +53,7 @@ class MainViewModel: NSObject {
         }
     }
     
-    fileprivate(set) var transportWorking: Bool = false {
+    @objc fileprivate(set) var transportWorking: Bool = false {
         willSet {
             willChangeValue(forKey: "transportWorking")
             willChangeValue(forKey: "beamupAvaliable")
